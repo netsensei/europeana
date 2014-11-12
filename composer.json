@@ -1,12 +1,15 @@
 {
-    "name": "colada/europeana",
-    "description": "A client implementation of the Euroepana API",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Matthias Vandermaesen",
-            "email": "matthias@colada.be"
-        }
-    ],
-    "require": {}
+	"name": "colada/europeana",
+	"description": "A client implementation of the Euroepana API",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Matthias Vandermaesen",
+			"email": "matthias@colada.be"
+		}
+	],
+	"require": {},
+	"require-dev": {
+		"phpunit/phpunit": "~4.3"
+	}
 }
