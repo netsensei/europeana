@@ -1,0 +1,15 @@
+services:
+    europeana.example.command :
+        class: Europeana\Example\ExampleCommand
+        arguments: ['@europeana.example.example']
+    europeana.example.example :
+        class: Europeana\Example\Example
+        arguments: ['@europeana.search.request']
+    europeana.search.request :
+        class: Europeana\Search\Search
+        arguments: ['@europeana.http.guzzlehttp']
+    europeana.http.guzzlehttp :
+        class: Europeana\Http\GuzzleHttp
+        arguments: ['@guzzle.client']
+    guzzle.client :
+        class: Guzzle\Http\Client
