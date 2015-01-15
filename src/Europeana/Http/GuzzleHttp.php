@@ -17,8 +17,12 @@ class GuzzleHttp implements HttpInterface {
 
 	protected $httpClient;
 
-	public function __construct(HttpClient $httpClient) {
+	public function __construct($httpClient) {
 		$this->httpClient = $httpClient;
+	}
+
+	public function setParameters($params = array()) {
+
 	}
 
 	public function request() {

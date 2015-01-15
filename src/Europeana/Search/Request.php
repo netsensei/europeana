@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Europeana;
+namespace Europeana\Search;
 
 class Request {
 

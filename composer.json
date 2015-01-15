@@ -8,8 +8,20 @@
 			"email": "matthias@colada.be"
 		}
 	],
-	"require": {},
+	"require": {
+		"guzzle/guzzle": "~3.9"
+	},
 	"require-dev": {
-		"phpunit/phpunit": "~4.3"
+		"phpunit/phpunit": "~4.3",
+		"symfony/console": "~2.5",
+		"symfony/dependency-injection": "~2.5",
+		"symfony/config": "~2.5",
+		"symfony/yaml": "~2.5"
+	},
+	"autoload" : {
+		"psr-4": {
+			"Europeana\\": "src/Europeana/",
+			"Europeana\\Example\\": "example/src/"
+		}
 	}
 }

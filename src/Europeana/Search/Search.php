@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Europeana;
+namespace Europeana\Search;
 
 use Europeana\Http\Httpinterface;
 use Europeana\Exception\EuropeanaException;
@@ -51,7 +51,7 @@ class Search {
 		return $this->privatekey;
 	}
 
-	public function setRequest(request = array()) {
+	public function setRequest($request = array()) {
 		$this->request = $request;
 	}
 
