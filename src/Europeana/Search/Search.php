@@ -13,7 +13,7 @@ namespace Europeana\Search;
 
 use Europeana\Http\Httpinterface;
 use Europeana\Exception\EuropeanaException;
-use Europeana\Request;
+use Europeana\Search\Request;
 
 class Search {
 
@@ -26,6 +26,10 @@ class Search {
 	private $server = 'europeana.eu/api';
 
 	private $queryString = array();
+
+	private $response;
+
+	private $request;
 
 	protected $httpClient;
 
@@ -51,8 +55,12 @@ class Search {
 		return $this->privatekey;
 	}
 
-	public function setRequest($request = array()) {
+	public function setRequest(Request $request) {
 		$this->request = $request;
+	}
+
+	public function getResponse() {
+		return $this->response;
 	}
 
 	public function setProfile($profile = array()) {
@@ -62,23 +70,17 @@ class Search {
 	public function send() {
 		$data = array();
 
+		$data = array('wskey' => $this->getPublicKey());
+		$queryString = $this->request->getQuery();
 		if (!empty($queryString)) {
-			$data['query'] = $queryString;
+			$data += array('query' => $queryString);
 		}
 
-		$response = $this->query('GET', 'search.json', $data);
+    $this->query($data);
 	}
 
-	private function query($method, $path, array $data = array()) {
-		$server = 'http://' . $this->server;
-		$max_attempts = $this->requestMaxAttempts;
-
-		while ($max_attempts-- > 0) {
-			try {
-				$result = $this->httpClient($method, $server, $path, $data);
-			} catch (EuropeanaException $e) {
-
-			}
-		}
+	private function query(array $data = array()) {
+		$endpoint = 'http://' . $this->server . '/' . Search::API_VERSION . '/search.json';
+		return $this->httpClient->get($endpoint, $data);
 	}
 }
