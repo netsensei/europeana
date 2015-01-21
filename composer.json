@@ -18,7 +18,8 @@
 		"symfony/dependency-injection": "~2.5",
 		"symfony/config": "~2.5",
 		"symfony/yaml": "~2.5",
-		"guzzle/guzzle": "~3.9"
+		"guzzlehttp/guzzle": "~5.1",
+		"jms/serializer": "0.16.*"
 	},
 	"autoload" : {
 		"psr-4": {

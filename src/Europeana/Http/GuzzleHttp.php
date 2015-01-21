@@ -12,28 +12,24 @@
 namespace Europeana\Http;
 
 use Europeana\Http\HttpInterface;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\TransferException as GuzzleException;
+use Europeana\Exception\HttpException;
 
 class GuzzleHttp implements HttpInterface {
 
-	protected $httpClient;
+	protected $client;
 
-	public function __construct($httpClient) {
-		$this->httpClient = $httpClient;
+	public function __construct() {
+		$this->client = new Client();
 	}
 
-	public function setParameters($params = array()) {
-
-	}
-
-	public function request() {
-
-	}
-
-	public function getResponse() {
-
-	}
-
-	public function getErrors() {
-
+	public function get($url, $data = array()) {
+		try {
+			$response = $this->client->get($url, array('query' => $data));
+			return (string) $response->getBody();
+		} catch (GuzzleException $e) {
+			throw new HttpException($e->getMessage(), $e->getCode(), $e);
+		}
 	}
 }

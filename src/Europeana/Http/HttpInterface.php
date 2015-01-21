@@ -13,11 +13,6 @@ namespace Europeana\Http;
 
 interface HttpInterface {
 
-  public function setParameters($params = array());
+	public function get($url, $data);
 
-	public function request();
-
-	public function getResponse();
-
-	public function getErrors();
 }
