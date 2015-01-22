@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Europeana\Http;
+namespace Europeana\HttpAdapter;
 
-use Europeana\Http\HttpInterface;
+use Europeana\HttpAdapter\HttpAdapterInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\TransferException as GuzzleException;
 use Europeana\Exception\HttpException;
 
-class GuzzleHttp implements HttpInterface {
+class GuzzleAdapter implements HttpAdapterInterface {
 
 	protected $client;
 

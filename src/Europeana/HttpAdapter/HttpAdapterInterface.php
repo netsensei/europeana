@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Europeana\Http;
+namespace Europeana\HttpAdapter;
 
-interface HttpInterface {
+interface HttpAdapterInterface {
 
 	public function get($url, $data);
 
