@@ -11,7 +11,10 @@
 
 namespace Europeana\Search;
 
-use Europeana\Http\Httpinterface;
+use Europeana\HttpAdapter\HttpAdapterinterface;
+use Europeana\HttpAdapter\GuzzleAdapter;
+use Europeana\JsonAdapter\JsonAdapterInterface;
+use Europeana\JsonAdapter\JmsSerializerAdapter;
 use Europeana\Exception\EuropeanaException;
 use Europeana\Search\Request;
 
@@ -33,8 +36,21 @@ class Search {
 
 	protected $httpClient;
 
-	public function __construct(HttpInterface $httpClient, $publicKey = NULL, $privateKey = NULL) {
-		$this->httpClient = $httpClient;
+	public function __construct(HttpAdapterInterface $httpClient = NULL, JsonAdapterInterface $jsonAdapter = NULL, $publicKey = NULL, $privateKey = NULL) {
+		if (!is_null($httpClient)) {
+			$this->httpClient = $httpClient;
+		}
+		else {
+			$this->httpClient = new GuzzleAdapter();
+		}
+
+		if (!is_null($jsonAdapter)) {
+			$this->jsonAdapter = $jsonAdapter;
+		}
+		else {
+			$this->jsonAdapter = new JmsSerializerAdapter();
+		}
+
 		$this->publicKey = $publicKey;
 		$this->privateKey = $privateKey;
 	}
@@ -68,6 +84,7 @@ class Search {
 	}
 
 	public function send() {
+    $endpoint = 'http://' . $this->server . '/' . Search::API_VERSION . '/search.json';
 		$data = array();
 
 		$data = array('wskey' => $this->getPublicKey());
@@ -76,11 +93,8 @@ class Search {
 			$data += array('query' => $queryString);
 		}
 
-    $this->query($data);
+		$result = $this->httpClient->get($endpoint, $data);
+		$this->jsonAdapter->deserialize($result, 'Europeana\Search\Response', 'json');
 	}
 
-	private function query(array $data = array()) {
-		$endpoint = 'http://' . $this->server . '/' . Search::API_VERSION . '/search.json';
-		return $this->httpClient->get($endpoint, $data);
-	}
 }
