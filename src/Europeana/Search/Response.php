@@ -22,7 +22,7 @@ class Response implements ResponseInterface {
   private $success;
 
   /**
-   * @Type("array")
+   * @Type("ItemsCollection<Europeana\Search\Item>")
    */
   private $items;
 }
