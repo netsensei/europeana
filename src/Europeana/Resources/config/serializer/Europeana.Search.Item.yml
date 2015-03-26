@@ -1,0 +1,4 @@
+Europeana\Search\Item:
+    properties:
+        id:
+            type: string

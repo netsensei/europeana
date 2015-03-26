@@ -11,5 +11,6 @@
 
 namespace Europeana\Exception;
 
-class EuropeanaException extends \Exception {
+class EuropeanaException extends \Exception
+{
 }
