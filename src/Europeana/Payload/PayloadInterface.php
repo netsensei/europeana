@@ -26,7 +26,8 @@ interface PayloadInterface
      */
     public function getResponseClass();
 
-    private function argumentExists($key);
-
-    private function setArgument($key, $value, $multiple = FALSE);
+    /**
+     * @return array
+     */
+    public function getContext();
 }

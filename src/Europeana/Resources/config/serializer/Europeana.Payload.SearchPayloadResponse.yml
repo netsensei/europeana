@@ -1,0 +1,14 @@
+Europeana\Payload\SearchPayloadResponse:
+    properties:
+        action:
+            type: string
+        success:
+            type: integer
+        requestNumber:
+            type: integer
+        itemsCount:
+            type: integer
+        totalResults:
+            type: integer
+        items:
+            type: ResponseCollection<Europeana\Model\Item>

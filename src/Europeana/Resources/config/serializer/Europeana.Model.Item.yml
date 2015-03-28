@@ -1,0 +1,42 @@
+Europeana\Model\Item:
+    properties:
+        id:
+            type: string
+        completeness:
+            type: integer
+        europeanaCollectionName:
+            type: ArrayCollection<string>
+        index:
+            type: integer
+        edmDatasetName:
+            type: ArrayCollection<string>
+        previewNoDistribute:
+            type: boolean
+        title:
+            type: ArrayCollection<string>
+        dataProvider:
+            type: ArrayCollection<string>
+        rights:
+            type: ArrayCollection<string>
+        score:
+            type: integer
+        edmIsShownAt:
+            type: ArrayCollection<string>
+        europeanaCompleteness:
+            type: integer
+        edmPreview:
+            type: ArrayCollection<string>
+        timestamp:
+            type: integer
+        provider:
+            type: ArrayCollection<string>
+        language:
+            type: ArrayCollection<string>
+        type:
+            type: string
+        optedOut:
+            type: boolean
+        link:
+            type: string
+        guid:
+            type: string

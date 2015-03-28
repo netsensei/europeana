@@ -16,7 +16,7 @@ namespace Europeana\Payload;
  */
 abstract class AbstractPayload implements PayloadInterface
 {
-    private $args;
+    private $args = array();
 
     /**
      * {@inheritdoc}
@@ -42,10 +42,21 @@ abstract class AbstractPayload implements PayloadInterface
         return FALSE;
     }
 
-    private function setArgument($key, $value, $multiple = FALSE)
+    public function getArgument($key)
+    {
+        foreach ($this->args as $arg) {
+            if (isset($arg[$key])) {
+                return $arg[$key];
+            }
+        }
+
+        return FALSE;
+    }
+
+    public function setArgument($key, $value, $multiple = FALSE)
     {
         if ($multiple) {
-            $this->args[] = array($key, $value)
+            $this->args[] = array($key, $value);
         }
         else {
             try {

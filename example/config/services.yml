@@ -4,6 +4,8 @@ services:
         arguments: ['@europeana.example.example']
     europeana.example.example :
         class: Europeana\Example\Example
-        arguments: ['@europeana.search.request']
+        arguments: ['@europeana.search.apiClient']
+    europeana.search.apiclient :
+        class: Europeana\Transport\ApiClient
     europeana.search.request :
         class: Europeana\Search\Search

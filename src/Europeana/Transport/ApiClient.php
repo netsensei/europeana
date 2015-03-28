@@ -33,7 +33,7 @@ class ApiClient implements ApiClientInterface
     /**
      * The (base) URL used for all communication with the Europeana API.
      */
-    const API_BASE_URL = 'https://europeana.eu/api/';
+    const API_BASE_URL = 'http://europeana.eu/api';
 
     /**
      * @var string|null
@@ -80,10 +80,9 @@ class ApiClient implements ApiClientInterface
                 throw new \Exception('You must supply an API key to send a payload, since you did not provide one during construction');
             }
 
-            $serializedPayload = $this->payloadSerializer->serialize($payload);
-            $responseData      = $this->doSend($payload->getMethod(), $serializedPayload, $token);
+            $responseData = $this->doSend($payload->getMethod(), $payload->getArguments(), $apiKey);
 
-            return $this->payloadResponseSerializer->deserialize($responseData, $payload->getResponseClass());
+            return $this->payloadResponseSerializer->deserialize($responseData, $payload->getResponseClass(), $payload->getContext());
         } catch (\Exception $e) {
             throw new \Exception('Failed to send payload', null, $e);
         }
@@ -101,8 +100,7 @@ class ApiClient implements ApiClientInterface
     private function doSend($method, array $data, $apiKey = null)
     {
         try {
-            $data['wskey'] = $apiKey ?: $this->apiKey;
-
+            $data[] = array('wskey', $apiKey);
             $request = $this->createRequest($method, $data);
 
             /** @var ResponseInterface $response */
@@ -132,16 +130,16 @@ class ApiClient implements ApiClientInterface
      *
      * @return RequestInterface
      */
-    private function createRequest($method, array $payload)
+    private function createRequest($method, array $arguments)
     {
         $url = self::API_BASE_URL.'/'. self::API_VERSION.'/'.$method;
-        $request = $this->client->createRequest('POST');
-        $request->setUrl($url);
+        $request = $this->client->createRequest('GET', $url);
 
-        $body = new PostBody();
-        $body->replaceFields($payload);
-
-        $request->setBody($body);
+        $query = $request->getQuery();
+        foreach ($arguments as $arg) {
+            list($key, $value) = $arg;
+            $query->add($key, $value);
+        }
 
         return $request;
     }

@@ -13,7 +13,7 @@ namespace Europeana\Payload;
 
 use Europeana\Exception\EuropeanaException;
 
-class SearchPayload implements AbstractPayload
+class SearchPayload extends AbstractPayload
 {
     /**
      * {@inheritdoc}
@@ -36,5 +36,19 @@ class SearchPayload implements AbstractPayload
     public function setFacet($value)
     {
         $this->setArgument('facet', $value, TRUE);
+    }
+
+    /**
+     * @return array
+     */
+    public function getContext()
+    {
+        $context = array();
+
+        if ($profile = $this->getArgument('profile')) {
+            $context['profile'] = $profile;
+        }
+
+        return $context;
     }
 }
