@@ -20,7 +20,7 @@ class SearchTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $rawBody = file_get_contents(__DIR__.'/../mock/bodies/body1');
+        $rawBody = file_get_contents(__DIR__.'/../mock/responses/BasicSearchResponse.txt');
         $body = Stream::factory($rawBody);
         $response = new Response($this->status, $this->headers, $body);
         $response = array(

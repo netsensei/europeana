@@ -17,7 +17,7 @@ namespace Europeana\Model;
 class Item
 {
 
-  private $id;
+    private $id;
 
     private $completeness;
 
