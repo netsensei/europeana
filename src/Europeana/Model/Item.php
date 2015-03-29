@@ -1,146 +1,159 @@
 <?php
 
+/*
+ * This file is part of the Europeana API package.
+ *
+ * (c) Matthias Vandermaesen <matthias@colada.be>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Europeana\Model;
 
-class Item {
+/**
+ * @author Matthias Vandermaesen <matthias@colada.be>
+ */
+class Item
+{
 
   private $id;
 
-  private $completeness;
+    private $completeness;
 
-  private $europeanaCollectionName;
+    private $europeanaCollectionName;
 
-  private $index;
+    private $index;
 
-  private $edmDatasetName;
+    private $edmDatasetName;
 
-  private $previewNoDistribute;
+    private $previewNoDistribute;
 
-  private $title;
+    private $title;
 
-  private $dataProvider;
+    private $dataProvider;
 
-  private $rights;
+    private $rights;
 
-  private $score;
+    private $score;
 
-  private $edmIsShownAt;
+    private $edmIsShownAt;
 
-  private $europeanaCompleteness;
+    private $europeanaCompleteness;
 
-  private $edmPreview;
+    private $edmPreview;
 
-  private $timestamp;
+    private $timestamp;
 
-  private $provider;
+    private $provider;
 
-  private $language;
+    private $language;
 
-  private $type;
+    private $type;
 
-  private $optedOut;
+    private $optedOut;
 
-  private $link;
+    private $link;
 
-  private $guid;
+    private $guid;
 
-  public function getId()
-  {
-      return $this->id;
-  }
+    public function getId()
+    {
+        return $this->id;
+    }
 
-  public function getCompleteness()
-  {
-      return $this->completeness;
-  }
+    public function getCompleteness()
+    {
+        return $this->completeness;
+    }
 
-  public function getEuropeanaCollectionName()
-  {
-      return $this->europeanaCompleteness;
-  }
+    public function getEuropeanaCollectionName()
+    {
+        return $this->europeanaCompleteness;
+    }
 
-  public function getIndex()
-  {
-      return $this->index;
-  }
+    public function getIndex()
+    {
+        return $this->index;
+    }
 
-  public function getEdmDatasetName()
-  {
-      return $this->edmDatasetName;
-  }
+    public function getEdmDatasetName()
+    {
+        return $this->edmDatasetName;
+    }
 
-  public function getPreviewNoDistribute()
-  {
-      return $this->previewNoDistribute;
-  }
+    public function getPreviewNoDistribute()
+    {
+        return $this->previewNoDistribute;
+    }
 
-  public function getTitle()
-  {
-      return $this->title;
-  }
+    public function getTitle()
+    {
+        return $this->title;
+    }
 
-  public function getDataProvider()
-  {
-      return $this->dataProvider;
-  }
+    public function getDataProvider()
+    {
+        return $this->dataProvider;
+    }
 
-  public function getRights()
-  {
-      return $this->rights;
-  }
+    public function getRights()
+    {
+        return $this->rights;
+    }
 
-  public function getScore()
-  {
-      return $this->score;
-  }
+    public function getScore()
+    {
+        return $this->score;
+    }
 
-  public function getEdmIsShownAt()
-  {
-      return $this->edmIsShownAt;
-  }
+    public function getEdmIsShownAt()
+    {
+        return $this->edmIsShownAt;
+    }
 
-  public function getEuropeanaCompleteness()
-  {
-      return $this->europeanaCompleteness;
-  }
+    public function getEuropeanaCompleteness()
+    {
+        return $this->europeanaCompleteness;
+    }
 
-  public function getEdmPreview()
-  {
-      return $this->edmPreview;
-  }
+    public function getEdmPreview()
+    {
+        return $this->edmPreview;
+    }
 
-  public function getTimestamp()
-  {
-      return $this->timestamp;
-  }
+    public function getTimestamp()
+    {
+        return $this->timestamp;
+    }
 
-  public function getProvider()
-  {
-      return $this->provider;
-  }
+    public function getProvider()
+    {
+        return $this->provider;
+    }
 
-  public function getLanguage()
-  {
-      return $this->provider;
-  }
+    public function getLanguage()
+    {
+        return $this->provider;
+    }
 
-  public function getType()
-  {
-      return $this->type;
-  }
+    public function getType()
+    {
+        return $this->type;
+    }
 
-  public function getOptedOut()
-  {
-      return $this->optedOut;
-  }
+    public function getOptedOut()
+    {
+        return $this->optedOut;
+    }
 
-  public function getLink()
-  {
-      return $this->link;
-  }
+    public function getLink()
+    {
+        return $this->link;
+    }
 
-  public function getGuid()
-  {
-      return $this->guid;
-  }
+    public function getGuid()
+    {
+        return $this->guid;
+    }
 }

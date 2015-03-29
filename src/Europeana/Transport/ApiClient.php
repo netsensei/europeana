@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Europeana package
+ * This file is part of the Europeana API package.
  *
  * (c) Matthias Vandermaesen <matthias@colada.be>
  *
@@ -19,7 +19,6 @@ use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\RequestInterface;
 use GuzzleHttp\Message\ResponseInterface;
-use GuzzleHttp\Post\PostBody;
 
 /**
  * @author Matthias Vandermaesen <matthias@colada.be>
@@ -51,8 +50,8 @@ class ApiClient implements ApiClientInterface
     private $client;
 
     /**
-     * @param string|null                   $apiKey
-     * @param ClientInterface|null          $client
+     * @param string|null          $apiKey
+     * @param ClientInterface|null $client
      */
     public function __construct(
         $apiKey = null,
@@ -132,7 +131,7 @@ class ApiClient implements ApiClientInterface
      */
     private function createRequest($method, array $arguments)
     {
-        $url = self::API_BASE_URL.'/'. self::API_VERSION.'/'.$method;
+        $url = self::API_BASE_URL.'/'.self::API_VERSION.'/'.$method;
         $request = $this->client->createRequest('GET', $url);
 
         $query = $request->getQuery();

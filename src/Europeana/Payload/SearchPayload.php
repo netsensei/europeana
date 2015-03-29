@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Europeana package
+ * This file is part of the Europeana API package.
  *
  * (c) Matthias Vandermaesen <matthias@colada.be>
  *
@@ -11,8 +11,10 @@
 
 namespace Europeana\Payload;
 
-use Europeana\Exception\EuropeanaException;
 
+/**
+ * @author Matthias Vandermaesen <matthias@colada.be>
+ */
 class SearchPayload extends AbstractPayload
 {
     /**
@@ -30,12 +32,12 @@ class SearchPayload extends AbstractPayload
 
     public function setProfile($value)
     {
-        $this->setArgument('profile', $value, TRUE);
+        $this->setArgument('profile', $value, true);
     }
 
     public function setFacet($value)
     {
-        $this->setArgument('facet', $value, TRUE);
+        $this->setArgument('facet', $value, true);
     }
 
     /**

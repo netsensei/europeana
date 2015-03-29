@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Europeana package
+ * This file is part of the Europeana API package.
  *
  * (c) Matthias Vandermaesen <matthias@colada.be>
  *
@@ -15,10 +15,11 @@ use Doctrine\Common\Collections\ArrayCollection;
 use JMS\Serializer\Context;
 use JMS\Serializer\GraphNavigator;
 use JMS\Serializer\VisitorInterface;
-use Doctrine\Common\Collections\Collection;
 use JMS\Serializer\Handler\SubscribingHandlerInterface;
-use Europeana\Search\Item;
 
+/**
+ * @author Matthias Vandermaesen <matthias@colada.be>
+ */
 class ResponseCollectionHandler implements SubscribingHandlerInterface
 {
     public static function getSubscribingMethods()

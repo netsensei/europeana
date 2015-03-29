@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Europeana package
+ * This file is part of the Europeana API package.
  *
  * (c) Matthias Vandermaesen <matthias@colada.be>
  *
@@ -35,11 +35,11 @@ abstract class AbstractPayload implements PayloadInterface
     {
         foreach ($this->args as $arg) {
             if (isset($arg[$key])) {
-                return TRUE;
+                return true;
             }
         }
 
-        return FALSE;
+        return false;
     }
 
     public function getArgument($key)
@@ -50,15 +50,14 @@ abstract class AbstractPayload implements PayloadInterface
             }
         }
 
-        return FALSE;
+        return false;
     }
 
-    public function setArgument($key, $value, $multiple = FALSE)
+    public function setArgument($key, $value, $multiple = false)
     {
         if ($multiple) {
             $this->args[] = array($key, $value);
-        }
-        else {
+        } else {
             try {
                 if ($this->argumentExists('query')) {
                     new \Exception(sprintf(

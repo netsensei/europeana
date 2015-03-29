@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Europeana package
+ * This file is part of the Europeana API package.
  *
  * (c) Matthias Vandermaesen <matthias@colada.be>
  *
@@ -45,7 +45,7 @@ class PayloadResponseSerializer extends AbstractSerializer
             throw new \RuntimeException(sprintf(
                 'The serializer expected the response data to be converted into an instance of "%s", got: %s',
                 $payloadResponseClass,
-                is_object($payloadResponseObject) ? 'instance of ' . get_class($payloadResponseObject) : gettype($payloadResponseObject)
+                is_object($payloadResponseObject) ? 'instance of '.get_class($payloadResponseObject) : gettype($payloadResponseObject)
             ));
         }
 

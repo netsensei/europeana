@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Europeana package
+ * This file is part of the Europeana API package.
  *
  * (c) Matthias Vandermaesen <matthias@colada.be>
  *
@@ -16,8 +16,6 @@ use JMS\Serializer\SerializerInterface;
 use JMS\Serializer\Naming\SerializedNameAnnotationStrategy;
 use JMS\Serializer\Naming\IdenticalPropertyNamingStrategy;
 use JMS\Serializer\Handler\HandlerRegistry;
-use JMS\Serializer\DeserializationContext;
-use Europeana\Serializer\ResponseCollectionHandler;
 
 /**
  * @author Matthias Vandermaesen <matthias@colada.be>
@@ -31,7 +29,7 @@ abstract class AbstractSerializer
 
     final public function __construct()
     {
-        $metaDir          = __DIR__ . '/../Resources/config/serializer';
+        $metaDir          = __DIR__.'/../Resources/config/serializer';
         $builder = SerializerBuilder::create();
         $builder->addMetadataDir($metaDir);
         $builder
@@ -40,7 +38,7 @@ abstract class AbstractSerializer
         $builder
             ->addDefaultHandlers()
             ->configureHandlers(
-                function(HandlerRegistry $registry) {
+                function (HandlerRegistry $registry) {
                   $registry->registerSubscribingHandler(new ResponseCollectionHandler());
         });
 

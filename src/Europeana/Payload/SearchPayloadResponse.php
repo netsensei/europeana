@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Europeana API library.
+ * This file is part of the Europeana API package.
  *
  * (c) Matthias Vandermaesen <matthias@colada.be>
  *

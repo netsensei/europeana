@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Europeana package
+ * This file is part of the Europeana API package.
  *
  * (c) Matthias Vandermaesen <matthias@colada.be>
  *
@@ -11,6 +11,9 @@
 
 namespace Europeana\Exception;
 
+/**
+ * @author Matthias Vandermaesen <matthias@colada.be>
+ */
 class EuropeanaException extends \Exception
 {
 }

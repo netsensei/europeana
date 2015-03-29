@@ -20,7 +20,7 @@ class SearchTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $rawBody = file_get_contents(__DIR__ . '/../mock/bodies/body1');
+        $rawBody = file_get_contents(__DIR__.'/../mock/bodies/body1');
         $body = Stream::factory($rawBody);
         $response = new Response($this->status, $this->headers, $body);
         $response = array(
@@ -40,10 +40,10 @@ class SearchTest extends \PHPUnit_Framework_TestCase
         $searchPayload->setQuery("Mona Lisa");
 
         try {
-          $response = $this->apiClient->send($searchPayload);
-          $items = $response->getItems();
+            $response = $this->apiClient->send($searchPayload);
+            $items = $response->getItems();
         } catch (EuropeanaException $e) {
-          // Do something
+            // Do something
         }
     }
 }
