@@ -60,7 +60,7 @@ abstract class AbstractPayload implements PayloadInterface
         } else {
             try {
                 if ($this->argumentExists('query')) {
-                    new \Exception(sprintf(
+                    new \InvalidArgumentException(sprintf(
                             'Argument "%s" was already set with value "%s".',
                             $key,
                             $value

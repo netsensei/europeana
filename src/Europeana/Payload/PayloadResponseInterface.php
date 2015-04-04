@@ -20,15 +20,4 @@ interface PayloadResponseInterface
      * @return bool True if the request was handled successfully, false otherwise
      */
     public function isOk();
-
-    /**
-     * @return string|null Any error message returned by Europeana (always null if response was 'ok')
-     */
-    public function getError();
-
-    /**
-     * @return string|null Any error message returned by Europeana, converted into a more human-readable sentence
-     *                     (always null if response was 'ok')
-     */
-    public function getErrorExplanation();
 }
