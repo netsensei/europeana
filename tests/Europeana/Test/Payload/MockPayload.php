@@ -9,34 +9,26 @@
  * file that was distributed with this source code.
  */
 
-namespace Europeana\Payload;
+namespace Europeana\Tests\Test\Payload;
+
+use Europeana\Payload\AbstractPayload;
 
 /**
  * @author Matthias Vandermaesen <matthias@colada.be>
  */
-class SearchPayload extends AbstractPayload
+class MockPayload extends AbstractPayload
 {
     /**
      * {@inheritdoc}
      */
     public function getMethod()
     {
-        return 'search.json';
+        return 'mock.json';
     }
 
-    public function setQuery($value)
+    public function setFoo($foo)
     {
-        $this->setArgument('query', $value);
-    }
-
-    public function setProfile($value)
-    {
-        $this->setArgument('profile', $value, true);
-    }
-
-    public function setFacet($value)
-    {
-        $this->setArgument('facet', $value, true);
+        $this->setArgument('foo', $foo);
     }
 
     /**
@@ -45,11 +37,6 @@ class SearchPayload extends AbstractPayload
     public function getContext()
     {
         $context = array();
-
-        if ($profile = $this->getArgument('profile')) {
-            $context['profile'] = $profile;
-        }
-
         return $context;
     }
 }

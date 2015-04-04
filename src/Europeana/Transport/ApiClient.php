@@ -76,14 +76,14 @@ class ApiClient implements ApiClientInterface
     {
         try {
             if ($apiKey === null && $this->apiKey === null) {
-                throw new \Exception('You must supply an API key to send a payload, since you did not provide one during construction');
+                throw new \InvalidArgumentException('You must supply an API key to send a payload, since you did not provide one during construction');
             }
 
             $responseData = $this->doSend($payload->getMethod(), $payload->getArguments(), $apiKey);
 
             return $this->payloadResponseSerializer->deserialize($responseData, $payload->getResponseClass(), $payload->getContext());
         } catch (\Exception $e) {
-            throw new \Exception('Failed to send payload', null, $e);
+            throw new EuropeanaException('Failed to send payload', null, $e);
         }
     }
 
@@ -99,7 +99,8 @@ class ApiClient implements ApiClientInterface
     private function doSend($method, array $data, $apiKey = null)
     {
         try {
-            $data[] = array('wskey', $apiKey);
+            $data[] = array('wskey', ($apiKey ? $apiKey : $this->apiKey));
+
             $request = $this->createRequest($method, $data);
 
             /** @var ResponseInterface $response */

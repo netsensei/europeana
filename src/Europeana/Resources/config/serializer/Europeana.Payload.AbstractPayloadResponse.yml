@@ -1,0 +1,6 @@
+Europeana\Payload\AbstractPayloadResponse:
+    properties:
+        ok:
+            type: boolean
+        error:
+            type: string

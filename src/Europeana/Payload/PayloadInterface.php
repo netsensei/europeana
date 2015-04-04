@@ -25,9 +25,4 @@ interface PayloadInterface
      * @return string
      */
     public function getResponseClass();
-
-    /**
-     * @return array
-     */
-    public function getContext();
 }

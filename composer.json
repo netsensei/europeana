@@ -32,7 +32,7 @@
 	},
   "autoload-dev": {
       "psr-4": {
-          "Europeana\\Test\\": "tests"
+          "Europeana\\Tests\\": "tests/Europeana/"
       }
 	}
 }

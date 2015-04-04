@@ -1,6 +1,6 @@
 <?php
 
-namespace Europeana\Test;
+namespace Europeana\Tests;
 
 use Europeana\Transport\ApiClient;
 use Europeana\Payload\SearchPayload;
@@ -12,7 +12,7 @@ use GuzzleHttp\Message\Response;
 
 class SearchTest extends \PHPUnit_Framework_TestCase
 {
-    private $apiClient;
+ /*   private $apiClient;
 
     private $headers = array('Server' => 'Mock');
 
@@ -45,5 +45,5 @@ class SearchTest extends \PHPUnit_Framework_TestCase
         } catch (EuropeanaException $e) {
             // Do something
         }
-    }
+    } */
 }
