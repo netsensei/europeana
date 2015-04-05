@@ -16,6 +16,8 @@ use Europeana\Tests\AbstractTestCase;
 use Europeana\Tests\Test\Payload\MockPayload;
 use Europeana\Transport\ApiClient;
 use GuzzleHttp\Client;
+use GuzzleHttp\Query;
+use GuzzleHttp\URL;
 use GuzzleHttp\Subscriber\History;
 use GuzzleHttp\Subscriber\Mock;
 
@@ -36,8 +38,16 @@ class ApiClientTest extends AbstractTestCase
             'foo' => 'bar',
         ];
 
+        $mockQueryData = [
+            'foo' => 'bar',
+            'wskey' => self::API_KEY,
+        ];
+
         $mockPayload = new MockPayload();
         $mockPayload->setFoo('bar');
+
+        $expectedUrl = URL::fromString(ApiClient::API_BASE_URL . '/' . ApiClient::API_VERSION . '/mock.json');
+        $expectedUrl->setQuery($mockQueryData);
 
         $mockResponseBody = json_encode($mockResponseData);
         $mock->addResponse(sprintf(
@@ -55,11 +65,9 @@ class ApiClientTest extends AbstractTestCase
 
         $lastRequest = $history->getLastRequest();
 
-        $expectedUrl = ApiClient::API_BASE_URL . '/' . ApiClient::API_VERSION . '/mock.json?foo=bar&wskey=' . self::API_KEY;
-
         $lastResponseContent = json_decode($history->getLastResponse()->getBody(), true);
         $this->assertEquals($mockResponseData, $lastResponseContent);
-        $this->assertEquals($expectedUrl, $history->getLastRequest()->getUrl());
+        $this->assertEquals((string)$expectedUrl, $history->getLastRequest()->getUrl());
     }
 
     public function testSendWithoutKey()
