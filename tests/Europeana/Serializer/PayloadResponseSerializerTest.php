@@ -38,8 +38,7 @@ class PayloadResponseSerializerTest extends AbstractTestCase
         $mockResponseClass = 'Europeana\Tests\Test\Payload\MockPayloadResponse';
         $serializedPayload = $this->payloadResponseSerializer->deserialize(
             $payloadResponse,
-            $mockResponseClass,
-            array()
+            $mockResponseClass
         );
 
         $this->assertInstanceOf($mockResponseClass, $serializedPayload);

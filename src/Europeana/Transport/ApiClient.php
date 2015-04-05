@@ -81,7 +81,7 @@ class ApiClient implements ApiClientInterface
 
             $responseData = $this->doSend($payload->getMethod(), $payload->getArguments(), $apiKey);
 
-            return $this->payloadResponseSerializer->deserialize($responseData, $payload->getResponseClass(), $payload->getContext());
+            return $this->payloadResponseSerializer->deserialize($responseData, $payload->getResponseClass());
         } catch (\Exception $e) {
             throw new EuropeanaException('Failed to send payload', null, $e);
         }

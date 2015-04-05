@@ -12,7 +12,6 @@
 namespace Europeana\Serializer;
 
 use Europeana\Payload\PayloadResponseInterface;
-use JMS\Serializer\DeserializationContext;
 
 /**
  * @author Matthias Vandermaesen <matthias@colada.be>
@@ -25,20 +24,12 @@ class PayloadResponseSerializer extends AbstractSerializer
      *
      * @return PayloadResponseInterface
      */
-    public function deserialize(array $payloadResponse, $payloadResponseClass, array $context)
+    public function deserialize(array $payloadResponse, $payloadResponseClass)
     {
-        $context = new DeserializationContext();
-        if (!empty($context)) {
-            foreach ($context as $key => $value) {
-                $context->attributes->set($key, $value);
-            }
-        }
-
         $payloadResponseObject = $this->serializer->deserialize(
             json_encode($payloadResponse),
             $payloadResponseClass,
-            'json',
-            $context
+            'json'
         );
 
         if (!($payloadResponseObject instanceof PayloadResponseInterface)) {

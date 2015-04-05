@@ -35,12 +35,6 @@ abstract class AbstractSerializer
         $builder
             ->setPropertyNamingStrategy(
                 new SerializedNameAnnotationStrategy(new IdenticalPropertyNamingStrategy()));
-        $builder
-            ->addDefaultHandlers()
-            ->configureHandlers(
-                function (HandlerRegistry $registry) {
-                  $registry->registerSubscribingHandler(new ResponseCollectionHandler());
-        });
 
         $this->serializer = $builder->build();
     }
