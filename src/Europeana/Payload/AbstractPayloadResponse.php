@@ -17,9 +17,29 @@ namespace Europeana\Payload;
 abstract class AbstractPayloadResponse implements PayloadResponseInterface
 {
     /**
+     * @var string
+     */
+    private $apikey;
+
+    /**
+     * @var string
+     */
+    private $action;
+
+    /**
      * @var bool
      */
-    private $ok;
+    private $success;
+
+    /**
+     * @var integer
+     */
+    private $statsDuration;
+
+    /**
+     * @var integer
+     */
+    private $requestNumber;
 
     /**
      * @var string
@@ -27,10 +47,35 @@ abstract class AbstractPayloadResponse implements PayloadResponseInterface
     private $error;
 
     /**
+     * @var array
+     */
+    private $params;
+
+    public function getApikey()
+    {
+        return $this->apikey;
+    }
+
+    public function getAction()
+    {
+        return $this->action;
+    }
+
+    /**
      * {@inheritdoc}
      */
-    public function isOk()
+    public function isSuccess()
     {
-        return (bool) $this->ok;
+        return (bool) $this->success;
+    }
+
+    public function getStatsDuration()
+    {
+        $this->statsDuration;
+    }
+
+    public function getRequestNumber()
+    {
+        $this->requestNumber;
     }
 }

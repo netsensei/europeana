@@ -17,16 +17,6 @@ namespace Europeana\Payload;
 class SearchPayloadResponse extends AbstractPayloadResponse
 {
     /**
-     * @var string
-     */
-    private $success;
-
-    /**
-     * @var string
-     */
-    private $action;
-
-    /**
      * @var integer
      */
     private $requestNumber;

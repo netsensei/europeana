@@ -16,8 +16,4 @@ namespace Europeana\Payload;
  */
 interface PayloadResponseInterface
 {
-    /**
-     * @return bool True if the request was handled successfully, false otherwise
-     */
-    public function isOk();
 }

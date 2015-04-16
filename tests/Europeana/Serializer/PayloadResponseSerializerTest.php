@@ -32,7 +32,11 @@ class PayloadResponseSerializerTest extends AbstractTestCase
     public function testDeserialize()
     {
         $payloadResponse = [
-            'ok'     => true,
+            'apikey' => 'mock',
+            'success' => true,
+            'action' => 'mock.json',
+            'requestNumber' => 999,
+            'itemsCount' => 1,
         ];
 
         $mockResponseClass = 'Europeana\Tests\Test\Payload\MockPayloadResponse';
@@ -42,6 +46,6 @@ class PayloadResponseSerializerTest extends AbstractTestCase
         );
 
         $this->assertInstanceOf($mockResponseClass, $serializedPayload);
-        $this->assertTrue($serializedPayload->isOk());
+        $this->assertTrue($serializedPayload->isSuccess());
     }
 }

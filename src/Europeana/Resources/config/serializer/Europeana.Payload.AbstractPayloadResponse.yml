@@ -1,6 +1,16 @@
 Europeana\Payload\AbstractPayloadResponse:
     properties:
-        ok:
+        apikey:
+            type: string
+        action:
+            type: string
+        success:
             type: boolean
+        statsDuration:
+            type: integer
+        requestNumber:
+            type: integer
         error:
             type: string
+        params:
+            type: array
