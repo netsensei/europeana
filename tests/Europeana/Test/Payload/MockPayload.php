@@ -30,13 +30,4 @@ class MockPayload extends AbstractPayload
     {
         $this->setArgument('foo', $foo);
     }
-
-    /**
-     * @return array
-     */
-    public function getContext()
-    {
-        $context = array();
-        return $context;
-    }
 }

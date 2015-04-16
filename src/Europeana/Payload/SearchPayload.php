@@ -38,18 +38,4 @@ class SearchPayload extends AbstractPayload
     {
         $this->setArgument('facet', $value, true);
     }
-
-    /**
-     * @return array
-     */
-    public function getContext()
-    {
-        $context = array();
-
-        if ($profile = $this->getArgument('profile')) {
-            $context['profile'] = $profile;
-        }
-
-        return $context;
-    }
 }
