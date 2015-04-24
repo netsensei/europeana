@@ -14,20 +14,17 @@ namespace Europeana\Payload;
 /**
  * @author Matthias Vandermaesen <matthias@colada.be>
  */
-interface PayloadInterface
+interface PayloadHandlerInterface
 {
     /**
-     * @return string
+     * [create description]
+     * @param  PayloadInterface $payload [description]
+     * @return [type]                    [description]
      */
-    public function getMethod();
+    public static function create(PayloadInterface $payload);
 
     /**
-     * @return string
+     * @return array
      */
-    public function getResponseClass();
-
-    /**
-     * @return string
-     */
-    public function getHandlerClass();
+    public function get();
 }

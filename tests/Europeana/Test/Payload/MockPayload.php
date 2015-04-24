@@ -18,6 +18,8 @@ use Europeana\Payload\AbstractPayload;
  */
 class MockPayload extends AbstractPayload
 {
+    private $foo;
+
     /**
      * {@inheritdoc}
      */
@@ -28,6 +30,11 @@ class MockPayload extends AbstractPayload
 
     public function setFoo($foo)
     {
-        $this->setArgument('foo', $foo);
+        $this->foo = $foo;
+    }
+
+    public function getFoo()
+    {
+        return $this->foo;
     }
 }

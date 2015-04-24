@@ -14,6 +14,7 @@ namespace Europeana\Transport;
 use Europeana\Exception\EuropeanaException;
 use Europeana\Payload\PayloadInterface;
 use Europeana\Payload\PayloadResponseInterface;
+use Europeana\Payload\PayloadHandlerFactory;
 use Europeana\Serializer\PayloadResponseSerializer;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -79,7 +80,7 @@ class ApiClient implements ApiClientInterface
                 throw new \InvalidArgumentException('You must supply an API key to send a payload, since you did not provide one during construction');
             }
 
-            $responseData = $this->doSend($payload->getMethod(), $payload->getArguments(), $apiKey);
+            $responseData = $this->doSend($payload);
 
             return $this->payloadResponseSerializer->deserialize($responseData, $payload->getResponseClass());
         } catch (\Exception $e) {
@@ -96,9 +97,14 @@ class ApiClient implements ApiClientInterface
      *
      * @return array
      */
-    private function doSend($method, array $data, $apiKey = null)
+    private function doSend($payload, $apiKey = null)
     {
         try {
+            $method = $payload->getMethod();
+
+            $handler = PayloadHandlerFactory::getHandler($payload);
+            $data = $handler->get();
+
             $data[] = array('wskey', ($apiKey ? $apiKey : $this->apiKey));
 
             $request = $this->createRequest($method, $data);
