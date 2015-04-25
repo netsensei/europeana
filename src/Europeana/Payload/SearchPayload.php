@@ -16,26 +16,37 @@ namespace Europeana\Payload;
  */
 class SearchPayload extends AbstractPayload
 {
+    private $query;
+
+    private $profiles;
+
+    public function setQuery($query)
+    {
+        $this->query = $query;
+    }
+
+    public function getQuery()
+    {
+        return $this->query;
+    }
+
+    public function addProfile($profile)
+    {
+        if (!in_array($profile, $this->profiles)) {
+            $this->profiles[] = $profile;
+        }
+    }
+
+    public function getProfiles()
+    {
+        return $this->profiles;
+    }
+
     /**
      * {@inheritdoc}
      */
     public function getMethod()
     {
         return 'search.json';
-    }
-
-    public function setQuery($value)
-    {
-        $this->setArgument('query', $value);
-    }
-
-    public function setProfile($value)
-    {
-        $this->setArgument('profile', $value, true);
-    }
-
-    public function setFacet($value)
-    {
-        $this->setArgument('facet', $value, true);
     }
 }

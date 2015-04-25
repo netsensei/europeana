@@ -80,7 +80,7 @@ class ApiClient implements ApiClientInterface
                 throw new \InvalidArgumentException('You must supply an API key to send a payload, since you did not provide one during construction');
             }
 
-            $responseData = $this->doSend($payload);
+            $responseData = $this->doSend($payload, $apiKey);
 
             return $this->payloadResponseSerializer->deserialize($responseData, $payload->getResponseClass());
         } catch (\Exception $e) {
