@@ -11,4 +11,4 @@ Europeana\Payload\SearchPayloadResponse:
         totalResults:
             type: integer
         items:
-            type: ResponseCollection<Europeana\Model\Item>
+            type: ArrayCollection<Europeana\Model\Item>
