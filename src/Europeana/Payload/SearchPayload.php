@@ -11,6 +11,8 @@
 
 namespace Europeana\Payload;
 
+use Europeana\Enum\Reusability;
+
 /**
  * @author Matthias Vandermaesen <matthias@colada.be>
  */
@@ -58,6 +60,17 @@ class SearchPayload extends AbstractPayload
     public function getStart()
     {
         return $this->start;
+    }
+
+    public function setReusability($reusability)
+    {
+        Reusability::assertExists($reusability);
+        $this->reusability = $reusability;
+    }
+
+    public function getReusability()
+    {
+        return $this->reusability;
     }
 
     public function addProfile($profile)

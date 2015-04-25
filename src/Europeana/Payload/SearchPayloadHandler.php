@@ -25,6 +25,10 @@ class SearchPayloadHandler extends AbstractPayloadHandler
             $arguments[] = array('profile', $profile);
         }
 
+        if ($reusability = $payload->getReusability()) {
+            $arguments[] = array('reusability', $reusability);
+        }
+
         if ($rows = $payload->getRows()) {
             $arguments[] = array('rows', $rows);
         }
