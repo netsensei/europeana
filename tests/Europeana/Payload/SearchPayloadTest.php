@@ -21,7 +21,7 @@ class SearchPayloadTest extends AbstractPayloadTest
         $payload = new SearchPayload();
 
         $payload->setQuery('bar');
-        $payload->addProfile('foo');
+        $payload->addProfile('standard');
         $payload->setReusability('open');
         $payload->setRows(10);
         $payload->setStart(1);
@@ -33,7 +33,7 @@ class SearchPayloadTest extends AbstractPayloadTest
     {
         return array(
             array('query', 'bar'),
-            array('profile', 'foo'),
+            array('profile', 'standard'),
             array('reusability', 'open'),
             array('rows', 10),
             array('start', 1)

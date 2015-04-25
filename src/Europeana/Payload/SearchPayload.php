@@ -12,6 +12,8 @@
 namespace Europeana\Payload;
 
 use Europeana\Enum\Reusability;
+use Europeana\Enum\Profile;
+use Europeana\Exception\EuropeanaException;
 
 /**
  * @author Matthias Vandermaesen <matthias@colada.be>
@@ -64,8 +66,12 @@ class SearchPayload extends AbstractPayload
 
     public function setReusability($reusability)
     {
-        Reusability::assertExists($reusability);
-        $this->reusability = $reusability;
+        try {
+            Reusability::assertExists($reusability);
+            $this->reusability = $reusability;
+        } catch (\Exception $e) {
+            throw new EuropeanaException('Failed to prepare payload', null, $e);
+        }
     }
 
     public function getReusability()
@@ -75,8 +81,13 @@ class SearchPayload extends AbstractPayload
 
     public function addProfile($profile)
     {
-        if (!in_array($profile, $this->profiles)) {
-            $this->profiles[] = $profile;
+        try {
+            Profile::assertExists($profile);
+            if (!in_array($profile, $this->profiles)) {
+                $this->profiles[] = $profile;
+            }
+        } catch (\Exception $e) {
+            throw new EuropeanaException('Failed to prepare payload', null, $e);
         }
     }
 
