@@ -18,6 +18,16 @@ class SearchPayload extends AbstractPayload
 {
     private $query;
 
+    private $qf = [];
+
+    private $rows;
+
+    private $start;
+
+    private $reusability;
+
+    private $facet;
+
     private $profiles = [];
 
     public function setQuery($query)
@@ -28,6 +38,26 @@ class SearchPayload extends AbstractPayload
     public function getQuery()
     {
         return $this->query;
+    }
+
+    public function setRows($rows)
+    {
+        $this->rows = $rows;
+    }
+
+    public function getRows()
+    {
+        return $this->rows;
+    }
+
+    public function setStart($start)
+    {
+        $this->start = $start;
+    }
+
+    public function getStart()
+    {
+        return $this->start;
     }
 
     public function addProfile($profile)

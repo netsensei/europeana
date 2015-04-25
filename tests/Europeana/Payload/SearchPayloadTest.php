@@ -19,8 +19,12 @@ class SearchPayloadTest extends AbstractPayloadTest
     protected function createPayload()
     {
         $payload = new SearchPayload();
+
         $payload->setQuery('bar');
         $payload->addProfile('foo');
+        $payload->setRows(10);
+        $payload->setStart(1);
+
         return $payload;
     }
 
@@ -28,7 +32,9 @@ class SearchPayloadTest extends AbstractPayloadTest
     {
         return array(
             array('query', 'bar'),
-            array('profile', 'foo')
+            array('profile', 'foo'),
+            array('rows', 10),
+            array('start', 1)
         );
     }
 }
