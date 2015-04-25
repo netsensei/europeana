@@ -42,8 +42,7 @@ class Example
             var_dump($response->getItemsCount());
             var_dump($response->getTotalResults());
             $items = $response->getItems();
-            var_dump($items);
-            var_dump($items->get(1)->getId());
+          /*  var_dump($items->get(1)->getId());
             var_dump($items->get(1)->getCompleteness());
             var_dump($items->get(1)->getEuropeanaCollectionName());
             var_dump($items->get(1)->getIndex());
@@ -60,27 +59,13 @@ class Example
             var_dump($items->get(1)->getProvider());
             var_dump($items->get(1)->getLanguage());
             var_dump($items->get(1)->getType());
-            var_dump($items->get(1)->getOptedOut());
+            var_dump($items->get(1)->getOptedOut()); */
             var_dump($items->get(1)->getLink());
             var_dump($items->get(1)->getGuid());
+            var_dump($items->get(2)->getLink());
+            var_dump($items->get(2)->getGuid());
         } catch (EuropeanaException $e) {
             // Do something
         }
     }
-
-    /**
-    * Constructor
-    */
-    /* public function __construct(Search $search) {
-            $this->search = $search;
-            $this->search->setPublicKey('yF4xXWLcP');
-    }
-
-    public function getBasicSearchQuery() {
-        $request = new Request();
-        $request->setQuery('Mona Lisa');
-        $this->search->setRequest($request);
-        $this->search->send();
-        $d = $this->search->getResponse();
-    }*/
 }

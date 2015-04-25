@@ -21,6 +21,10 @@ class SearchPayloadHandler extends AbstractPayloadHandler
 
         $arguments[] = array('query', $payload->getQuery());
 
+        foreach ($payload->getProfiles() as $profile) {
+          $arguments[] = array('profile', $profile);
+        }
+
         return $arguments;
     }
 }

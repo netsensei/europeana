@@ -18,7 +18,7 @@ class SearchPayload extends AbstractPayload
 {
     private $query;
 
-    private $profiles;
+    private $profiles = [];
 
     public function setQuery($query)
     {
