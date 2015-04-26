@@ -36,10 +36,7 @@ class SearchPayloadTest extends AbstractPayloadTest
     {
         return array(
             array('query', 'foo bar'),
-            array('profile', 'rich'),
-            array('profile', 'facets'),
-            array('profile', 'breadcrumbs'),
-            array('profile', 'params'),
+            array('profile', 'rich facets breadcrumbs params'),
             array('reusability', 'open'),
             array('rows', 10),
             array('start', 1)

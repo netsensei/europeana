@@ -82,7 +82,9 @@ class SearchPayload extends AbstractPayload
 
     public function addFacet(FacetInterface $facet)
     {
-        $this->facets[] = $facet;
+        if (!in_array($facet->getName(), $this->facets)) {
+            $this->facets[$facet->getName()] = $facet;
+        }
     }
 
     public function getFacets()

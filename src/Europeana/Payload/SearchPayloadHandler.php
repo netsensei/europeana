@@ -21,23 +21,27 @@ class SearchPayloadHandler extends AbstractPayloadHandler
 
         $arguments[] = array('query', $payload->getQuery());
 
-        foreach ($payload->getProfiles() as $profile) {
-            $arguments[] = array('profile', $profile);
+        if ($profiles = $payload->getProfiles()) {
+            $arguments[] = array('profile', implode(' ', $profiles));
         }
 
         if ($reusability = $payload->getReusability()) {
             $arguments[] = array('reusability', $reusability);
         }
 
-        foreach ($payload->getFacets() as $facet)
-        {
-            $arguments[] = array('facet', $facet->getName());
-            if ($limit = $facet->getLimit()) {
-                $arguments[] = array('f.' . $facet->getName() . '.facet.limit', $limit);
+        if ($facets = $payload->getFacets()) {
+            $facetNames = [];
+            foreach ($payload->getFacets() as $facet) {
+                $facetNames[] = $facet->getName();
+
+                if ($limit = $facet->getLimit()) {
+                    $arguments[] = array('f.' . $facet->getName() . '.facet.limit', $limit);
+                }
+                if ($offset = $facet->getOffset()) {
+                    $arguments[] = array('f.' . $facet->getName() . '.facet.offset', $offset);
+                }
             }
-            if ($offset = $facet->getOffset()) {
-                $arguments[] = array('f.' . $facet->getName() . '.facet.offset', $offset);
-            }
+            $arguments[] = array('facet', implode(',', $facetNames));
         }
 
         if ($rows = $payload->getRows()) {

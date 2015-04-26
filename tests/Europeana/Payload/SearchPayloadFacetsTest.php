@@ -26,6 +26,12 @@ class SearchPayloadFacetsTest extends AbstractPayloadTest
         $facet = new Facet('PROVIDER', 10, 20);
         $payload->addFacet($facet);
 
+        $facet = new Facet('proxy_dc_coverage', 10, 20);
+        $payload->addFacet($facet);
+
+        $facet = new Facet('proxy_dc_contributor', 10, 20);
+        $payload->addFacet($facet);
+
         return $payload;
     }
 
@@ -33,9 +39,13 @@ class SearchPayloadFacetsTest extends AbstractPayloadTest
     {
         return array(
             array('query', 'foo bar'),
-            array('facet', 'PROVIDER'),
             array('f.PROVIDER.facet.limit', 10),
-            array('f.PROVIDER.facet.offset', 20)
+            array('f.PROVIDER.facet.offset', 20),
+            array('f.proxy_dc_coverage.facet.limit', 10),
+            array('f.proxy_dc_coverage.facet.offset', 20),
+            array('f.proxy_dc_contributor.facet.limit', 10),
+            array('f.proxy_dc_contributor.facet.offset', 20),
+            array('facet', 'PROVIDER,proxy_dc_coverage,proxy_dc_contributor')
         );
     }
 
