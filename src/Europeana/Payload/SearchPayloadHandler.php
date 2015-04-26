@@ -21,6 +21,11 @@ class SearchPayloadHandler extends AbstractPayloadHandler
 
         $arguments[] = array('query', $payload->getQuery());
 
+        foreach ($payload->getRefinements() as $refinement) {
+            $qf = $refinement->getName() . ':' . $refinement->getValue();
+            $arguments[] = array('qf', $qf);
+        }
+
         if ($profiles = $payload->getProfiles()) {
             $arguments[] = array('profile', implode(' ', $profiles));
         }

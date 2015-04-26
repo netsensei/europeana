@@ -15,6 +15,7 @@ use Europeana\Enum\Reusability;
 use Europeana\Enum\Profile;
 use Europeana\Exception\EuropeanaException;
 use Europeana\Payload\Facet\FacetInterface;
+use Europeana\Payload\Facet\RefinementInterface;
 
 /**
  * @author Matthias Vandermaesen <matthias@colada.be>
@@ -23,7 +24,7 @@ class SearchPayload extends AbstractPayload
 {
     private $query;
 
-    private $qf = [];
+    private $refinements = [];
 
     private $rows;
 
@@ -43,6 +44,16 @@ class SearchPayload extends AbstractPayload
     public function getQuery()
     {
         return $this->query;
+    }
+
+    public function addRefinement(RefinementInterface $refinement)
+    {
+        $this->refinements[$refinement->getName()] = $refinement;
+    }
+
+    public function getRefinements()
+    {
+        return $this->refinements;
     }
 
     public function setRows($rows)
@@ -82,9 +93,7 @@ class SearchPayload extends AbstractPayload
 
     public function addFacet(FacetInterface $facet)
     {
-        if (!in_array($facet->getName(), $this->facets)) {
-            $this->facets[$facet->getName()] = $facet;
-        }
+        $this->facets[$facet->getName()] = $facet;
     }
 
     public function getFacets()

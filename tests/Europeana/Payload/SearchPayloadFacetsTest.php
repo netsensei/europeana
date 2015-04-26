@@ -14,6 +14,7 @@ namespace Europeana\Tests\Payload;
 use Europeana\Payload\SearchPayload;
 use Europeana\Payload\PayloadInterface;
 use Europeana\Payload\Facet\Facet;
+use Europeana\Payload\Facet\Refinement;
 
 class SearchPayloadFacetsTest extends AbstractPayloadTest
 {
@@ -22,6 +23,9 @@ class SearchPayloadFacetsTest extends AbstractPayloadTest
         $payload = new SearchPayload();
 
         $payload->setQuery('foo bar');
+
+        $refinement = new Refinement('TYPE', 'IMAGE');
+        $payload->addRefinement($refinement);
 
         $facet = new Facet('PROVIDER', 10, 20);
         $payload->addFacet($facet);
@@ -39,6 +43,7 @@ class SearchPayloadFacetsTest extends AbstractPayloadTest
     {
         return array(
             array('query', 'foo bar'),
+            array('qf', 'TYPE:IMAGE'),
             array('f.PROVIDER.facet.limit', 10),
             array('f.PROVIDER.facet.offset', 20),
             array('f.proxy_dc_coverage.facet.limit', 10),
