@@ -14,6 +14,7 @@ namespace Europeana\Payload;
 use Europeana\Enum\Reusability;
 use Europeana\Enum\Profile;
 use Europeana\Exception\EuropeanaException;
+use Europeana\Payload\Facet\FacetInterface;
 
 /**
  * @author Matthias Vandermaesen <matthias@colada.be>
@@ -30,7 +31,7 @@ class SearchPayload extends AbstractPayload
 
     private $reusability;
 
-    private $facet;
+    private $facets = [];
 
     private $profiles = [];
 
@@ -77,6 +78,16 @@ class SearchPayload extends AbstractPayload
     public function getReusability()
     {
         return $this->reusability;
+    }
+
+    public function addFacet(FacetInterface $facet)
+    {
+        $this->facets[] = $facet;
+    }
+
+    public function getFacets()
+    {
+        return $this->facets;
     }
 
     public function addProfile($profile)

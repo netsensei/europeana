@@ -29,6 +29,17 @@ class SearchPayloadHandler extends AbstractPayloadHandler
             $arguments[] = array('reusability', $reusability);
         }
 
+        foreach ($payload->getFacets() as $facet)
+        {
+            $arguments[] = array('facet', $facet->getName());
+            if ($limit = $facet->getLimit()) {
+                $arguments[] = array('f.' . $facet->getName() . '.facet.limit', $limit);
+            }
+            if ($offset = $facet->getOffset()) {
+                $arguments[] = array('f.' . $facet->getName() . '.facet.offset', $offset);
+            }
+        }
+
         if ($rows = $payload->getRows()) {
             $arguments[] = array('rows', $rows);
         }

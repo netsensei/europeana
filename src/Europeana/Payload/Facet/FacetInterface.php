@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Europeana\Enum;
+namespace Europeana\Payload\Facet;
 
-use CommerceGuys\Enum\AbstractEnum;
-
-final class Reusability extends AbstractEnum
+interface FacetInterface
 {
-    const OPEN = 'open';
-    const RESTRICTED = 'restricted';
-    const PERMISSION = 'permission';
+    public function getName();
+
+    public function getLimit();
+
+    public function getOffset();
 }

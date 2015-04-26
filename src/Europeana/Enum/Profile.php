@@ -22,9 +22,4 @@ final class Profile extends AbstractEnum
     const BREADCRUMBS = 'breadcrumbs';
     const PARAMS = 'params';
     const PORTAL = 'portal';
-
-    public static function getDefault()
-    {
-        return static::STANDARD;
-    }
 }

@@ -13,21 +13,18 @@ namespace Europeana\Tests\Payload;
 
 use Europeana\Payload\SearchPayload;
 use Europeana\Payload\PayloadInterface;
+use Europeana\Payload\Facet\Facet;
 
-class SearchPayloadTest extends AbstractPayloadTest
+class SearchPayloadFacetsTest extends AbstractPayloadTest
 {
     protected function createPayload()
     {
         $payload = new SearchPayload();
 
         $payload->setQuery('foo bar');
-        $payload->addProfile('rich');
-        $payload->addProfile('facets');
-        $payload->addProfile('breadcrumbs');
-        $payload->addProfile('params');
-        $payload->setReusability('open');
-        $payload->setRows(10);
-        $payload->setStart(1);
+
+        $facet = new Facet('PROVIDER', 10, 20);
+        $payload->addFacet($facet);
 
         return $payload;
     }
@@ -36,13 +33,9 @@ class SearchPayloadTest extends AbstractPayloadTest
     {
         return array(
             array('query', 'foo bar'),
-            array('profile', 'rich'),
-            array('profile', 'facets'),
-            array('profile', 'breadcrumbs'),
-            array('profile', 'params'),
-            array('reusability', 'open'),
-            array('rows', 10),
-            array('start', 1)
+            array('facet', 'PROVIDER'),
+            array('f.PROVIDER.facet.limit', 10),
+            array('f.PROVIDER.facet.offset', 20)
         );
     }
 
