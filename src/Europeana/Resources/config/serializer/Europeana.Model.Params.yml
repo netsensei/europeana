@@ -1,0 +1,12 @@
+Europeana\Model\Params:
+    properties:
+        query:
+            type: string
+        qf:
+            type: string
+        profiles:
+            type: string
+        start:
+            type: integer
+        rows:
+            type: integer

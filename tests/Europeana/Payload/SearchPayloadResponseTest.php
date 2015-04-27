@@ -35,7 +35,7 @@ class SearchPayloadResponseTest extends AbstractPayloadResponseTest
     {
         $this->assertEquals($payloadResponse->getItems(), $responseData['items']);
         $this->assertEquals($payloadResponse->getFacets(), $responseData['facets']);
+        $this->assertEquals($payloadResponse->getParams(), $responseData['params']);
         $this->assertEquals($payloadResponse->getBreadCrumbs(), $responseData['breadCrumbs']);
     }
-
 }

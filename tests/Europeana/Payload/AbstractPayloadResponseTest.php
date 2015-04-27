@@ -11,6 +11,7 @@
 
 namespace Europeana\Tests\Payload;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Europeana\Payload\PayloadResponseInterface;
 use Europeana\Serializer\PayloadResponseSerializer;
 use Europeana\Tests\AbstractTestCase;
@@ -33,7 +34,7 @@ abstract class AbstractPayloadResponseTest extends AbstractTestCase
                 'success' => true,
                 'statsDuration' => 1234,
                 'requestNumber' => 1234,
-                'params' => [],
+                'params' => new ArrayCollection()
             ],
             $this->createResponseData());
 
