@@ -12,3 +12,5 @@ Europeana\Payload\SearchPayloadResponse:
             type: integer
         items:
             type: ArrayCollection<Europeana\Model\Item>
+        facets:
+            type: ArrayCollection<Europeana\Model\Facet>

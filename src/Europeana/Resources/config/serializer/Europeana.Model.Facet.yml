@@ -1,0 +1,6 @@
+Europeana\Model\Facet:
+    properties:
+        name:
+            type: string
+        fields:
+            type: ArrayCollection<array>

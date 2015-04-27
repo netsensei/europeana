@@ -51,11 +51,17 @@ abstract class AbstractPayloadResponse implements PayloadResponseInterface
      */
     private $params;
 
+    /**
+     * {@inheritdoc}
+     */
     public function getApikey()
     {
         return $this->apikey;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getAction()
     {
         return $this->action;
@@ -69,13 +75,35 @@ abstract class AbstractPayloadResponse implements PayloadResponseInterface
         return (bool) $this->success;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getStatsDuration()
     {
-        $this->statsDuration;
+        return $this->statsDuration;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRequestNumber()
     {
-        $this->requestNumber;
+        return $this->requestNumber;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getError()
+    {
+        return $this->error;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getParams()
+    {
+        return $this->params;
     }
 }

@@ -37,7 +37,7 @@ class Example
         try {
             $response = $this->apiClient->send($searchPayload, 'api2demo');
             var_dump($response->getAction());
-            var_dump($response->getSuccess());
+            var_dump($response->isSuccess());
             var_dump($response->getRequestNumber());
             var_dump($response->getItemsCount());
             var_dump($response->getTotalResults());

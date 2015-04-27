@@ -9,24 +9,24 @@
  * file that was distributed with this source code.
  */
 
-namespace Europeana\Payload;
+namespace Europeana\Model;
 
 /**
  * @author Matthias Vandermaesen <matthias@colada.be>
  */
-interface PayloadResponseInterface
+class Facet
 {
-    public function getApikey();
+    private $name;
 
-    public function getAction();
+    private $fields;
 
-    public function isSuccess();
+    public function getName()
+    {
+        return $this->name;
+    }
 
-    public function getStatsDuration();
-
-    public function getRequestNumber();
-
-    public function getError();
-
-    public function getParams();
+    public function getFields()
+    {
+        return $this->fields;
+    }
 }

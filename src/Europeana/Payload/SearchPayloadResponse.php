@@ -19,11 +19,6 @@ class SearchPayloadResponse extends AbstractPayloadResponse
     /**
      * @var integer
      */
-    private $requestNumber;
-
-    /**
-     * @var integer
-     */
     private $itemsCount;
 
     /**
@@ -32,33 +27,14 @@ class SearchPayloadResponse extends AbstractPayloadResponse
     private $totalResults;
 
     /**
-     * @var ResponseCollection<Europeana/Model/Item>
+     * @var ArrayCollection<Europeana/Model/Item>
      */
     private $items;
 
     /**
-     * @return Success
+     * @var ArrayCollection<Europeana/Model/Item>
      */
-    public function getSuccess()
-    {
-        return $this->success;
-    }
-
-    /**
-     * @return Action
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
-
-    /**
-     * @return requestNumber
-     */
-    public function getRequestNumber()
-    {
-        return $this->requestNumber;
-    }
+    private $facets;
 
     /**
      * @return itemsCount
@@ -82,5 +58,13 @@ class SearchPayloadResponse extends AbstractPayloadResponse
     public function getItems()
     {
         return $this->items;
+    }
+
+    /**
+     * @return facets;
+     */
+    public function getFacets()
+    {
+        return $this->facets;
     }
 }
