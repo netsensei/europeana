@@ -27,6 +27,9 @@ class SearchPayloadFacetsTest extends AbstractPayloadTest
         $refinement = new Refinement('TYPE', 'IMAGE');
         $payload->addRefinement($refinement);
 
+        $refinement = new Refinement('where', 'france');
+        $payload->addRefinement($refinement);
+
         $facet = new Facet('PROVIDER', 10, 20);
         $payload->addFacet($facet);
 
@@ -44,6 +47,7 @@ class SearchPayloadFacetsTest extends AbstractPayloadTest
         return array(
             array('query', 'foo bar'),
             array('qf', 'TYPE:IMAGE'),
+            array('qf', 'where:france'),
             array('f.PROVIDER.facet.limit', 10),
             array('f.PROVIDER.facet.offset', 20),
             array('f.proxy_dc_coverage.facet.limit', 10),
