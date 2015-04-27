@@ -14,3 +14,5 @@ Europeana\Payload\SearchPayloadResponse:
             type: ArrayCollection<Europeana\Model\Item>
         facets:
             type: ArrayCollection<Europeana\Model\Facet>
+        breadCrumbs:
+            type: ArrayCollection<Europeana\Model\Breadcrumb>

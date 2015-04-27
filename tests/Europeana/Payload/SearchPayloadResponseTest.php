@@ -24,6 +24,7 @@ class SearchPayloadResponseTest extends AbstractPayloadResponseTest
         return [
             'items' => new ArrayCollection(),
             'facets' => new ArrayCollection(),
+            'breadCrumbs' => new ArrayCollection(),
         ];
     }
 
@@ -34,6 +35,7 @@ class SearchPayloadResponseTest extends AbstractPayloadResponseTest
     {
         $this->assertEquals($payloadResponse->getItems(), $responseData['items']);
         $this->assertEquals($payloadResponse->getFacets(), $responseData['facets']);
+        $this->assertEquals($payloadResponse->getBreadCrumbs(), $responseData['breadCrumbs']);
     }
 
 }

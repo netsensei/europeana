@@ -37,6 +37,11 @@ class SearchPayloadResponse extends AbstractPayloadResponse
     private $facets;
 
     /**
+     * @var ArrayCollection<Europeana/Model/Breadcrumb>
+     */
+    private $breadCrumbs;
+
+    /**
      * @return itemsCount
      */
     public function getItemsCount()
@@ -61,10 +66,18 @@ class SearchPayloadResponse extends AbstractPayloadResponse
     }
 
     /**
-     * @return facets;
+     * @return facets
      */
     public function getFacets()
     {
         return $this->facets;
+    }
+
+    /**
+     * @return breadcrumbs
+     */
+    public function getBreadCrumbs()
+    {
+        return $this->breadCrumbs;
     }
 }

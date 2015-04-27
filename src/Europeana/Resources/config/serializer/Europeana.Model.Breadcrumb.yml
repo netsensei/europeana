@@ -1,0 +1,12 @@
+Europeana\Model\Breadcrumb:
+    properties:
+        display:
+            type: string
+        href:
+            type: string
+        param:
+            type: string
+        value:
+            type: string
+        last:
+            type: boolean
