@@ -16,144 +16,325 @@ namespace Europeana\Model;
  */
 class Item
 {
+    // Minimal Profile
+    private $dataProvider;
+
+    private $dcCreator;
+
+    private $edmIsShownAt;
+
+    private $edmPlaceLatitude;
+
+    private $edmPlaceLongitude;
+
+    private $edmPreview;
+
+    private $europeanaCompleteness;
+
+    private $guid;
 
     private $id;
 
-    private $completeness;
+    private $link;
 
-    private $europeanaCollectionName;
-
-    private $index;
-
-    private $edmDatasetName;
-
-    private $previewNoDistribute;
-
-    private $title;
-
-    private $dataProvider;
+    private $provider;
 
     private $rights;
 
     private $score;
 
-    private $edmIsShownAt;
-
-    private $europeanaCompleteness;
-
-    private $edmPreview;
-
-    private $timestamp;
-
-    private $provider;
-
-    private $language;
+    private $title;
 
     private $type;
 
-    private $optedOut;
+    private $year;
 
-    private $link;
+    // Standard Profile
+    //private $edmConceptTerm;
 
-    private $guid;
+    //private $edmConceptPrefLabel;
 
-    public function getId()
-    {
-        return $this->id;
-    }
+    //private $edmConceptBroaderTerm;
 
-    public function getCompleteness()
-    {
-        return $this->completeness;
-    }
+    //private $edmConceptBroaderLabel;
 
-    public function getEuropeanaCollectionName()
-    {
-        return $this->europeanaCompleteness;
-    }
+    private $edmTimespanLabel;
 
-    public function getIndex()
-    {
-        return $this->index;
-    }
+    //private $edmTimespanBegin;
 
-    public function getEdmDatasetName()
-    {
-        return $this->edmDatasetName;
-    }
+    //private $edmTimespanEnd;
 
-    public function getPreviewNoDistribute()
-    {
-        return $this->previewNoDistribute;
-    }
+    //private $edmTimespanBroaderTerm;
 
-    public function getTitle()
-    {
-        return $this->title;
-    }
+    //private $edmTimespanBroaderLabel;
 
-    public function getDataProvider()
-    {
+    //private $recordHashFirstSix;
+
+    private $ugc;
+
+    private $completeness;
+
+    //private $country;
+
+    private $europeanaCollectionName;
+
+    //private $edmPlaceBroaderTerm;
+
+    //private $edmPlaceAltLabel;
+
+    //private $dctermsIsPartOf;
+
+    //private $timestampCreated;
+
+    //private $timestampUpdate;
+
+    private $language;
+
+    // Portal Profile
+    //private $dctermsSpatial;
+
+    //private $edmPlace;
+
+    //private $edmTimespan;
+
+    private $edmAgent;
+
+    private $edmAgentLabel;
+
+    private $dcContributor;
+
+    // Rich Portal
+    private $edmIsShownBy;
+
+    private $dcDescription;
+
+    private $edmLandingPage;
+
+    // Ungrouped
+    private $edmConceptLabel;
+
+    private $timestamp_created_epoch;
+
+    private $timestamp_update_epoch;
+
+    private $timestamp_created;
+
+    private $timestamp_update;
+
+    private $index;
+
+    private $dcLanguage;
+
+    // Minimal Profile
+    function getDataProvider() {
         return $this->dataProvider;
     }
 
-    public function getRights()
-    {
-        return $this->rights;
+    function getDcCreator() {
+        return $this->dcCreator;
     }
 
-    public function getScore()
-    {
-        return $this->score;
-    }
-
-    public function getEdmIsShownAt()
-    {
+    function getEdmIsShownAt() {
         return $this->edmIsShownAt;
     }
 
-    public function getEuropeanaCompleteness()
-    {
-        return $this->europeanaCompleteness;
+    function getEdmPlaceLatitude() {
+        return $this->edmPlaceLatitude;
     }
 
-    public function getEdmPreview()
-    {
+    function getEdmPlaceLongitude() {
+        return $this->edmPlaceLongitude;
+    }
+
+    function getEdmPreview() {
         return $this->edmPreview;
     }
 
-    public function getTimestamp()
-    {
-        return $this->timestamp;
+    function getEuropeanaCompleteness() {
+        return $this->europeanaCompleteness;
     }
 
-    public function getProvider()
-    {
-        return $this->provider;
+    function getGuid() {
+        return $this->guid;
     }
 
-    public function getLanguage()
-    {
-        return $this->provider;
+    function getId() {
+        return $this->id;
     }
 
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    public function getOptedOut()
-    {
-        return $this->optedOut;
-    }
-
-    public function getLink()
-    {
+    function getLink() {
         return $this->link;
     }
 
-    public function getGuid()
-    {
-        return $this->guid;
+    function getProvider() {
+        return $this->provider;
+    }
+
+    function getRights() {
+        return $this->rights;
+    }
+
+    function getScore() {
+        return $this->score;
+    }
+
+    function getTitle() {
+        return $this->title;
+    }
+
+    function getType() {
+        return $this->type;
+    }
+
+    function getYear() {
+        return $this->year;
+    }
+
+    // Standard Profile
+    /* function getEdmConceptTerm() {
+        return $this->edmConceptTerm;
+    } */
+
+    /* function getEdmConceptPrefLabel() {
+        return $this->edmConceptPrefLabel;
+    } */
+
+    /* function getEdmConceptBroaderTerm() {
+        return $this->edmConceptBroaderTerm;
+    } */
+
+    /* function getEdmConceptBroaderLabel() {
+        return $this->edmConceptBroaderLabel;
+    } */
+
+    function getEdmTimespanLabel() {
+        return $this->edmTimespanLabel;
+    }
+
+    /* function getEdmTimespanBegin() {
+        return $this->edmTimespanBegin;
+    } */
+
+    /* function getEdmTimespanEnd() {
+        return $this->edmTimespanEnd;
+    } */
+
+    /* function getEdmTimespanBroaderTerm() {
+        return $this->edmTimespanBroaderTerm;
+    } */
+
+    /* function getEdmTimespanBroaderLabel() {
+        return $this->edmTimespanBroaderLabel;
+    } */
+
+    /* function getRecordHashFirstSix() {
+        return $this->recordHashFirstSix;
+    } */
+
+    function getUgc() {
+        return $this->ugc;
+    }
+
+    function getCompleteness() {
+        return $this->completeness;
+    }
+
+    /* function getCountry() {
+        return $this->country;
+    } */
+
+    function getEuropeanaCollectionName() {
+        return $this->europeanaCollectionName;
+    }
+
+    /* function getEdmPlaceBroaderTerm() {
+        return $this->edmPlaceBroaderTerm;
+    } */
+
+    /* function getEdmPlaceAltLabel() {
+        return $this->edmPlaceAltLabel;
+    } */
+
+    /* function getDctermsIsPartOf() {
+        return $this->dctermsIsPartOf;
+    } */
+
+    /* function getTimestampCreated() {
+        return $this->timestampCreated;
+    } */
+
+    /* function getTimestampUpdate() {
+        return $this->timestampUpdate;
+    } */
+
+    function getLanguage() {
+        return $this->language;
+    }
+
+    // Portal Profile
+    /* function getDctermsSpatial() {
+        return $this->dctermsSpatial;
+    } */
+
+    /* function getEdmPlace() {
+        return $this->edmPlace;
+    } */
+
+    /* function getEdmTimespan() {
+        return $this->edmTimespan;
+    } */
+
+    function getEdmAgent() {
+        return $this->edmAgent;
+    }
+
+    function getEdmAgentLabel() {
+        return $this->edmAgentLabel;
+    }
+
+    function getDcContributor() {
+        return $this->dcContributor;
+    }
+
+    // Rich Portal
+    function getEdmIsShownBy() {
+        return $this->edmIsShownBy;
+    }
+
+    function getDcDescription() {
+        return $this->dcDescription;
+    }
+
+    function getEdmLandingPage() {
+        return $this->edmLandingPage;
+    }
+
+    // Ungrouped
+    function getEdmConceptLabel() {
+        return $this->edmConceptLabel;
+    }
+
+    function getTimestampCreatedEpoch() {
+        return $this->timestamp_created_epoch;
+    }
+
+    function getTimestampUpdateEpoch() {
+        return $this->timestamp_update_epoch;
+    }
+
+    function getTimestampCreated() {
+        return $this->timestamp_created;
+    }
+
+    function getTimestampUpdate() {
+        return $this->timestamp_update;
+    }
+
+    function getIndex() {
+        return $this->index;
+    }
+
+    function getDcLanguage() {
+        return $this->dcLanguage;
     }
 }
