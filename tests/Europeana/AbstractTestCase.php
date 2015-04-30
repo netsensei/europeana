@@ -11,6 +11,8 @@
 
 namespace Europeana\Tests;
 
+use Europeana\Model\Breadcrumb;
+use Europeana\Model\Facet;
 use Europeana\Model\Item;
 use Europeana\Model\EDM\Label;
 
@@ -96,64 +98,64 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($expected, [
             // Minimal Profile
-            'dataProvider' => $actual->getDataProvider()->toArray(),
-            'dcCreator' => $actual->getDcCreator()->toArray(),
-            'edmIsShownAt' => $actual->getEdmIsShownAt()->toArray(),
-            'edmPlaceLatitude' => $actual->getEdmPlaceLatitude()->toArray(),
-            'edmPlaceLongitude' => $actual->getEdmPlaceLongitude()->toArray(),
-            'edmPreview' => $actual->getEdmPreview()->toArray(),
-            'europeanaCompleteness' => $actual->getEuropeanaCompleteness(),
-            'guid' => $actual->getGuid(),
-            'id' => $actual->getId(),
-            'link' => $actual->getLink(),
-            'provider' => $actual->getProvider()->toArray(),
-            'rights' => $actual->getRights()->toArray(),
-            'score' => $actual->getScore(),
-            'title' => $actual->getTitle()->toArray(),
-            'type' => $actual->getType(),
-            'year' => $actual->getYear()->toArray(),
+            'dataProvider'             => $actual->getDataProvider()->toArray(),
+            'dcCreator'                => $actual->getDcCreator()->toArray(),
+            'edmIsShownAt'             => $actual->getEdmIsShownAt()->toArray(),
+            'edmPlaceLatitude'         => $actual->getEdmPlaceLatitude()->toArray(),
+            'edmPlaceLongitude'        => $actual->getEdmPlaceLongitude()->toArray(),
+            'edmPreview'               => $actual->getEdmPreview()->toArray(),
+            'europeanaCompleteness'    => $actual->getEuropeanaCompleteness(),
+            'guid'                     => $actual->getGuid(),
+            'id'                       => $actual->getId(),
+            'link'                     => $actual->getLink(),
+            'provider'                 => $actual->getProvider()->toArray(),
+            'rights'                   => $actual->getRights()->toArray(),
+            'score'                    => $actual->getScore(),
+            'title'                    => $actual->getTitle()->toArray(),
+            'type'                     => $actual->getType(),
+            'year'                     => $actual->getYear()->toArray(),
 
             // Standard Profile
-            //'edmConceptTerm' => $actual->getEdmConceptTerm(),
-            //'edmConceptPrefLabel' => $actual->getEdmConceptPrefLabel(),
-            //'edmConceptBroaderTerm' => $actual->getEdmConceptBroaderTerm(),
-            //'edmConceptBroaderLabel' => $actual->getEdmConceptBroaderLabel(),
-            //'edmTimespanLabel' => $actual->getEdmTimespanLabel()->toArray(),
-            //'edmTimespanBegin' => $actual->getEdmTimespanBegin(),
-            //'edmTimespanEnd' => $actual->getEdmTimespanEnd(),
-            //'edmTimespanBroaderTerm' => $actual->getEdmTimespanBroaderTerm(),
+            //'edmConceptTerm'          => $actual->getEdmConceptTerm(),
+            //'edmConceptPrefLabel'     => $actual->getEdmConceptPrefLabel(),
+            //'edmConceptBroaderTerm'   => $actual->getEdmConceptBroaderTerm(),
+            //'edmConceptBroaderLabel'  => $actual->getEdmConceptBroaderLabel(),
+            //'edmTimespanLabel'        => $actual->getEdmTimespanLabel()->toArray(),
+            //'edmTimespanBegin'        => $actual->getEdmTimespanBegin(),
+            //'edmTimespanEnd'          => $actual->getEdmTimespanEnd(),
+            //'edmTimespanBroaderTerm'  => $actual->getEdmTimespanBroaderTerm(),
             //'edmTimespanBroaderLabel' => $actual->getEdmTimespanBroaderLabel(),
-            //'recordHashFirstSix' => $actual->getRecordHashFirstSix(),
-            'ugc' => $actual->getUgc()->toArray(),
-            'completeness' => $actual->getCompleteness(),
-            //'country' => $actual->getCountry(),
+            //'recordHashFirstSix'      => $actual->getRecordHashFirstSix(),
+            'ugc'                     => $actual->getUgc()->toArray(),
+            'completeness'            => $actual->getCompleteness(),
+            //'country'                 => $actual->getCountry(),
             'europeanaCollectionName' => $actual->getEuropeanaCollectionName()->toArray(),
-            //'edmPlaceBroaderTerm' => $actual->getEdmPlaceBroaderTerm(),
-            //'edmPlaceAltLabel' => $actual->getEdmPlaceAltLabel(),
-            //'dctermsIsPartOf' => $actual->getDctermsIsPartOf(),
-            //'timestampCreated' => $actual->getTimestampCreated(),
-            //'timestampUpdate' => $actual->getTimestampUpdate(),
-            'language' => $actual->getLanguage()->toArray(),
+            //'edmPlaceBroaderTerm'     => $actual->getEdmPlaceBroaderTerm(),
+            //'edmPlaceAltLabel'        => $actual->getEdmPlaceAltLabel(),
+            //'dctermsIsPartOf'         => $actual->getDctermsIsPartOf(),
+            //'timestampCreated'        => $actual->getTimestampCreated(),
+            //'timestampUpdate'         => $actual->getTimestampUpdate(),
+            'language'                => $actual->getLanguage()->toArray(),
 
             // Portal Profile
-            //'dctermsSpatial' => $actual->getDctermsSpatial(),
-            //'edmPlace' => $actual->getEdmPlace(),
-            //'edmTimespan' => $actual->getEdmTimespan(),
-            'edmAgent' => $actual->getEdmAgent()->toArray(),
-            'dcContributor' => $actual->getDcContributor()->toArray(),
+            //'dctermsSpatial'           => $actual->getDctermsSpatial(),
+            //'edmPlace'                 => $actual->getEdmPlace(),
+            //'edmTimespan'              => $actual->getEdmTimespan(),
+            'edmAgent'                => $actual->getEdmAgent()->toArray(),
+            'dcContributor'           => $actual->getDcContributor()->toArray(),
 
             // Rich Portal
-            'edmIsShownBy' => $actual->getEdmIsShownBy()->toArray(),
-            'dcDescription' => $actual->getDcDescription()->toArray(),
-            'edmLandingPage' => $actual->getEdmLandingPage()->toArray(),
+            'edmIsShownBy'            => $actual->getEdmIsShownBy()->toArray(),
+            'dcDescription'           => $actual->getDcDescription()->toArray(),
+            'edmLandingPage'          => $actual->getEdmLandingPage()->toArray(),
 
             // Ungrouped
             'timestamp_created_epoch' => $actual->getTimestampCreatedEpoch(),
-            'timestamp_update_epoch' => $actual->getTimestampUpdateEpoch(),
-            'timestamp_created' => $actual->getTimestampCreated(),
-            'timestamp_update' => $actual->getTimestampUpdate(),
-            'index' => $actual->getIndex(),
-            'dcLanguage' => $actual->getDcLanguage()->toArray(),
+            'timestamp_update_epoch'  => $actual->getTimestampUpdateEpoch(),
+            'timestamp_created'       => $actual->getTimestampCreated(),
+            'timestamp_update'        => $actual->getTimestampUpdate(),
+            'index'                   => $actual->getIndex(),
+            'dcLanguage'              => $actual->getDcLanguage()->toArray(),
         ]);
     }
 
@@ -175,9 +177,48 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
 
     protected function createFacet()
     {
+        return [
+            'name' => 'foo',
+            'fields' => [
+                [
+                    ['label' => 'value'],
+                    ['count' => 123]
+                ]
+            ]
+        ];
+    }
+
+    protected function assertFacet(array $expected, Facet $actual)
+    {
+        $this->assertNotEmpty($expected);
+        $this->assertInstanceOf('Europeana\Model\Facet', $actual);
+        $this->assertEquals($expected, [
+            'name'      => $actual->getName(),
+            'fields'    => $actual->getFields()->toArray()
+        ]);
     }
 
     protected function createBreadcrumb()
     {
+        return [
+            'display'    => 'foobar',
+            'href'       => 'query=foobar',
+            'param'      => 'query',
+            'value'      => 'foobar',
+            'last'       => true
+        ];
+    }
+
+    protected function assertBreadcrumb(array $expected, Breadcrumb $actual)
+    {
+        $this->assertNotEmpty($expected);
+        $this->assertInstanceOf('Europeana\Model\Breadcrumb', $actual);
+        $this->assertEquals($expected, [
+            'display'      => $actual->getDisplay(),
+            'href'         => $actual->getHref(),
+            'param'        => $actual->getParam(),
+            'value'        => $actual->getValue(),
+            'last'         => $actual->getLast()
+        ]);
     }
 }

@@ -16,17 +16,38 @@ namespace Europeana\Model;
  */
 class Breadcrumb
 {
-    private $name;
+    private $display;
 
-    private $fields;
+    private $href;
 
-    public function getName()
+    private $param;
+
+    private $value;
+
+    private $last;
+
+    public function getDisplay()
     {
-        return $this->name;
+        return $this->display;
     }
 
-    public function getFields()
+    public function getHref()
     {
-        return $this->fields;
+        return $this->href;
+    }
+
+    public function getParam()
+    {
+        return $this->param;
+    }
+
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    public function getLast()
+    {
+        return $this->last;
     }
 }

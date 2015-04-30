@@ -22,8 +22,8 @@ class SearchPayloadResponseTest extends AbstractPayloadResponseTest
     {
         return [
             'items' => [$this->createItem()],
-            'facets' => [],
-            'breadCrumbs' => [],
+            'facets' => [$this->createFacet()],
+            'breadCrumbs' => [$this->createBreadcrumb()],
         ];
     }
 
@@ -35,6 +35,14 @@ class SearchPayloadResponseTest extends AbstractPayloadResponseTest
         $this->assertNotEmpty($payloadResponse->getItems());
         $this->assertInstanceOf('Doctrine\Common\Collections\ArrayCollection', $payloadResponse->getItems());
         $this->assertItem($responseData['items'][0], $payloadResponse->getItems()->get(0));
+
+        $this->assertNotEmpty($payloadResponse->getFacets());
+        $this->assertInstanceOf('Doctrine\Common\Collections\ArrayCollection', $payloadResponse->getFacets());
+        $this->assertFacet($responseData['facets'][0], $payloadResponse->getFacets()->get(0));
+
+        $this->assertNotEmpty($payloadResponse->getBreadCrumbs());
+        $this->assertInstanceOf('Doctrine\Common\Collections\ArrayCollection', $payloadResponse->getBreadCrumbs());
+        $this->assertBreadcrumb($responseData['breadCrumbs'][0], $payloadResponse->getBreadCrumbs()->get(0));
 
        /* $this->assertEquals($payloadResponse->getItems(), $responseData['items']);
         $this->assertEquals($payloadResponse->getFacets(), $responseData['facets']);
