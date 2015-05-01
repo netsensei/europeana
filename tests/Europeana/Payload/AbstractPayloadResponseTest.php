@@ -11,7 +11,7 @@
 
 namespace Europeana\Tests\Payload;
 
-use Doctrine\Common\Collections\ArrayCollection;
+use Europeana\Model\Params;
 use Europeana\Payload\PayloadResponseInterface;
 use Europeana\Serializer\PayloadResponseSerializer;
 use Europeana\Tests\AbstractTestCase;
@@ -34,7 +34,7 @@ abstract class AbstractPayloadResponseTest extends AbstractTestCase
                 'success' => true,
                 'statsDuration' => 1234,
                 'requestNumber' => 1234,
-                'params' => new ArrayCollection()
+                'params' => $this->createParams(),
             ],
             $this->createResponseData());
 
@@ -44,6 +44,11 @@ abstract class AbstractPayloadResponseTest extends AbstractTestCase
             $this->getResponseClass()
         );
 
+        // $this->assertEquals($responseData['params'], $actualPayloadResponse->getParams());
+        $this->assertNotEmpty($actualPayloadResponse->getParams());
+        $this->assertInstanceOf('Europeana\Model\Params', $actualPayloadResponse->getParams());
+        $this->assertParams($responseData['params'], $actualPayloadResponse->getParams());
+
         $this->assertInstanceOf('Europeana\Payload\PayloadResponseInterface', $actualPayloadResponse);
         $this->assertInstanceOf($this->getResponseClass(), $actualPayloadResponse);
         $this->assertEquals($responseData['apikey'], $actualPayloadResponse->getApikey());
@@ -51,7 +56,6 @@ abstract class AbstractPayloadResponseTest extends AbstractTestCase
         $this->assertEquals($responseData['success'], $actualPayloadResponse->isSuccess());
         $this->assertEquals($responseData['statsDuration'], $actualPayloadResponse->getStatsDuration());
         $this->assertEquals($responseData['requestNumber'], $actualPayloadResponse->getRequestNumber());
-        $this->assertEquals($responseData['params'], $actualPayloadResponse->getParams());
         $this->assertResponse($responseData, $actualPayloadResponse);
     }
 

@@ -21,9 +21,11 @@ class SearchPayloadResponseTest extends AbstractPayloadResponseTest
     public function createResponseData()
     {
         return [
-            'items' => [$this->createItem()],
-            'facets' => [$this->createFacet()],
-            'breadCrumbs' => [$this->createBreadcrumb()],
+            'items'         => [$this->createItem()],
+            'facets'        => [$this->createFacet()],
+            'breadCrumbs'   => [$this->createBreadcrumb()],
+            'itemsCount'    => 999,
+            'totalResults'  => 112
         ];
     }
 
@@ -44,9 +46,7 @@ class SearchPayloadResponseTest extends AbstractPayloadResponseTest
         $this->assertInstanceOf('Doctrine\Common\Collections\ArrayCollection', $payloadResponse->getBreadCrumbs());
         $this->assertBreadcrumb($responseData['breadCrumbs'][0], $payloadResponse->getBreadCrumbs()->get(0));
 
-       /* $this->assertEquals($payloadResponse->getItems(), $responseData['items']);
-        $this->assertEquals($payloadResponse->getFacets(), $responseData['facets']);
-        $this->assertEquals($payloadResponse->getParams(), $responseData['params']);
-        $this->assertEquals($payloadResponse->getBreadCrumbs(), $responseData['breadCrumbs']); */
+        $this->assertEquals($responseData['itemsCount'], $payloadResponse->getItemsCount());
+        $this->assertEquals($responseData['totalResults'], $payloadResponse->getTotalResults());
     }
 }

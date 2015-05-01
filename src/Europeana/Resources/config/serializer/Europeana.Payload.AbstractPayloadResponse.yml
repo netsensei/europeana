@@ -13,4 +13,4 @@ Europeana\Payload\AbstractPayloadResponse:
         error:
             type: string
         params:
-            type: ArrayCollection<Europeana\Model\Params>
+            type: Europeana\Model\Params

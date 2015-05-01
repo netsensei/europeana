@@ -14,6 +14,7 @@ namespace Europeana\Tests;
 use Europeana\Model\Breadcrumb;
 use Europeana\Model\Facet;
 use Europeana\Model\Item;
+use Europeana\Model\Params;
 use Europeana\Model\EDM\Label;
 
 abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
@@ -219,6 +220,30 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
             'param'        => $actual->getParam(),
             'value'        => $actual->getValue(),
             'last'         => $actual->getLast()
+        ]);
+    }
+
+    protected function createParams()
+    {
+        return [
+            'query'     => 'query',
+            'qf'        => 'where:place',
+            'profiles'  => 'foo bar',
+            'start'     => 1,
+            'rows'      => 12
+        ];
+    }
+
+    protected function assertParams(array $expected, Params $actual)
+    {
+        $this->assertNotEmpty($expected);
+        $this->assertInstanceOf('Europeana\Model\Params', $actual);
+        $this->assertEquals($expected, [
+            'query'        => $actual->getQuery(),
+            'qf'           => $actual->getRefinements(),
+            'profiles'     => $actual->getProfiles(),
+            'start'        => $actual->getStart(),
+            'rows'         => $actual->getRows(),
         ]);
     }
 }
