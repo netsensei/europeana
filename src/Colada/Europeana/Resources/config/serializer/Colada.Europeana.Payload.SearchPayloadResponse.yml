@@ -1,0 +1,18 @@
+Colada\Europeana\Payload\SearchPayloadResponse:
+    properties:
+        action:
+            type: string
+        success:
+            type: integer
+        requestNumber:
+            type: integer
+        itemsCount:
+            type: integer
+        totalResults:
+            type: integer
+        items:
+            type: ArrayCollection<Colada\Europeana\Model\Item>
+        facets:
+            type: ArrayCollection<Colada\Europeana\Model\Facet>
+        breadCrumbs:
+            type: ArrayCollection<Colada\Europeana\Model\Breadcrumb>

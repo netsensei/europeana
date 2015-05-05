@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Europeana\Tests\Payload;
+namespace Colada\Europeana\Tests\Payload;
 
-use Europeana\Payload\PayloadResponseInterface;
+use Colada\Europeana\Payload\PayloadResponseInterface;
 
 class SearchPayloadResponseTest extends AbstractPayloadResponseTest
 {

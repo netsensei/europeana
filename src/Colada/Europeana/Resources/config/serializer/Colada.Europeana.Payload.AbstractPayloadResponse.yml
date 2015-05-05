@@ -1,0 +1,16 @@
+Colada\Europeana\Payload\AbstractPayloadResponse:
+    properties:
+        apikey:
+            type: string
+        action:
+            type: string
+        success:
+            type: boolean
+        statsDuration:
+            type: integer
+        requestNumber:
+            type: integer
+        error:
+            type: string
+        params:
+            type: Colada\Europeana\Model\Params

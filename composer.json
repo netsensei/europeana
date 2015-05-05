@@ -35,12 +35,12 @@
   },
   "autoload" : {
     "psr-4": {
-      "Europeana\\": "src/Europeana/",
+      "Colada\\Europeana\\": "src/Colada/Europeana/"
     }
   },
   "autoload-dev": {
       "psr-4": {
-          "Europeana\\Tests\\": "tests/Europeana/"
+          "Colada\\Europeana\\Tests\\": "tests/Europeana/"
       }
   }
 }

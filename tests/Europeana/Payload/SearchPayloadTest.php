@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Europeana\Tests\Payload;
+namespace Colada\Europeana\Tests\Payload;
 
-use Europeana\Payload\SearchPayload;
-use Europeana\Payload\PayloadInterface;
+use Colada\Europeana\Payload\SearchPayload;
+use Colada\Europeana\Payload\PayloadInterface;
 
 class SearchPayloadTest extends AbstractPayloadTest
 {

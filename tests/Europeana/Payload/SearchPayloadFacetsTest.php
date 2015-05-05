@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Europeana\Tests\Payload;
+namespace Colada\Europeana\Tests\Payload;
 
-use Europeana\Payload\SearchPayload;
-use Europeana\Payload\PayloadInterface;
-use Europeana\Payload\Facet\Facet;
-use Europeana\Payload\Facet\Refinement;
+use Colada\Europeana\Payload\SearchPayload;
+use Colada\Europeana\Payload\PayloadInterface;
+use Colada\Europeana\Payload\Facet\Facet;
+use Colada\Europeana\Payload\Facet\Refinement;
 
 class SearchPayloadFacetsTest extends AbstractPayloadTest
 {

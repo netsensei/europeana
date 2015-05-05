@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Europeana\Tests;
+namespace Colada\Europeana\Tests;
 
-use Europeana\Model\Breadcrumb;
-use Europeana\Model\Facet;
-use Europeana\Model\Item;
-use Europeana\Model\Params;
-use Europeana\Model\EDM\Label;
+use Colada\Europeana\Model\Breadcrumb;
+use Colada\Europeana\Model\Facet;
+use Colada\Europeana\Model\Item;
+use Colada\Europeana\Model\Params;
+use Colada\Europeana\Model\EDM\Label;
 
 abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
 {
@@ -170,7 +170,7 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
     protected function assertLabel(array $expected, Label $actual)
     {
         $this->assertNotEmpty($expected);
-        $this->assertInstanceOf('Europeana\Model\EDM\Label', $actual);
+        $this->assertInstanceOf('Colada\Europeana\Model\EDM\Label', $actual);
         $this->assertEquals($expected, [
             'def' => $actual->getDef()
         ]);
@@ -192,7 +192,7 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
     protected function assertFacet(array $expected, Facet $actual)
     {
         $this->assertNotEmpty($expected);
-        $this->assertInstanceOf('Europeana\Model\Facet', $actual);
+        $this->assertInstanceOf('Colada\Europeana\Model\Facet', $actual);
         $this->assertEquals($expected, [
             'name'      => $actual->getName(),
             'fields'    => $actual->getFields()->toArray()
@@ -213,7 +213,7 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
     protected function assertBreadcrumb(array $expected, Breadcrumb $actual)
     {
         $this->assertNotEmpty($expected);
-        $this->assertInstanceOf('Europeana\Model\Breadcrumb', $actual);
+        $this->assertInstanceOf('Colada\Europeana\Model\Breadcrumb', $actual);
         $this->assertEquals($expected, [
             'display'      => $actual->getDisplay(),
             'href'         => $actual->getHref(),
@@ -237,7 +237,7 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
     protected function assertParams(array $expected, Params $actual)
     {
         $this->assertNotEmpty($expected);
-        $this->assertInstanceOf('Europeana\Model\Params', $actual);
+        $this->assertInstanceOf('Colada\Europeana\Model\Params', $actual);
         $this->assertEquals($expected, [
             'query'        => $actual->getQuery(),
             'qf'           => $actual->getRefinements(),

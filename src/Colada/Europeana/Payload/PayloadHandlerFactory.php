@@ -9,16 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Colada\Europeana\Tests\Test\Payload;
+namespace Colada\Europeana\Payload;
 
-use Colada\Europeana\Payload\AbstractPayloadResponse;
+use Colada\Europeana\Payload\PayloadInterface;
 
-class MockPayloadResponse extends AbstractPayloadResponse
+class PayloadHandlerFactory
 {
-    private $foo;
-
-    function getFoo()
+    public static function getHandler(PayloadInterface $payload)
     {
-        return $this->foo;
+        $handler = $payload->getHandlerClass();
+        return $handler::create($payload);
     }
 }

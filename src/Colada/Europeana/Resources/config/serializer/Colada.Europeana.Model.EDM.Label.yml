@@ -1,0 +1,4 @@
+Colada\Europeana\Model\EDM\Label:
+    properties:
+        def:
+            type: string

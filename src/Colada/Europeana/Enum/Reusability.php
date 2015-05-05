@@ -9,16 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Colada\Europeana\Tests\Test\Payload;
+namespace Colada\Europeana\Enum;
 
-use Colada\Europeana\Payload\AbstractPayloadResponse;
+use CommerceGuys\Enum\AbstractEnum;
 
-class MockPayloadResponse extends AbstractPayloadResponse
+final class Reusability extends AbstractEnum
 {
-    private $foo;
-
-    function getFoo()
-    {
-        return $this->foo;
-    }
+    const OPEN = 'open';
+    const RESTRICTED = 'restricted';
+    const PERMISSION = 'permission';
 }

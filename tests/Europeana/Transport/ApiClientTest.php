@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Europeana\Tests\Transport;
+namespace Colada\Europeana\Tests\Transport;
 
-use Europeana\Exception\EuropeanaException;
-use Europeana\Tests\AbstractTestCase;
-use Europeana\Tests\Test\Payload\MockPayload;
-use Europeana\Transport\ApiClient;
+use Colada\Europeana\Exception\EuropeanaException;
+use Colada\Europeana\Tests\AbstractTestCase;
+use Colada\Europeana\Tests\Test\Payload\MockPayload;
+use Colada\Europeana\Transport\ApiClient;
 use GuzzleHttp\Client;
 use GuzzleHttp\Query;
 use GuzzleHttp\URL;
@@ -73,7 +73,7 @@ class ApiClientTest extends AbstractTestCase
     public function testSendWithoutKey()
     {
         /** @var PayloadInterface|\PHPUnit_Framework_MockObject_MockObject $mockPayload */
-        $mockPayload = $this->getMock('Europeana\Payload\PayloadInterface');
+        $mockPayload = $this->getMock('Colada\Europeana\Payload\PayloadInterface');
         $apiClient   = new ApiClient();
 
         try {

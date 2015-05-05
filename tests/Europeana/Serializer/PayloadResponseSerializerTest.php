@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Europeana\Tests\Serializer;
+namespace Colada\Europeana\Tests\Serializer;
 
-use Europeana\Serializer\PayloadResponseSerializer;
-use Europeana\Tests\AbstractTestCase;
+use Colada\Europeana\Serializer\PayloadResponseSerializer;
+use Colada\Europeana\Tests\AbstractTestCase;
 
 /**
  * @author Matthias Vandermaesen <matthias@colada.be>
@@ -39,7 +39,7 @@ class PayloadResponseSerializerTest extends AbstractTestCase
             'itemsCount' => 1,
         ];
 
-        $mockResponseClass = 'Europeana\Tests\Test\Payload\MockPayloadResponse';
+        $mockResponseClass = 'Colada\Europeana\Tests\Test\Payload\MockPayloadResponse';
         $serializedPayload = $this->payloadResponseSerializer->deserialize(
             $payloadResponse,
             $mockResponseClass

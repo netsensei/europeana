@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Europeana\Tests\Payload;
+namespace Colada\Europeana\Tests\Payload;
 
-use Europeana\Model\Params;
-use Europeana\Payload\PayloadResponseInterface;
-use Europeana\Serializer\PayloadResponseSerializer;
-use Europeana\Tests\AbstractTestCase;
+use Colada\Europeana\Model\Params;
+use Colada\Europeana\Payload\PayloadResponseInterface;
+use Colada\Europeana\Serializer\PayloadResponseSerializer;
+use Colada\Europeana\Tests\AbstractTestCase;
 
 abstract class AbstractPayloadResponseTest extends AbstractTestCase
 {
@@ -46,10 +46,10 @@ abstract class AbstractPayloadResponseTest extends AbstractTestCase
 
         // $this->assertEquals($responseData['params'], $actualPayloadResponse->getParams());
         $this->assertNotEmpty($actualPayloadResponse->getParams());
-        $this->assertInstanceOf('Europeana\Model\Params', $actualPayloadResponse->getParams());
+        $this->assertInstanceOf('Colada\Europeana\Model\Params', $actualPayloadResponse->getParams());
         $this->assertParams($responseData['params'], $actualPayloadResponse->getParams());
 
-        $this->assertInstanceOf('Europeana\Payload\PayloadResponseInterface', $actualPayloadResponse);
+        $this->assertInstanceOf('Colada\Europeana\Payload\PayloadResponseInterface', $actualPayloadResponse);
         $this->assertInstanceOf($this->getResponseClass(), $actualPayloadResponse);
         $this->assertEquals($responseData['apikey'], $actualPayloadResponse->getApikey());
         $this->assertEquals($responseData['action'], $actualPayloadResponse->getAction());
@@ -76,7 +76,7 @@ abstract class AbstractPayloadResponseTest extends AbstractTestCase
         $class = get_class($this);
         $name  = substr($class, strripos($class, '\\') + 1, -4);
 
-        return sprintf('Europeana\Payload\%s', $name);
+        return sprintf('Colada\Europeana\Payload\%s', $name);
     }
 
     /**

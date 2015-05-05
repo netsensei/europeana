@@ -1,4 +1,0 @@
-Europeana\Tests\Test\Payload\MockPayloadResponse:
-    properties:
-        foo:
-            type: string

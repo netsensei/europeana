@@ -9,32 +9,28 @@
  * file that was distributed with this source code.
  */
 
-namespace Colada\Europeana\Tests\Test\Payload;
-
-use Colada\Europeana\Payload\AbstractPayload;
+namespace Colada\Europeana\Payload;
 
 /**
  * @author Matthias Vandermaesen <matthias@colada.be>
  */
-class MockPayload extends AbstractPayload
+abstract class AbstractPayload implements PayloadInterface
 {
-    private $foo;
+    private $apiKey;
 
     /**
      * {@inheritdoc}
      */
-    public function getMethod()
+    public function getResponseClass()
     {
-        return 'mock.json';
+        return sprintf('%sResponse', get_class($this));
     }
 
-    public function setFoo($foo)
+    /**
+     * {@inheritdoc}
+     */
+    public function getHandlerClass()
     {
-        $this->foo = $foo;
-    }
-
-    public function getFoo()
-    {
-        return $this->foo;
+        return sprintf('%sHandler', get_class($this));
     }
 }

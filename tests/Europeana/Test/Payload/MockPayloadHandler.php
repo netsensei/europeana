@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Europeana\Tests\Test\Payload;
+namespace Colada\Europeana\Tests\Test\Payload;
 
-use Europeana\Payload\AbstractPayloadHandler;
+use Colada\Europeana\Payload\AbstractPayloadHandler;
 
 class MockPayloadHandler extends AbstractPayloadHandler
 {

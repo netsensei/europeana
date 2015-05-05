@@ -9,16 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace Colada\Europeana\Tests\Test\Payload;
+namespace Colada\Europeana\Model\EDM;
 
-use Colada\Europeana\Payload\AbstractPayloadResponse;
-
-class MockPayloadResponse extends AbstractPayloadResponse
+/**
+ * @author Matthias Vandermaesen <matthias@colada.be>
+ */
+class Label
 {
-    private $foo;
+    private $def;
 
-    function getFoo()
+    public function getDef()
     {
-        return $this->foo;
+        return $this->def;
     }
 }

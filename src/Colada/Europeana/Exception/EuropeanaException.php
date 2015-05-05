@@ -9,16 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Colada\Europeana\Tests\Test\Payload;
+namespace Colada\Europeana\Exception;
 
-use Colada\Europeana\Payload\AbstractPayloadResponse;
-
-class MockPayloadResponse extends AbstractPayloadResponse
+/**
+ * @author Matthias Vandermaesen <matthias@colada.be>
+ */
+class EuropeanaException extends \Exception
 {
-    private $foo;
-
-    function getFoo()
-    {
-        return $this->foo;
-    }
 }

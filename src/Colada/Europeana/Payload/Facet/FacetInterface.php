@@ -9,16 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Colada\Europeana\Tests\Test\Payload;
+namespace Colada\Europeana\Payload\Facet;
 
-use Colada\Europeana\Payload\AbstractPayloadResponse;
-
-class MockPayloadResponse extends AbstractPayloadResponse
+interface FacetInterface
 {
-    private $foo;
+    public function getName();
 
-    function getFoo()
-    {
-        return $this->foo;
-    }
+    public function getLimit();
+
+    public function getOffset();
 }

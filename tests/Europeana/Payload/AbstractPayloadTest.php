@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Europeana\Tests\Payload;
+namespace Colada\Europeana\Tests\Payload;
 
-use Europeana\Payload\PayloadInterface;
-use Europeana\Payload\PayloadHandlerFactory;
+use Colada\Europeana\Payload\PayloadInterface;
+use Colada\Europeana\Payload\PayloadHandlerFactory;
 
 abstract class AbstractPayloadTest extends \PHPUnit_Framework_TestCase
 {
