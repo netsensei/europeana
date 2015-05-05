@@ -36,7 +36,6 @@
   "autoload" : {
     "psr-4": {
       "Europeana\\": "src/Europeana/",
-      "Europeana\\Example\\": "example/src/"
     }
   },
   "autoload-dev": {
