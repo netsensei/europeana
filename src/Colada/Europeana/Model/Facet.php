@@ -14,7 +14,7 @@ namespace Colada\Europeana\Model;
 /**
  * @author Matthias Vandermaesen <matthias@colada.be>
  */
-class Facet
+class Facet extends AbstractModel
 {
     private $name;
 

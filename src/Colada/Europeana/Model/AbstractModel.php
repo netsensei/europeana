@@ -9,17 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Colada\Europeana\Model\EDM;
+namespace Colada\Europeana\Model;
 
 /**
  * @author Matthias Vandermaesen <matthias@colada.be>
  */
-class Label extends AbstractModel
+abstract class AbstractModel
 {
-    private $def;
-
-    public function getDef()
-    {
-        return $this->def;
-    }
 }

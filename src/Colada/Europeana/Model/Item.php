@@ -14,7 +14,7 @@ namespace Colada\Europeana\Model;
 /**
  * @author Matthias Vandermaesen <matthias@colada.be>
  */
-class Item
+class Item extends AbstractModel
 {
     // Minimal Profile
     private $dataProvider;

@@ -14,7 +14,7 @@ namespace Colada\Europeana\Model;
 /**
  * @author Matthias Vandermaesen <matthias@colada.be>
  */
-class Breadcrumb
+class Breadcrumb extends AbstractModel
 {
     private $display;
 
