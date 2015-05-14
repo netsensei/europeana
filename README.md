@@ -10,7 +10,7 @@
 
 ## A PHP client library for the Europeana Portal
 
-This PHP library provides an  abstract client implementation of the [Europeana REST API](http://labs.europeana.eu/api/). It allows your PHP client to query and retrieve the Europeana datasets which are published via the main [Europeana Portal](http://www.europeana.eu/)
+This PHP library provides a highly abstract client implementation of the [Europeana REST API](http://labs.europeana.eu/api/). It allows your PHP client to query and retrieve the Europeana datasets which are published via the main [Europeana Portal](http://www.europeana.eu/)
 
 ## Install
 
@@ -22,7 +22,13 @@ $ composer require netsensei/europeana
 
 ## Usage
 
-Perform a basic query:
+### API Key
+
+You will need an API key before you can connect to the API endpoint. You can register an account an obtain a key at the [Europeana Labs](http://labs.europeana.eu/api/registration/) website.
+
+### Basic example
+
+Perform a basic search query:
 
 ```
 $payload = new Colada\Europeana\Payload\SearchPayload();
@@ -30,8 +36,8 @@ $payload->addQuery("Mona Lisa");
 
 try
 {
-    $apiKey = "ApiKey";
-    $client = new Guzzle\Client() // ie. Guzzle client
+    $apiKey = "YourApiKey";
+    $client = new Guzzle\Client()
     $apiClient = new Colada\Europeana\Transport\ApiClient($apiKey, $client);
 
     $payloadResponse = $apiClient->send($payload);
@@ -43,16 +49,24 @@ try
     }
 
 } catch (new Colada\Europeana\Exception\EuropeanaException $e) {
-    // Process
+    // Process the exception
 }
 ```
+
+## Features
+
+- API calls represented as a Payload -> Transport -> Response class model.
+- The response is deserialized using the JMS Serializer library into first class citizen PHP objects.
+- Highly abstracted, loose coupled code for easy reuse in your own applications.
 
 ## Documentation
 
 TBD
 
+## Acknowledgement
+
+This package is heavily inspired upon the [Slack API library](https://github.com/cleentfaar/slack) by [Cas Leentfaar](https://github.com/cleentfaar). Parts of the Slack API code where reused and adapted under the MIT License terms.
+
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-
