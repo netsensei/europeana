@@ -11,6 +11,8 @@
 
 namespace Colada\Europeana\Model\EDM;
 
+use Colada\Europeana\Model\AbstractModel;
+
 /**
  * @author Matthias Vandermaesen <matthias@colada.be>
  */
