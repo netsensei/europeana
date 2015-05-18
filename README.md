@@ -10,7 +10,11 @@
 
 ## A PHP client library for the Europeana Portal
 
-This PHP library provides a highly abstract client implementation of the [Europeana REST API](http://labs.europeana.eu/api/). It allows your PHP client to query and retrieve the Europeana datasets which are published via the main [Europeana Portal](http://www.europeana.eu/)
+This PHP library provides a highly abstract client implementation of the [Europeana REST API](http://labs.europeana.eu/api/). It allows your PHP application to query and retrieve the Europeana datasets which are published via the main [Europeana Portal](http://www.europeana.eu/) in a highly abstracted, developer friendly fashion.
+
+### What is Europeana?
+
+Europeana is an internet portal that acts as an interface to books, paintings, films, museum objects and archival records that have been digitised throughout Europe. More then 2.000 institutions across Europe have contributed. These range from large names such as the Rijksmuseum, the British Library or the Louvre to regional archives and local museums.
 
 ## Install
 
@@ -55,15 +59,29 @@ try
 
 ## Features
 
-- API calls represented as a Payload -> Transport -> Response class model.
-- The response is deserialized using the JMS Serializer library into first class citizen PHP objects.
-- Highly abstracted, loose coupled code for easy reuse in your own applications.
+- API calls are modelled as a Payload -> Transport -> Response class representation.
+- The response is deserialized using the [JMS Serializer](http://jmsyst.com/libs/serializer) library into first class citizen PHP objects.
+- Highly abstracted, loose coupled components for easy reuse in your own applications.
 
 ## Documentation
 
 TBD
 
-## Acknowledgement
+## Testing
+
+``` bash
+$ phpunit
+```
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+
+## Security
+
+If you discover any security related, please email matthias@colada.be instead of using the issue tracker.
+
+## Credits
 
 This package is heavily inspired upon the [Slack API library](https://github.com/cleentfaar/slack) by [Cas Leentfaar](https://github.com/cleentfaar). Parts of the Slack API code where reused and adapted under the MIT License terms.
 
