@@ -54,7 +54,7 @@ class SearchPayloadFacetsTest extends AbstractPayloadTest
             array('f.proxy_dc_coverage.facet.offset', 20),
             array('f.proxy_dc_contributor.facet.limit', 10),
             array('f.proxy_dc_contributor.facet.offset', 20),
-            array('facet', 'PROVIDER,proxy_dc_coverage,proxy_dc_contributor')
+            array('facet', 'PROVIDER,proxy_dc_coverage,proxy_dc_contributor'),
         );
     }
 

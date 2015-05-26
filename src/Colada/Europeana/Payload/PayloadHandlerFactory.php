@@ -11,7 +11,6 @@
 
 namespace Colada\Europeana\Payload;
 
-use Colada\Europeana\Payload\PayloadInterface;
 
 /**
  * @author Matthias Vandermaesen <matthias@colada.be>
@@ -29,6 +28,7 @@ class PayloadHandlerFactory
     public static function getHandler(PayloadInterface $payload)
     {
         $handler = $payload->getHandlerClass();
+
         return $handler::create($payload);
     }
 }

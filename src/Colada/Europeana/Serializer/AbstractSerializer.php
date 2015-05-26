@@ -15,7 +15,6 @@ use JMS\Serializer\SerializerBuilder;
 use JMS\Serializer\SerializerInterface;
 use JMS\Serializer\Naming\SerializedNameAnnotationStrategy;
 use JMS\Serializer\Naming\IdenticalPropertyNamingStrategy;
-use JMS\Serializer\Handler\HandlerRegistry;
 
 /**
  * @author Cas Leentfaar <info@casleentfaar.com>
@@ -29,7 +28,7 @@ abstract class AbstractSerializer
 
     final public function __construct()
     {
-        $metaDir = __DIR__ . '/../Resources/config/serializer';
+        $metaDir = __DIR__.'/../Resources/config/serializer';
         $builder = SerializerBuilder::create();
         $builder->addMetadataDir($metaDir);
         $builder

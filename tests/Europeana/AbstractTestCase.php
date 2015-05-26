@@ -183,8 +183,8 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
             'fields' => [
                 [
                     ['label' => 'value'],
-                    ['count' => 123]
-                ]
+                    ['count' => 123],
+                ],
             ]
         ];
     }

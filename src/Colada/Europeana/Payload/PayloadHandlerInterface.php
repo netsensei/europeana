@@ -19,7 +19,7 @@ interface PayloadHandlerInterface
     /**
      * [create description]
      * @param  PayloadInterface $payload [description]
-     * @return [type]                    [description]
+     * @return [type]           [description]
      */
     public static function create(PayloadInterface $payload);
 

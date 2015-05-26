@@ -126,67 +126,83 @@ class Item extends AbstractModel
     private $dcLanguage;
 
     // Minimal Profile
-    function getDataProvider() {
+    public function getDataProvider()
+    {
         return $this->dataProvider;
     }
 
-    function getDcCreator() {
+    public function getDcCreator()
+    {
         return $this->dcCreator;
     }
 
-    function getEdmIsShownAt() {
+    public function getEdmIsShownAt()
+    {
         return $this->edmIsShownAt;
     }
 
-    function getEdmPlaceLatitude() {
+    public function getEdmPlaceLatitude()
+    {
         return $this->edmPlaceLatitude;
     }
 
-    function getEdmPlaceLongitude() {
+    public function getEdmPlaceLongitude()
+    {
         return $this->edmPlaceLongitude;
     }
 
-    function getEdmPreview() {
+    public function getEdmPreview()
+    {
         return $this->edmPreview;
     }
 
-    function getEuropeanaCompleteness() {
+    public function getEuropeanaCompleteness()
+    {
         return $this->europeanaCompleteness;
     }
 
-    function getGuid() {
+    public function getGuid()
+    {
         return $this->guid;
     }
 
-    function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
-    function getLink() {
+    public function getLink()
+    {
         return $this->link;
     }
 
-    function getProvider() {
+    public function getProvider()
+    {
         return $this->provider;
     }
 
-    function getRights() {
+    public function getRights()
+    {
         return $this->rights;
     }
 
-    function getScore() {
+    public function getScore()
+    {
         return $this->score;
     }
 
-    function getTitle() {
+    public function getTitle()
+    {
         return $this->title;
     }
 
-    function getType() {
+    public function getType()
+    {
         return $this->type;
     }
 
-    function getYear() {
+    public function getYear()
+    {
         return $this->year;
     }
 
@@ -207,7 +223,8 @@ class Item extends AbstractModel
         return $this->edmConceptBroaderLabel;
     } */
 
-    function getEdmTimespanLabel() {
+    public function getEdmTimespanLabel()
+    {
         return $this->edmTimespanLabel;
     }
 
@@ -231,11 +248,13 @@ class Item extends AbstractModel
         return $this->recordHashFirstSix;
     } */
 
-    function getUgc() {
+    public function getUgc()
+    {
         return $this->ugc;
     }
 
-    function getCompleteness() {
+    public function getCompleteness()
+    {
         return $this->completeness;
     }
 
@@ -243,7 +262,8 @@ class Item extends AbstractModel
         return $this->country;
     } */
 
-    function getEuropeanaCollectionName() {
+    public function getEuropeanaCollectionName()
+    {
         return $this->europeanaCollectionName;
     }
 
@@ -267,7 +287,8 @@ class Item extends AbstractModel
         return $this->timestampUpdate;
     } */
 
-    function getLanguage() {
+    public function getLanguage()
+    {
         return $this->language;
     }
 
@@ -284,57 +305,70 @@ class Item extends AbstractModel
         return $this->edmTimespan;
     } */
 
-    function getEdmAgent() {
+    public function getEdmAgent()
+    {
         return $this->edmAgent;
     }
 
-    function getEdmAgentLabel() {
+    public function getEdmAgentLabel()
+    {
         return $this->edmAgentLabel;
     }
 
-    function getDcContributor() {
+    public function getDcContributor()
+    {
         return $this->dcContributor;
     }
 
     // Rich Portal
-    function getEdmIsShownBy() {
+    public function getEdmIsShownBy()
+    {
         return $this->edmIsShownBy;
     }
 
-    function getDcDescription() {
+    public function getDcDescription()
+    {
         return $this->dcDescription;
     }
 
-    function getEdmLandingPage() {
+    public function getEdmLandingPage()
+    {
         return $this->edmLandingPage;
     }
 
     // Ungrouped
-    function getEdmConceptLabel() {
+    public function getEdmConceptLabel()
+    {
         return $this->edmConceptLabel;
     }
 
-    function getTimestampCreatedEpoch() {
+    public function getTimestampCreatedEpoch()
+    {
         return $this->timestamp_created_epoch;
     }
 
-    function getTimestampUpdateEpoch() {
+    public function getTimestampUpdateEpoch()
+    {
         return $this->timestamp_update_epoch;
     }
 
-    function getTimestampCreated() {
+    public function getTimestampCreated()
+    {
         return $this->timestamp_created;
     }
 
-    function getTimestampUpdate() {
+    public function getTimestampUpdate()
+    {
         return $this->timestamp_update;
     }
 
-    function getIndex() {
+    public function getIndex()
+    {
         return $this->index;
     }
 
-    function getDcLanguage() {
+    public function getDcLanguage()
+    {
         return $this->dcLanguage;
     }
 }

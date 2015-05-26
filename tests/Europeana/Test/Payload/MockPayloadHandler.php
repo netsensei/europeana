@@ -19,6 +19,7 @@ class MockPayloadHandler extends AbstractPayloadHandler
     {
         $payload = $this->getPayload();
         $arguments[] = array('foo', $payload->getFoo());
+
         return $arguments;
     }
 }

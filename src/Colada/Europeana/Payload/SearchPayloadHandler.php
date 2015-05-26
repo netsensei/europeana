@@ -11,7 +11,6 @@
 
 namespace Colada\Europeana\Payload;
 
-use Colada\Europeana\Payload\AbstractPayloadHandler;
 
 /**
  * @author Matthias Vandermaesen <matthias@colada.be>
@@ -28,7 +27,7 @@ class SearchPayloadHandler extends AbstractPayloadHandler
         $arguments[] = array('query', $payload->getQuery());
 
         foreach ($payload->getRefinements() as $refinement) {
-            $qf = $refinement->getName() . ':' . $refinement->getValue();
+            $qf = $refinement->getName().':'.$refinement->getValue();
             $arguments[] = array('qf', $qf);
         }
 
@@ -46,10 +45,10 @@ class SearchPayloadHandler extends AbstractPayloadHandler
                 $facetNames[] = $facet->getName();
 
                 if ($limit = $facet->getLimit()) {
-                    $arguments[] = array('f.' . $facet->getName() . '.facet.limit', $limit);
+                    $arguments[] = array('f.'.$facet->getName().'.facet.limit', $limit);
                 }
                 if ($offset = $facet->getOffset()) {
-                    $arguments[] = array('f.' . $facet->getName() . '.facet.offset', $offset);
+                    $arguments[] = array('f.'.$facet->getName().'.facet.offset', $offset);
                 }
             }
             $arguments[] = array('facet', implode(',', $facetNames));

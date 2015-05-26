@@ -39,7 +39,7 @@ class SearchPayloadTest extends AbstractPayloadTest
             array('profile', 'rich facets breadcrumbs params'),
             array('reusability', 'open'),
             array('rows', 10),
-            array('start', 1)
+            array('start', 1),
         );
     }
 

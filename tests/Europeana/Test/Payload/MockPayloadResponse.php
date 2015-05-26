@@ -17,7 +17,7 @@ class MockPayloadResponse extends AbstractPayloadResponse
 {
     private $foo;
 
-    function getFoo()
+    public function getFoo()
     {
         return $this->foo;
     }

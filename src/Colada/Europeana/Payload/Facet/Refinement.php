@@ -11,7 +11,6 @@
 
 namespace Colada\Europeana\Payload\Facet;
 
-use Colada\Europeana\Payload\Facet\RefinementInterface;
 
 /**
  * @author Matthias Vandermaesen <matthias@colada.be>
