@@ -14,10 +14,19 @@ namespace Colada\Europeana\Payload;
 use Colada\Europeana\Payload\PayloadHandlerInterface;
 use Colada\Europeana\Payload\PayloadInterface;
 
+/**
+ * @author Matthias Vandermaesen <matthias@colada.be>
+ */
 abstract class AbstractPayloadHandler implements PayloadHandlerInterface
 {
+    /**
+     * @var \Colada\Europeana\Payload\PayloadHandlerInterface;
+     */
     private $payload;
 
+    /**
+     * @var string
+     */
     private $apiKey;
 
     /**

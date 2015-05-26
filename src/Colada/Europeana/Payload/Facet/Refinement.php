@@ -13,12 +13,29 @@ namespace Colada\Europeana\Payload\Facet;
 
 use Colada\Europeana\Payload\Facet\RefinementInterface;
 
+/**
+ * @author Matthias Vandermaesen <matthias@colada.be>
+ */
 class Refinement implements RefinementInterface
 {
+    /**
+     * @var string
+     */
     private $name;
 
+    /**
+     * @var string
+     */
     private $value;
 
+    /**
+     * Constructor.
+     *
+     * Sets the refinement.
+     *
+     * @param string $name  The field name.
+     * @param string $value The refinement value
+     */
     public function __construct($name, $value)
     {
         $this->name = $name;

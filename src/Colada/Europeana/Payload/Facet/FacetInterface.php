@@ -11,11 +11,29 @@
 
 namespace Colada\Europeana\Payload\Facet;
 
+/**
+ * @author Matthias Vandermaesen <matthias@colada.be>
+ */
 interface FacetInterface
 {
+    /**
+     * Returns the facet name
+     *
+     * @return string
+     */
     public function getName();
 
+    /**
+     * Returns the limit
+     *
+     * @return int
+     */
     public function getLimit();
 
+    /**
+     * Returns the offset
+     *
+     * @return int
+     */
     public function getOffset();
 }

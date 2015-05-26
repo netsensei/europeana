@@ -13,8 +13,19 @@ namespace Colada\Europeana\Payload;
 
 use Colada\Europeana\Payload\PayloadInterface;
 
+/**
+ * @author Matthias Vandermaesen <matthias@colada.be>
+ */
 class PayloadHandlerFactory
 {
+    /**
+     * Get an instance of type \Colada\Europeana\Payload\PayloadHandlerInterface
+     *
+     * This factory method will create a handler object based on the type of the
+     * PayloadInterface objec which is passed as a method argument.
+     *
+     * @param \Colada\Europeana\Payload\PayloadInterface $payload
+     */
     public static function getHandler(PayloadInterface $payload)
     {
         $handler = $payload->getHandlerClass();

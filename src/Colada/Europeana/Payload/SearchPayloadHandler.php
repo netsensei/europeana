@@ -13,8 +13,14 @@ namespace Colada\Europeana\Payload;
 
 use Colada\Europeana\Payload\AbstractPayloadHandler;
 
+/**
+ * @author Matthias Vandermaesen <matthias@colada.be>
+ */
 class SearchPayloadHandler extends AbstractPayloadHandler
 {
+    /**
+     * {@inheritdoc}
+     */
     public function get()
     {
         $payload = $this->getPayload();

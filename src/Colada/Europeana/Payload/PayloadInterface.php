@@ -17,16 +17,25 @@ namespace Colada\Europeana\Payload;
 interface PayloadInterface
 {
     /**
+     * Return the API call method (ie. search.json) defined for this
+     * payload object.
+     *
      * @return string
      */
     public function getMethod();
 
     /**
+     * Return the corresponding PayloadRepsonseInterface class for this
+     * payload object.
+     *
      * @return string
      */
     public function getResponseClass();
 
     /**
+     * Return the corresponding PayloadHandlerInterface class for this
+     * payload object.
+     *
      * @return string
      */
     public function getHandlerClass();

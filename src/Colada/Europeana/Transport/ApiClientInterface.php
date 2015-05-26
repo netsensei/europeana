@@ -14,7 +14,7 @@ namespace Colada\Europeana\Transport;
 use Colada\Europeana\Payload\PayloadInterface;
 
 /**
- * @author Matthias Vandermaesen <matthias@colada.be>
+ * @author Cas Leentfaar <info@casleentfaar.com>
  */
 interface ApiClientInterface
 {

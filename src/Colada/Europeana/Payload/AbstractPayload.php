@@ -16,6 +16,9 @@ namespace Colada\Europeana\Payload;
  */
 abstract class AbstractPayload implements PayloadInterface
 {
+    /**
+     * @var string
+     */
     private $apiKey;
 
     /**

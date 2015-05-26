@@ -24,6 +24,11 @@ interface PayloadHandlerInterface
     public static function create(PayloadInterface $payload);
 
     /**
+     * Turns the payloadInterface object properties into a flattened
+     * array. Each value stores a key|value array. The ApiClient object
+     * will use the array to compile an internal request object which is
+     * passed on to the HTTP transport.
+     *
      * @return array
      */
     public function get();

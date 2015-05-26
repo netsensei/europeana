@@ -13,13 +13,16 @@ namespace Colada\Europeana\Enum;
 
 use CommerceGuys\Enum\AbstractEnum;
 
+/**
+ * @author Matthias Vandermaesen <matthias@colada.be>
+ */
 final class Profile extends AbstractEnum
 {
-    const MINIMAL = 'minimal';
-    const STANDARD = 'standard';
-    const RICH = 'rich';
-    const FACETS = 'facets';
+    const MINIMAL     = 'minimal';
+    const STANDARD    = 'standard';
+    const RICH        = 'rich';
+    const FACETS      = 'facets';
     const BREADCRUMBS = 'breadcrumbs';
-    const PARAMS = 'params';
-    const PORTAL = 'portal';
+    const PARAMS      = 'params';
+    const PORTAL      = 'portal';
 }

@@ -13,14 +13,35 @@ namespace Colada\Europeana\Payload\Facet;
 
 use Colada\Europeana\Payload\Facet\FacetInterface;
 
+/**
+ * @author Matthias Vandermaesen <matthias@colada.be>
+ */
 class Facet implements FacetInterface
 {
+    /**
+     * @var string
+     */
     private $name;
 
+    /**
+     * @var int|null
+     */
     private $limit;
 
+    /**
+     * @var int|null
+     */
     private $offset;
 
+    /**
+     * Constructor.
+     *
+     * The facet name is mandatory. limit and offset are optional.
+     *
+     * @param string $name      The name of the facet.
+     * @param int|null $limit   The facet limit.
+     * @param int|null $offset  The offset.
+     */
     public function __construct($name, $limit = null, $offset = null)
     {
         $this->name = $name;

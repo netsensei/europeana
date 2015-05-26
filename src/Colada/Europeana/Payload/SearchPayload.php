@@ -22,45 +22,106 @@ use Colada\Europeana\Payload\Facet\RefinementInterface;
  */
 class SearchPayload extends AbstractPayload
 {
+    /**
+     * @var string
+     */
     private $query;
 
+    /**
+     * @var array
+     */
     private $refinements = [];
 
+    /**
+     * @var int
+     */
     private $rows;
 
+    /**
+     * @var int
+     */
     private $start;
 
+    /**
+     * @var string
+     */
     private $reusability;
 
+    /**
+     * @var array
+     */
     private $facets = [];
 
+    /**
+     * @var array
+     */
     private $profiles = [];
 
+    /**
+     * Set the query parameter.
+     *
+     * The query is a string following a lucene-like syntax as
+     * defined in the API documentation.
+     *
+     * @link http://labs.europeana.eu/api/query/
+     *
+     * @param string $query
+     */
     public function setQuery($query)
     {
         $this->query = $query;
     }
 
+    /**
+     * Returns the set query
+     *
+     * @return string|null
+     */
     public function getQuery()
     {
         return $this->query;
     }
 
+    /**
+     * Add a refinement to the query.
+     *
+     * A refinement is an abstraction of the qf parameter. Multiple 'qf' key/
+     * value pairs can be added to the request.
+     *
+     * @link http://labs.europeana.eu/api/query/#refinements
+     *
+     * @param RefinementInterface $refinement
+     */
     public function addRefinement(RefinementInterface $refinement)
     {
         $this->refinements[$refinement->getName()] = $refinement;
     }
 
+    /**
+     * Returns all the defined refinements for this request object.
+     *
+     * @return array
+     */
     public function getRefinements()
     {
         return $this->refinements;
     }
 
+    /**
+     * Set the rows parameter
+     *
+     * @param int
+     */
     public function setRows($rows)
     {
         $this->rows = $rows;
     }
 
+    /**
+     * Returns the rows parameter value
+     *
+     * @param int|null
+     */
     public function getRows()
     {
         return $this->rows;
@@ -71,6 +132,11 @@ class SearchPayload extends AbstractPayload
         $this->start = $start;
     }
 
+    /**
+     * Returns the start parameter value
+     *
+     * @param int|null
+     */
     public function getStart()
     {
         return $this->start;
@@ -86,21 +152,56 @@ class SearchPayload extends AbstractPayload
         }
     }
 
+    /**
+     * Returns the reusability parameter value
+     *
+     * @param int|null
+     */
     public function getReusability()
     {
         return $this->reusability;
     }
 
+    /**
+     * Add a new facet to the query.
+     *
+     * @param FacetInterface $facet
+     */
     public function addFacet(FacetInterface $facet)
     {
         $this->facets[$facet->getName()] = $facet;
     }
 
+    /**
+     * Returns the facets parameter value.
+     *
+     * @return array
+     */
     public function getFacets()
     {
         return $this->facets;
     }
 
+    /**
+     * Add a new profile to the query.
+     *
+     * A profile is string value. There are limited number of
+     * valid string values:
+     *
+     *  - minimal
+     *  - standard
+     *  - rich
+     *  - facets
+     *  - breadcrumbs
+     *  - params
+     *  - portal
+     *
+     * Other values wil throw an exception.
+     *
+     * @param string
+     *
+     * @throws EuropeanaException
+     */
     public function addProfile($profile)
     {
         try {
@@ -113,6 +214,11 @@ class SearchPayload extends AbstractPayload
         }
     }
 
+    /**
+     * Returns the profiles parameter value
+     *
+     * @param array
+     */
     public function getProfiles()
     {
         return $this->profiles;

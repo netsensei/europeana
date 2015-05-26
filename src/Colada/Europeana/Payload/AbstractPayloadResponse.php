@@ -32,12 +32,12 @@ abstract class AbstractPayloadResponse implements PayloadResponseInterface
     private $success;
 
     /**
-     * @var integer
+     * @var int
      */
     private $statsDuration;
 
     /**
-     * @var integer
+     * @var int
      */
     private $requestNumber;
 

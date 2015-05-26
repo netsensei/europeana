@@ -14,7 +14,7 @@ namespace Colada\Europeana\Serializer;
 use Colada\Europeana\Payload\PayloadResponseInterface;
 
 /**
- * @author Matthias Vandermaesen <matthias@colada.be>
+ * @author Cas Leentfaar <info@casleentfaar.com>
  */
 class PayloadResponseSerializer extends AbstractSerializer
 {

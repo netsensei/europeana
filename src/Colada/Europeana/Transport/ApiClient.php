@@ -30,6 +30,7 @@ class ApiClient implements ApiClientInterface
      * The API version
      */
     const API_VERSION = 'v2';
+
     /**
      * The (base) URL used for all communication with the Europeana API.
      */

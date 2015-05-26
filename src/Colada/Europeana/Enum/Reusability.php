@@ -13,9 +13,12 @@ namespace Colada\Europeana\Enum;
 
 use CommerceGuys\Enum\AbstractEnum;
 
+/**
+ * @author Matthias Vandermaesen <matthias@colada.be>
+ */
 final class Reusability extends AbstractEnum
 {
-    const OPEN = 'open';
+    const OPEN       = 'open';
     const RESTRICTED = 'restricted';
     const PERMISSION = 'permission';
 }
