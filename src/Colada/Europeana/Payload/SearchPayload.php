@@ -114,7 +114,17 @@ class SearchPayload extends AbstractPayload
      */
     public function setRows($rows)
     {
-        $this->rows = $rows;
+        try {
+            if (!is_numeric($rows)) {
+                throw new \InvalidArgumentException(sprintf(
+                    'Expected argument to be of type "integer", got "%s"',
+                    gettype($rows)
+                ));
+            }
+            $this->rows = $rows;
+        } catch (\InvalidArgumentException $e) {
+            throw new EuropeanaException('Failed to prepare payload', null, $e);
+        }
     }
 
     /**
@@ -129,7 +139,17 @@ class SearchPayload extends AbstractPayload
 
     public function setStart($start)
     {
-        $this->start = $start;
+        try {
+            if (!is_numeric($start)) {
+                throw new \InvalidArgumentException(sprintf(
+                    'Expected argument to be of type "integer", got "%s"',
+                    gettype($start)
+                ));
+            }
+        		$this->start = $start;
+        } catch (\InvalidArgumentException $e) {
+            throw new EuropeanaException('Failed to prepare payload', null, $e);
+        }
     }
 
     /**
