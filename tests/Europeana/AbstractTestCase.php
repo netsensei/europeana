@@ -249,7 +249,29 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
 
     protected function createObject()
     {
-        return [];
+        return [
+            'about'                     => '/europeana/id',
+            // 'agents'                 =>
+            'aggregations'              =>
+            'concepts'                  =>
+            // 'country'                =>
+            'europeanaAggregation'      =>
+            'europeanaCollectionName'   =>
+            'europeanaCompleteness'     =>
+            // 'language'               =>
+            'optOut'                    =>
+            // 'places'                 =>
+            // 'provider'               =>
+            'providedCHOs'              =>
+            'proxies'                   =>
+            // 'timespans'              =>
+            'timestamp_created_epoch'   =>
+            'timestamp_update_epoch'    =>
+            'timestamp_created'         =>
+            'timestamp_update'          =>
+            'title'                     =>
+            'type'                      =>
+        ];
     }
 
     protected function createSimilarItem()

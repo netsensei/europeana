@@ -1,2 +1,45 @@
 Colada\Europeana\Model\Object:
     properties:
+        about:
+            type: string
+        #agents:
+        #   type: ArrayCollection<Colada\Europeana\Model\EDM\Agent>
+        aggregations:
+            type: ArrayCollection<Colada\Europeana\Model\EDM\Aggregation>
+        concepts:
+            type: ArrayCollection<Colada\Europeana\Model\EDM\Concept>
+        # country:
+        #    type: ArrayCollection<string>
+        europeanaAggregation:
+            type: ArrayCollection<Colada\Europeana\Model\EDM\EuropeanaAggregation>
+        europeanaCollectionName:
+            type: ArrayCollection<string>
+        europeanaCompleteness:
+            type: integer
+        # language:
+        #    type: ArrayCollection<string>
+        optOut:
+            type: integer
+        # places:
+        #    type: ArrayCollection<Colada\Europeana\Model\EDM\Place>
+        # provider:
+        #    type: ArrayCollection<string>
+        providedCHOs:
+            type: ArrayCollection<Colada\Europeana\Model\EDM\ProvidedCHO>
+        proxies:
+            type: ArrayCollection<Colada\Europeana\Model\EDM\Proxy>
+        # timespans:
+        #    type: ArrayCollection<Colada\Europeana\Model\EDM\Timespan>
+        timestamp_created_epoch:
+            type: integer
+        timestamp_update_epoch:
+            type: integer
+        timestamp_created:
+            type: string
+        timestamp_update:
+            type: string
+        title:
+            type: ArrayCollection<string>
+        type:
+            type: string
+

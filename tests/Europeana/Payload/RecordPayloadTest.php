@@ -43,5 +43,6 @@ class RecordPayloadTest extends AbstractPayloadTest
      */
     protected function getExpectedPayloadData(PayloadInterface $payload)
     {
+        // Empty
     }
 }
