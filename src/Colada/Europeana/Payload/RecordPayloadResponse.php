@@ -11,9 +11,30 @@
 
 namespace Colada\Europeana\Payload;
 
+use Colada\Europeana\Model\Object;
+
 /**
  * @author Matthias Vandermaesen <matthias@colada.be>
  */
 class RecordPayloadResponse extends AbstractPayloadResponse
 {
+	/**
+	 * @var Object
+	 */
+	private $object;
+
+	/**
+	 * @var ArrayCollection<Europeana/Model/SimilarItem>
+	 */
+	private $similarItems;
+
+	public function getObject()
+	{
+		return $this->object;
+	}
+
+	public function getSimilarItems()
+	{
+		return $this->similarItems;
+	}
 }

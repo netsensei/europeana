@@ -246,4 +246,14 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
             'rows'         => $actual->getRows(),
         ]);
     }
+
+    protected function createObject()
+    {
+      	return [];
+    }
+
+    protected function createSimilarItem()
+    {
+    	  return [];
+    }
 }
