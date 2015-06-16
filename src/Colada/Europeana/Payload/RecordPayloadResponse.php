@@ -28,11 +28,17 @@ class RecordPayloadResponse extends AbstractPayloadResponse
 	 */
 	private $similarItems;
 
+	/**
+	 * @return object
+	 */
 	public function getObject()
 	{
 		return $this->object;
 	}
 
+	/**
+	 * @return similarItems
+	 */
 	public function getSimilarItems()
 	{
 		return $this->similarItems;
