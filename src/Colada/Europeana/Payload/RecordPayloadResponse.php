@@ -9,16 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Europeana\Payload;
+namespace Colada\Europeana\Payload;
 
-use Europeana\Payload\AbstractPayloadHandler;
-
-class RecordPayloadHandler extends AbstractPayloadHandler
+/**
+ * @author Matthias Vandermaesen <matthias@colada.be>
+ */
+class RecordPayloadResponse extends AbstractPayloadResponse
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function get()
-    {
-    }
 }

@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Europeana\Payload;
+namespace Colada\Europeana\Payload;
 
-use Europeana\Exception\EuropeanaException;
+use Colada\Europeana\Exception\EuropeanaException;
 
 /**
  * @author Matthias Vandermaesen <matthias@colada.be>
