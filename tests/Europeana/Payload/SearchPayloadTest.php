@@ -46,31 +46,31 @@ class SearchPayloadTest extends AbstractPayloadTest
 
     public function testPayloadValidation()
     {
-    		$payload = new SearchPayload();
+        $payload = new SearchPayload();
 
-    		try {
-    				$payload->setRows('abc');
-    		} catch (EuropeanaException $e) {
-    				$previous = $e->getPrevious();
-    				$this->assertInstanceOf('\InvalidArgumentException', $previous);
-    				$this->assertEquals(
-    						'Expected argument to be of type "integer", got "string"',
-    						$previous->getMessage()
-    				);
-    		}
+        try {
+            $payload->setRows('abc');
+        } catch (EuropeanaException $e) {
+            $previous = $e->getPrevious();
+            $this->assertInstanceOf('\InvalidArgumentException', $previous);
+            $this->assertEquals(
+                            'Expected argument to be of type "integer", got "string"',
+                            $previous->getMessage()
+                    );
+        }
 
-    		try {
-    				$payload->setStart('abc');
-    		} catch (EuropeanaException $e) {
-    				$previous = $e->getPrevious();
-    				$this->assertInstanceOf('\InvalidArgumentException', $previous);
-    				$this->assertEquals(
-    						'Expected argument to be of type "integer", got "string"',
-    						$previous->getMessage()
-    				);
+        try {
+            $payload->setStart('abc');
+        } catch (EuropeanaException $e) {
+            $previous = $e->getPrevious();
+            $this->assertInstanceOf('\InvalidArgumentException', $previous);
+            $this->assertEquals(
+                            'Expected argument to be of type "integer", got "string"',
+                            $previous->getMessage()
+                    );
 
-    				return;
-    		}
+            return;
+        }
 
         $this->markTestIncomplete('This test should have thrown an exception');
     }

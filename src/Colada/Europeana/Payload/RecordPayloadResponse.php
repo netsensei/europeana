@@ -18,29 +18,29 @@ use Colada\Europeana\Model\Object;
  */
 class RecordPayloadResponse extends AbstractPayloadResponse
 {
-	/**
-	 * @var Object
-	 */
-	private $object;
+    /**
+     * @var Object
+     */
+    private $object;
 
-	/**
-	 * @var ArrayCollection<Europeana/Model/SimilarItem>
-	 */
-	private $similarItems;
+    /**
+     * @var ArrayCollection<Europeana/Model/SimilarItem>
+     */
+    private $similarItems;
 
-	/**
-	 * @return object
-	 */
-	public function getObject()
-	{
-		return $this->object;
-	}
+    /**
+     * @return object
+     */
+    public function getObject()
+    {
+        return $this->object;
+    }
 
-	/**
-	 * @return similarItems
-	 */
-	public function getSimilarItems()
-	{
-		return $this->similarItems;
-	}
+    /**
+     * @return similarItems
+     */
+    public function getSimilarItems()
+    {
+        return $this->similarItems;
+    }
 }

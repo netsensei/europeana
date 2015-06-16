@@ -249,11 +249,11 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
 
     protected function createObject()
     {
-      	return [];
+        return [];
     }
 
     protected function createSimilarItem()
     {
-    	  return [];
+        return [];
     }
 }

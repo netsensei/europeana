@@ -11,7 +11,6 @@
 
 namespace Colada\Europeana\Payload;
 
-use Colada\Europeana\Exception\EuropeanaException;
 
 /**
  * @author Matthias Vandermaesen <matthias@colada.be>
@@ -35,6 +34,6 @@ class RecordPayload extends AbstractPayload
      */
     public function getMethod()
     {
-        return 'record' . $this->recordId . '.json';
+        return 'record'.$this->recordId.'.json';
     }
 }

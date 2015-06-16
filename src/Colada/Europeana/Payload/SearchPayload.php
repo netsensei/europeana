@@ -146,7 +146,7 @@ class SearchPayload extends AbstractPayload
                     gettype($start)
                 ));
             }
-        		$this->start = $start;
+            $this->start = $start;
         } catch (\InvalidArgumentException $e) {
             throw new EuropeanaException('Failed to prepare payload', null, $e);
         }

@@ -11,7 +11,6 @@
 
 namespace Colada\Europeana\Payload;
 
-
 /**
  * @author Matthias Vandermaesen <matthias@colada.be>
  */

@@ -24,7 +24,7 @@ class RecordPayloadResponseTest extends AbstractPayloadResponseTest
     public function createResponseData()
     {
         return [
-        	'object'               => [$this->createObject],
+            'object'               => [$this->createObject()],
             'similarItems'         => [$this->createSimilarItem()],
         ];
     }
@@ -34,7 +34,7 @@ class RecordPayloadResponseTest extends AbstractPayloadResponseTest
      */
     protected function assertResponse(array $responseData, PayloadResponseInterface $payloadResponse)
     {
-    	// @todo
-    	//  Add assertions
+        // @todo
+        //  Add assertions
     }
 }

@@ -13,34 +13,34 @@ namespace Colada\Europeana\Tests\Payload;
 
 use Colada\Europeana\Payload\RecordPayload;
 use Colada\Europeana\Payload\PayloadInterface;
-use Colada\Europeana\Exception\EuropeanaException;
 
 /**
  * @author Matthias Vandermaesen <matthias@colada.be>
  */
 class RecordPayloadTest extends AbstractPayloadTest
 {
-		public function testRecord()
-		{
-        $payload = new RecordPayload();
-        $payload->setRecordId('/12345/123_record');
-        $method = $payload->getMethod();
+        public function testRecord()
+        {
+            $payload = new RecordPayload();
+            $payload->setRecordId('/12345/123_record');
+            $method = $payload->getMethod();
 
-        $this->assertEquals($method, 'record/12345/123_record.json');
-		}
+            $this->assertEquals($method, 'record/12345/123_record.json');
+        }
 
-		/**
-		 * {@inheritdoc}
-		 */
+    /**
+     * {@inheritdoc}
+     */
     protected function createPayload()
     {
-    	$payload = new RecordPayload();
-    	return $payload;
+        $payload = new RecordPayload();
+
+        return $payload;
     }
 
-		/**
-		 * {@inheritdoc}
-		 */
+    /**
+     * {@inheritdoc}
+     */
     protected function getExpectedPayloadData(PayloadInterface $payload)
     {
     }

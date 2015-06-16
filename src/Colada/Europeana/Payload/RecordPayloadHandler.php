@@ -11,7 +11,6 @@
 
 namespace Colada\Europeana\Payload;
 
-use Colada\Europeana\Payload\AbstractPayloadHandler;
 
 class RecordPayloadHandler extends AbstractPayloadHandler
 {
