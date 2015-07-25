@@ -34,9 +34,9 @@ abstract class AbstractPayloadResponseTest extends AbstractTestCase
                 'success' => true,
                 'statsDuration' => 1234,
                 'requestNumber' => 1234,
-                'params' => $this->createParams(),
+                'params' => $this->createParams(), // TBD is this okay?
             ],
-            $this->createResponseData());
+        $this->createResponseData());
 
         /** @var PayloadResponseInterface $actualPayloadResponse */
         $actualPayloadResponse = $this->serializer->deserialize(

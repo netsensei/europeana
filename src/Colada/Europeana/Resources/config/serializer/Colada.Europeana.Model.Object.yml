@@ -11,7 +11,7 @@ Colada\Europeana\Model\Object:
         # country:
         #    type: ArrayCollection<string>
         europeanaAggregation:
-            type: ArrayCollection<Colada\Europeana\Model\EDM\EuropeanaAggregation>
+            type: Colada\Europeana\Model\EDM\EuropeanaAggregation
         europeanaCollectionName:
             type: ArrayCollection<string>
         europeanaCompleteness:

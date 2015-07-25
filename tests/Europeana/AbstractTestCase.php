@@ -15,6 +15,7 @@ use Colada\Europeana\Model\Breadcrumb;
 use Colada\Europeana\Model\Facet;
 use Colada\Europeana\Model\Item;
 use Colada\Europeana\Model\Params;
+use Colada\Europeana\Model\Object;
 use Colada\Europeana\Model\EDM\Label;
 
 abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
@@ -251,30 +252,103 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
     {
         return [
             'about'                     => '/europeana/id',
-            // 'agents'                 =>
-            'aggregations'              =>
-            'concepts'                  =>
+            // 'agents'                 => ''
+            'aggregations'              => [$this->createAggregation()],
+            'concepts'                  => [$this->createConcept()],
             // 'country'                =>
-            'europeanaAggregation'      =>
-            'europeanaCollectionName'   =>
-            'europeanaCompleteness'     =>
+            'europeanaAggregation'      => $this->createEuropeanaAggregation(),
+            'europeanaCollectionName'   => ['test'],
+            'europeanaCompleteness'     => 1,
             // 'language'               =>
-            'optOut'                    =>
+            'optOut'                    => 1,
             // 'places'                 =>
             // 'provider'               =>
-            'providedCHOs'              =>
-            'proxies'                   =>
+            'providedCHOs'              => [$this->createProvidedCHO()],
+            'proxies'                   => [$this->createProxy()],
             // 'timespans'              =>
-            'timestamp_created_epoch'   =>
-            'timestamp_update_epoch'    =>
-            'timestamp_created'         =>
-            'timestamp_update'          =>
-            'title'                     =>
-            'type'                      =>
+            'timestamp_created_epoch'   => 1234567890000,
+            'timestamp_update_epoch'    => 1234567890000,
+            'timestamp_created'         => '2014-10-28T17:19:12.461Z',
+            'timestamp_update'          => '2014-10-28T17:19:12.461Z',
+            'title'                     => ['title', 'alternative'],
+            'type'                      => 'IMAGE',
         ];
     }
 
-    protected function createSimilarItem()
+    protected function assertObject(array $expected, Object $actual)
+    {
+        $this->assertNotEmpty($expected);
+        $this->assertInstanceOf('Colada\Europeana\Model\Object', $actual);
+        $this->assertEquals($expected, [
+            'about'                     => $actual->getAbout(),
+            // 'agents'                  => $actual->getAgents(),
+            'aggregations'              => [$this->createAggregation()],
+            'concepts'                  => [$this->createConcept()],
+            'europeanaAggregation'      => $this->createEuropeanaAggregation(),
+            'europeanaCollectionName'   => $actual->getEuropeanaCollectionName()->toArray(),
+            'europeanaCompleteness'     => $actual->getEuropeanaCompleteness(),
+            // 'language'               =>
+            'optOut'                    => $actual->getOptOut(),
+            // 'places'                 =>
+            // 'provider'               =>
+            'providedCHOs'              => [$this->createProvidedCHO()],
+            'proxies'                   => [$this->createProxy()],
+            // 'timespans'              =>
+            'timestamp_created_epoch'   => $actual->getTimestampCreatedEpoch(),
+            'timestamp_update_epoch'    => $actual->getTimestampUpdateEpoch(),
+            'timestamp_created'         => $actual->getTimestampCreated(),
+            'timestamp_update'          => $actual->getTimestampUpdate(),
+            'title'                     => $actual->getTitle()->toArray(),
+            'type'                      => $actual->getType(),
+        ]);
+    }
+
+    protected function createAggregation()
+    {
+        return [];
+    }
+
+    // protected function assertAggregation(array $expected, Aggregation $aggregation)
+    // {
+    // }
+
+    protected function createConcept()
+    {
+        return [];
+    }
+
+    // protected function assertconcept(array $expected, Concept $concept)
+    // {
+    // }
+
+    protected function createEuropeanaAggregation()
+    {
+        return [];
+    }
+
+    // protected function assertEuropeanaAggregation(array $expected, EuropeanaAggregation $europeanaAggregation)
+    // {
+    // }
+
+    protected function createProvidedCHO()
+    {
+        return [];
+    }
+
+    // protected function assertProvidedCHO(array $expected, ProvidedCHO $providedCHO)
+    // {
+    // }
+
+    protected function createProxy()
+    {
+        return [];
+    }
+
+    // protected function assertProxy(array expected, Proxy $proxy)
+    // {
+    // }
+
+    protected function createSimilarItems()
     {
         return [];
     }

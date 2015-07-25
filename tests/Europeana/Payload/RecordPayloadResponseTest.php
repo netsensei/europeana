@@ -24,8 +24,8 @@ class RecordPayloadResponseTest extends AbstractPayloadResponseTest
     public function createResponseData()
     {
         return [
-            'object'               => [$this->createObject()],
-            'similarItems'         => [$this->createSimilarItem()],
+            'object'               => $this->createObject(),
+            'similarItems'         => [$this->createSimilarItems()],
         ];
     }
 
@@ -36,6 +36,6 @@ class RecordPayloadResponseTest extends AbstractPayloadResponseTest
     {
         $this->assertNotEmpty($payloadResponse->getObject());
         $this->assertInstanceOf('Colada\Europeana\Model\Object', $payloadResponse->getObject());
-        // $this->assertObject($responseData['object'], $payloadResponse->getObject());
+        $this->assertObject($responseData['object'], $payloadResponse->getObject());
     }
 }
