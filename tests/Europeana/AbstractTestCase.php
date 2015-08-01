@@ -16,7 +16,10 @@ use Colada\Europeana\Model\Facet;
 use Colada\Europeana\Model\Item;
 use Colada\Europeana\Model\Params;
 use Colada\Europeana\Model\Object;
+use Colada\Europeana\Model\EDM\Aggregation;
 use Colada\Europeana\Model\EDM\Label;
+use Colada\Europeana\Model\EDM\LangMap;
+use Colada\Europeana\Model\EDM\WebResource;
 
 abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
 {
@@ -252,7 +255,7 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
     {
         return [
             'about'                     => '/europeana/id',
-            // 'agents'                 => ''
+            'agents'                    => [$this->createAgent()],
             'aggregations'              => [$this->createAggregation()],
             'concepts'                  => [$this->createConcept()],
             // 'country'                =>
@@ -261,11 +264,11 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
             'europeanaCompleteness'     => 1,
             // 'language'               =>
             'optOut'                    => 1,
-            // 'places'                 =>
+            'places'                    => [$this->createPlace()],
             // 'provider'               =>
             'providedCHOs'              => [$this->createProvidedCHO()],
             'proxies'                   => [$this->createProxy()],
-            // 'timespans'              =>
+            'timespans'                 => [$this->createTimespan()],
             'timestamp_created_epoch'   => 1234567890000,
             'timestamp_update_epoch'    => 1234567890000,
             'timestamp_created'         => '2014-10-28T17:19:12.461Z',
@@ -277,23 +280,24 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
 
     protected function assertObject(array $expected, Object $actual)
     {
+        $this->assertAggregation($expected['aggregations'][0], $actual->getAggregations()->first());
+        unset($expected['aggregations']);
         $this->assertNotEmpty($expected);
         $this->assertInstanceOf('Colada\Europeana\Model\Object', $actual);
         $this->assertEquals($expected, [
             'about'                     => $actual->getAbout(),
-            // 'agents'                  => $actual->getAgents(),
-            'aggregations'              => [$this->createAggregation()],
+            'agents'                    => [$this->createAgent()],
             'concepts'                  => [$this->createConcept()],
             'europeanaAggregation'      => $this->createEuropeanaAggregation(),
             'europeanaCollectionName'   => $actual->getEuropeanaCollectionName()->toArray(),
             'europeanaCompleteness'     => $actual->getEuropeanaCompleteness(),
             // 'language'               =>
             'optOut'                    => $actual->getOptOut(),
-            // 'places'                 =>
+            'places'                    => [$this->createPlace()],
             // 'provider'               =>
             'providedCHOs'              => [$this->createProvidedCHO()],
             'proxies'                   => [$this->createProxy()],
-            // 'timespans'              =>
+            'timespans'                 => [$this->createTimespan()],
             'timestamp_created_epoch'   => $actual->getTimestampCreatedEpoch(),
             'timestamp_update_epoch'    => $actual->getTimestampUpdateEpoch(),
             'timestamp_created'         => $actual->getTimestampCreated(),
@@ -303,21 +307,65 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
         ]);
     }
 
-    protected function createAggregation()
+    protected function createAgent()
     {
         return [];
     }
 
-    // protected function assertAggregation(array $expected, Aggregation $aggregation)
+    // protected function assertAgent(array $expected, Agent $agent)
     // {
     // }
+
+    protected function createAggregation()
+    {
+        return [
+            'about'                     => '/europeana/id',
+            'edmDataProvider'           => $this->createLangmap(),
+            'edmIsShownBy'              => 'test',
+            'edmIsShownAt'              => 'test',
+            'edmObject'                 => 'test',
+            'edmProvider'               => $this->createLangmap(),
+            'edmRights'                 => $this->createLangmap(),
+            'edmUgc'                    => 'test',
+            'dcRights'                  => $this->createLangmap(),
+             // 'hasView'                   =>
+            'aggregatedCHO'             => 'test',
+            // 'aggregates'             =>
+            'webResources'              => [$this->createWebResource()]
+        ];
+    }
+
+    protected function assertAggregation(array $expected, Aggregation $actual)
+    {
+        $this->assertLangmap($expected['edmDataProvider'], $actual->getEdmDataProvider());
+        unset($expected['edmDataProvider']);
+        $this->assertLangmap($expected['edmProvider'], $actual->getEdmDataProvider());
+        unset($expected['edmProvider']);
+        $this->assertLangmap($expected['edmRights'], $actual->getEdmDataProvider());
+        unset($expected['edmRights']);
+        $this->assertLangmap($expected['dcRights'], $actual->getEdmDataProvider());
+        unset($expected['dcRights']);
+        $this->assertWebResource($expected['webResources'][0], $actual->getWebResources()->first());
+        unset($expected['webResources']);
+        $this->assertInstanceOf('Colada\Europeana\Model\EDM\Aggregation', $actual);
+        $this->assertEquals($expected, [
+            'about'                     => $actual->getAbout(),
+            'edmIsShownBy'              => $actual->getEdmIsShownBy(),
+            'edmIsShownAt'              => $actual->getEdmIsShownAt(),
+            'edmObject'                 => $actual->getEdmObject(),
+            'edmUgc'                    => $actual->getEdmUgc(),
+            // 'hasView'                   =>
+            'aggregatedCHO'             => $actual->getAggregatedCHO(),
+            // 'aggregates'                =>
+        ]);
+    }
 
     protected function createConcept()
     {
         return [];
     }
 
-    // protected function assertconcept(array $expected, Concept $concept)
+    // protected function assertConcept(array $expected, Concept $concept)
     // {
     // }
 
@@ -327,6 +375,15 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
     }
 
     // protected function assertEuropeanaAggregation(array $expected, EuropeanaAggregation $europeanaAggregation)
+    // {
+    // }
+
+    protected function createPlace()
+    {
+        return [];
+    }
+
+    // protected function assertPlace(array $expected, Place $place)
     // {
     // }
 
@@ -347,6 +404,84 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
     // protected function assertProxy(array expected, Proxy $proxy)
     // {
     // }
+
+    protected function createTimespan()
+    {
+        return [];
+    }
+
+    // protected function asserTimespan(array $expected, Timespan $timespan)
+    // {
+    // }
+
+    protected function createLangmap()
+    {
+        return [
+            'en'    => 'en_foobar',
+            'def'   => 'def_foobar',
+            'fr'    => 'fr_foobar'
+        ];
+    }
+
+    protected function assertLangmap(array $expected, Langmap $actual)
+    {
+        $this->assertNotEmpty($expected);
+        $this->assertInstanceOf('Colada\Europeana\Model\EDM\LangMap', $actual);
+        $this->assertEquals($expected, $actual->all());
+        $this->assertEquals('en_foobar', $actual->get('en'));
+        $this->assertEmpty($actual->get('empty'));
+    }
+
+    protected function createWebResource()
+    {
+        return [
+            'about'                    => 'http://example.com',
+            'webResourceDcRights'      => $this->createLangmap(),
+            'webResourceEdmRights'     => $this->createLangmap(),
+            'dcDescription'            => $this->createLangmap(),
+            'dcFormat'                 => $this->createLangmap(),
+            'dcSource'                 => $this->createLangmap(),
+            'dctermsExtent'            => $this->createLangmap(),
+            'dctermsIssued'            => $this->createLangmap(),
+            'dctermsConformsTo'        => $this->createLangmap(),
+            'dctermsCreated'           => $this->createLangmap(),
+            'dctermsIsFormatOf'        => $this->createLangmap(),
+            'dctermsHasPart'           => $this->createLangmap(),
+            'isNextInSequence'         => 'foobar',
+        ];
+    }
+
+    protected function assertWebResource(array $expected, WebResource $actual)
+    {
+        $this->assertNotEmpty($expected);
+        $this->assertInstanceOf('Colada\Europeana\Model\EDM\WebResource', $actual);
+        $this->assertLangmap($expected['webResourceDcRights'], $actual->getWebResourceDcRights());
+        unset($expected['webResourceDcRights']);
+        $this->assertLangmap($expected['webResourceEdmRights'], $actual->getWebResourceEdmRights());
+        unset($expected['webResourceEdmRights']);
+        $this->assertLangmap($expected['dcDescription'], $actual->getDcDescription());
+        unset($expected['dcDescription']);
+        $this->assertLangmap($expected['dcFormat'], $actual->getDcFormat());
+        unset($expected['dcFormat']);
+        $this->assertLangmap($expected['dcSource'], $actual->getDcSource());
+        unset($expected['dcSource']);
+        $this->assertLangmap($expected['dctermsExtent'], $actual->getDctermsExtent());
+        unset($expected['dctermsExtent']);
+        $this->assertLangmap($expected['dctermsIssued'], $actual->getDctermsIssued());
+        unset($expected['dctermsIssued']);
+        $this->assertLangmap($expected['dctermsConformsTo'], $actual->getDctermsConformsTo());
+        unset($expected['dctermsConformsTo']);
+        $this->assertLangmap($expected['dctermsCreated'], $actual->getDctermsCreated());
+        unset($expected['dctermsCreated']);
+        $this->assertLangmap($expected['dctermsIsFormatOf'], $actual->getDctermsIsFormatOf());
+        unset($expected['dctermsIsFormatOf']);
+        $this->assertLangmap($expected['dctermsHasPart'], $actual->getDctermsHasPart());
+        unset($expected['dctermsHasPart']);
+        $this->assertEquals($expected, [
+            'about'                     => $actual->getAbout(),
+            'isNextInSequence'          => $actual->getIsNextInSequence(),
+        ]);
+    }
 
     protected function createSimilarItems()
     {

@@ -1,0 +1,28 @@
+Colada\Europeana\Model\EDM\WebResource:
+    properties:
+        about:
+            type: string
+        webResourceDcRights:
+            type: Colada\Europeana\Model\EDM\LangMap
+        webResourceEdmRights:
+            type: Colada\Europeana\Model\EDM\LangMap
+        dcDescription:
+            type: Colada\Europeana\Model\EDM\LangMap
+        dcFormat:
+            type: Colada\Europeana\Model\EDM\LangMap
+        dcSource:
+            type: Colada\Europeana\Model\EDM\LangMap
+        dctermsExtent:
+            type: Colada\Europeana\Model\EDM\LangMap
+        dctermsIssued:
+            type: Colada\Europeana\Model\EDM\LangMap
+        dctermsConformsTo:
+            type: Colada\Europeana\Model\EDM\LangMap
+        dctermsCreated:
+            type: Colada\Europeana\Model\EDM\LangMap
+        dctermsIsFormatOf:
+            type: Colada\Europeana\Model\EDM\LangMap
+        dctermsHasPart:
+            type: Colada\Europeana\Model\EDM\LangMap
+        isNextInSequence:
+            type: string

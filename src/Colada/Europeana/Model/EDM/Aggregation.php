@@ -42,76 +42,69 @@ class Aggregation extends AbstractModel
 
     private $aggregates;
 
-    private $edmUnstored;
-
     private $webResources;
 
-    private function getAbout()
+    public function getAbout()
     {
         return $this->about;
     }
 
-    private function getEdmDataProvider()
+    public function getEdmDataProvider()
     {
         return $this->edmDataProvider;
     }
 
-    private function getEdmIsShownBy()
+    public function getEdmIsShownBy()
     {
         return $this->edmIsShownBy;
     }
 
-    private function getEdmIsShownAt()
+    public function getEdmIsShownAt()
     {
         return $this->edmIsShownAt;
     }
 
-    private function getEdmObject()
+    public function getEdmObject()
     {
         return $this->edmObject;
     }
 
-    private function getEdmProvider()
+    public function getEdmProvider()
     {
         return $this->edmProvider;
     }
 
-    private function getEdmRights()
+    public function getEdmRights()
     {
         return $this->edmRights;
     }
 
-    private function getEdmUgc()
+    public function getEdmUgc()
     {
         return $this->edmUgc;
     }
 
-    private function getDcRights()
+    public function getDcRights()
     {
         return $this->dcRights;
     }
 
-    private function getHasView()
+    public function getHasView()
     {
         return $this->hasView;
     }
 
-    private function getAggregatedCHO()
+    public function getAggregatedCHO()
     {
         return $this->aggregatedCHO;
     }
 
-    private function getAggregates()
+    public function getAggregates()
     {
         return $this->aggregates;
     }
 
-    private function getEdmUnstored()
-    {
-        return $this->edmUnstored;
-    }
-
-    private function getWebResources()
+    public function getWebResources()
     {
         return $this->webResources;
     }

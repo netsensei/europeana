@@ -12,16 +12,29 @@
 namespace Colada\Europeana\Model\EDM;
 
 use Colada\Europeana\Model\AbstractModel;
+use Colada\Europeana\Enum\Language;
+use Colada\Europeana\Exception\EuropeanaException;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @author Matthias Vandermaesen <matthias@colada.be>
  */
-class Label extends AbstractModel
+class LangMap extends AbstractModel
 {
-    private $def;
+    private $map;
 
-    public function getDef()
+    public function get($lang)
     {
-        return $this->def;
+        return $this->map->get($lang);
+    }
+
+    public function all()
+    {
+        return $this->map->toArray();
+    }
+
+    public function set(array $map)
+    {
+        $this->map = new ArrayCollection($map);
     }
 }

@@ -1,0 +1,26 @@
+Colada\Europeana\Model\EDM\Aggregation:
+    properties:
+        about:
+            type: string
+        edmDataProvider:
+            type: Colada\Europeana\Model\EDM\LangMap
+        edmIsShownBy:
+            type: string
+        edmIsShownAt:
+            type: string
+        edmObject:
+            type: string
+        edmProvider:
+            type: Colada\Europeana\Model\EDM\LangMap
+        edmRights:
+            type: Colada\Europeana\Model\EDM\LangMap
+        edmUgc:
+            type: string
+        dcRights:
+            type: Colada\Europeana\Model\EDM\LangMap
+        # hasView:
+        aggregatedCHO:
+            type: string
+        # aggregates:
+        webResources:
+            type: ArrayCollection<Colada\Europeana\Model\EDM\WebResource>

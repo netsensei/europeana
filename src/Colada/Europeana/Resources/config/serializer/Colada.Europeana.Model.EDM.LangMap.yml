@@ -1,0 +1,4 @@
+Colada\Europeana\Model\EDM\LangMap:
+    properties:
+        def:
+            type: string

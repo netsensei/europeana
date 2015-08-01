@@ -15,6 +15,7 @@ use JMS\Serializer\SerializerBuilder;
 use JMS\Serializer\SerializerInterface;
 use JMS\Serializer\Naming\SerializedNameAnnotationStrategy;
 use JMS\Serializer\Naming\IdenticalPropertyNamingStrategy;
+use Colada\Europeana\Serializer\Handler\LangMapHandler;
 
 /**
  * @author Cas Leentfaar <info@casleentfaar.com>
@@ -33,7 +34,15 @@ abstract class AbstractSerializer
         $builder->addMetadataDir($metaDir);
         $builder
             ->setPropertyNamingStrategy(
-                new SerializedNameAnnotationStrategy(new IdenticalPropertyNamingStrategy()));
+                new SerializedNameAnnotationStrategy(new IdenticalPropertyNamingStrategy())
+            );
+
+        // Custom deserialization handler for Colada\Europeana\Model\EDM\LangMap
+        $builder
+            ->addDefaultHandlers()
+            ->configureHandlers(function (\JMS\Serializer\Handler\HandlerRegistry $registry) {
+                    $registry->registerSubscribingHandler(new LangMapHandler());
+            });
 
         $this->serializer = $builder->build();
     }
