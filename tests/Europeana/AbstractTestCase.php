@@ -13,7 +13,8 @@ namespace Colada\Europeana\Tests;
 
 use Colada\Europeana\Model\Breadcrumb;
 use Colada\Europeana\Model\Facet;
-use Colada\Europeana\Model\Item;
+use Colada\Europeana\Model\Item as SearchItem;
+use Colada\Europeana\Model\Suggestions\Item as SuggestionItem;
 use Colada\Europeana\Model\Params;
 use Colada\Europeana\Model\Object;
 use Colada\Europeana\Model\EDM\Aggregation;
@@ -90,7 +91,7 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
         ];
     }
 
-    protected function assertItem(array $expected, Item $actual)
+    protected function assertItem(array $expected, SearchItem $actual)
     {
         $this->assertLabel($expected['edmTimespanLabel'][0], $actual->getEdmTimespanLabel()->get(0));
         unset($expected['edmTimespanLabel']);
@@ -248,6 +249,28 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
             'profiles'     => $actual->getProfiles(),
             'start'        => $actual->getStart(),
             'rows'         => $actual->getRows(),
+        ]);
+    }
+
+    protected function createSuggestionsItem()
+    {
+        return [
+            'term'          => 'paris',
+            'frequency'     => 1234,
+            'field'         => 'fieldname',
+            'query'         => 'where:paris'
+        ];
+    }
+
+    protected function assertSuggestionsItem(array $expected, SuggestionItem $actual)
+    {
+        $this->assertNotEmpty($expected);
+        $this->assertInstanceOf('Colada\Europeana\Model\Suggestions\Item', $actual);
+        $this->assertEquals($expected, [
+            'term'          => $actual->getTerm(),
+            'frequency'     => $actual->getFrequency(),
+            'field'         => $actual->getField(),
+            'query'         => $actual->getQuery()
         ]);
     }
 

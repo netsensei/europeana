@@ -21,7 +21,7 @@ class SuggestionsPayloadResponseTest extends AbstractPayloadResponseTest
     public function createResponseData()
     {
         return [
-            'items'         => [$this->createItem()],
+            'items'         => [$this->createSuggestionsItem()],
             'itemsCount'    => 999,
             'totalResults'  => 112
         ];
@@ -34,7 +34,7 @@ class SuggestionsPayloadResponseTest extends AbstractPayloadResponseTest
     {
         $this->assertNotEmpty($payloadResponse->getItems());
         $this->assertInstanceOf('Doctrine\Common\Collections\ArrayCollection', $payloadResponse->getItems());
-        $this->assertItem($responseData['items'][0], $payloadResponse->getItems()->get(0));
+        $this->assertSuggestionsItem($responseData['items'][0], $payloadResponse->getItems()->get(0));
 
         $this->assertEquals($responseData['itemsCount'], $payloadResponse->getItemsCount());
         $this->assertEquals($responseData['totalResults'], $payloadResponse->getTotalResults());
