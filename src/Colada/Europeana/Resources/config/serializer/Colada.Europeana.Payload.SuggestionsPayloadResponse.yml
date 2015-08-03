@@ -1,0 +1,8 @@
+Colada\Europeana\Payload\SuggestionsPayloadResponse:
+    properties:
+        itemsCount:
+            type: integer
+        totalResults:
+            type: integer
+        items:
+            type: ArrayCollection<Colada\Europeana\Model\Suggestions\Item>

@@ -1,0 +1,10 @@
+Colada\Europeana\Model\Suggestions\Item:
+    properties:
+        term:
+            type: string
+        frequency:
+            type: integer
+        field:
+            type: string
+        query:
+            type: string
