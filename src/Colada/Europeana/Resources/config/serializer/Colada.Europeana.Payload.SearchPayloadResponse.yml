@@ -11,8 +11,10 @@ Colada\Europeana\Payload\SearchPayloadResponse:
         totalResults:
             type: integer
         items:
-            type: ArrayCollection<Colada\Europeana\Model\Item>
+            type: ArrayCollection<Colada\Europeana\Model\Search\Item>
         facets:
-            type: ArrayCollection<Colada\Europeana\Model\Facet>
+            type: ArrayCollection<Colada\Europeana\Model\Search\Facet>
         breadCrumbs:
-            type: ArrayCollection<Colada\Europeana\Model\Breadcrumb>
+            type: ArrayCollection<Colada\Europeana\Model\Search\Breadcrumb>
+        params:
+            type: Colada\Europeana\Model\Search\Params

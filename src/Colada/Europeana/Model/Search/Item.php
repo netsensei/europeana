@@ -9,7 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Colada\Europeana\Model;
+namespace Colada\Europeana\Model\Search;
+
+use Colada\Europeana\Model\AbstractModel;
 
 /**
  * @author Matthias Vandermaesen <matthias@colada.be>

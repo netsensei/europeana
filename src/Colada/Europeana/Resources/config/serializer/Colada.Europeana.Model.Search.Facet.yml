@@ -1,4 +1,4 @@
-Colada\Europeana\Model\Facet:
+Colada\Europeana\Model\Search\Facet:
     properties:
         name:
             type: string

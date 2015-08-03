@@ -1,6 +1,6 @@
 Colada\Europeana\Payload\RecordPayloadResponse:
     properties:
         object:
-            type: Colada\Europeana\Model\Object
+            type: Colada\Europeana\Model\Record\Object
         similarItems:
-            type: ArrayCollection<Colada\Europeana\Model\Item>
+            type: ArrayCollection<Colada\Europeana\Model\Record\SimilarItem>

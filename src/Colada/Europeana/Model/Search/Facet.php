@@ -9,11 +9,26 @@
  * file that was distributed with this source code.
  */
 
-namespace Colada\Europeana\Model;
+namespace Colada\Europeana\Model\Search;
+
+use Colada\Europeana\Model\AbstractModel;
 
 /**
  * @author Matthias Vandermaesen <matthias@colada.be>
  */
-class SimilarItem extends AbstractModel
+class Facet extends AbstractModel
 {
+    private $name;
+
+    private $fields;
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getFields()
+    {
+        return $this->fields;
+    }
 }

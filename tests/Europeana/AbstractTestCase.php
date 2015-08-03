@@ -11,12 +11,12 @@
 
 namespace Colada\Europeana\Tests;
 
-use Colada\Europeana\Model\Breadcrumb;
-use Colada\Europeana\Model\Facet;
-use Colada\Europeana\Model\Item as SearchItem;
+use Colada\Europeana\Model\Search\Breadcrumb;
+use Colada\Europeana\Model\Search\Facet;
+use Colada\Europeana\Model\Search\Item as SearchItem;
 use Colada\Europeana\Model\Suggestions\Item as SuggestionItem;
 use Colada\Europeana\Model\Params;
-use Colada\Europeana\Model\Object;
+use Colada\Europeana\Model\Record\Object;
 use Colada\Europeana\Model\EDM\Aggregation;
 use Colada\Europeana\Model\EDM\Label;
 use Colada\Europeana\Model\EDM\LangMap;
@@ -197,7 +197,7 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
     protected function assertFacet(array $expected, Facet $actual)
     {
         $this->assertNotEmpty($expected);
-        $this->assertInstanceOf('Colada\Europeana\Model\Facet', $actual);
+        $this->assertInstanceOf('Colada\Europeana\Model\Search\Facet', $actual);
         $this->assertEquals($expected, [
             'name'      => $actual->getName(),
             'fields'    => $actual->getFields()->toArray()
@@ -218,7 +218,7 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
     protected function assertBreadcrumb(array $expected, Breadcrumb $actual)
     {
         $this->assertNotEmpty($expected);
-        $this->assertInstanceOf('Colada\Europeana\Model\Breadcrumb', $actual);
+        $this->assertInstanceOf('Colada\Europeana\Model\Search\Breadcrumb', $actual);
         $this->assertEquals($expected, [
             'display'      => $actual->getDisplay(),
             'href'         => $actual->getHref(),
@@ -306,7 +306,7 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
         $this->assertAggregation($expected['aggregations'][0], $actual->getAggregations()->first());
         unset($expected['aggregations']);
         $this->assertNotEmpty($expected);
-        $this->assertInstanceOf('Colada\Europeana\Model\Object', $actual);
+        $this->assertInstanceOf('Colada\Europeana\Model\Record\Object', $actual);
         $this->assertEquals($expected, [
             'about'                     => $actual->getAbout(),
             'agents'                    => [$this->createAgent()],

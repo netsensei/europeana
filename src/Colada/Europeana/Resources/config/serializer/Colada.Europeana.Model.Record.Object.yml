@@ -1,4 +1,4 @@
-Colada\Europeana\Model\Object:
+Colada\Europeana\Model\Record\Object:
     properties:
         about:
             type: string

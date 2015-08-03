@@ -35,7 +35,7 @@ class RecordPayloadResponseTest extends AbstractPayloadResponseTest
     protected function assertResponse(array $responseData, PayloadResponseInterface $payloadResponse)
     {
         $this->assertNotEmpty($payloadResponse->getObject());
-        $this->assertInstanceOf('Colada\Europeana\Model\Object', $payloadResponse->getObject());
+        $this->assertInstanceOf('Colada\Europeana\Model\Record\Object', $payloadResponse->getObject());
         $this->assertObject($responseData['object'], $payloadResponse->getObject());
     }
 }

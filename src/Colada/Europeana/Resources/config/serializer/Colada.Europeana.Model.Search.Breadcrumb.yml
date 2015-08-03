@@ -1,4 +1,4 @@
-Colada\Europeana\Model\Breadcrumb:
+Colada\Europeana\Model\Search\Breadcrumb:
     properties:
         display:
             type: string
