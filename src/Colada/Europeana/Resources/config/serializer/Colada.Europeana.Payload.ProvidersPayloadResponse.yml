@@ -1,0 +1,22 @@
+Colada\Europeana\Payload\ProvidersPayloadResponse:
+    properties:
+      identifier:
+        type: string
+      country:
+        type: string
+      name:
+        type: string
+      acronym:
+        type: string
+      altname:
+        type: string
+      scope:
+        type: string
+      domain:
+        type: string
+      geolevel:
+        type: string
+      role:
+        type: string
+      website:
+        type: string
