@@ -36,7 +36,17 @@ class ProvidersPayload extends AbstractPayload
 
     public function setPageSize($pageSize)
     {
-        $this->pageSize = $pageSize;
+        try {
+            if (!is_numeric($pageSize)) {
+                throw new \InvalidArgumentException(sprintf(
+                    'Expected argument to be of type "integer", got "%s"',
+                    gettype($pageSize)
+                ));
+            }
+            $this->pageSize = $pageSize;
+        } catch (\InvalidArgumentException $e) {
+            throw new EuropeanaException('Failed to prepare payload', null, $e);
+        }
     }
 
     public function getPageSize()
@@ -52,5 +62,13 @@ class ProvidersPayload extends AbstractPayload
     public function getCountryCode()
     {
         return $this->countryCode;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getMethod()
+    {
+        return 'providers.json';
     }
 }

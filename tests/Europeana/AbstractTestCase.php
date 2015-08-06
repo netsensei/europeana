@@ -14,13 +14,14 @@ namespace Colada\Europeana\Tests;
 use Colada\Europeana\Model\Search\Breadcrumb;
 use Colada\Europeana\Model\Search\Facet;
 use Colada\Europeana\Model\Search\Item as SearchItem;
-use Colada\Europeana\Model\Suggestions\Item as SuggestionItem;
 use Colada\Europeana\Model\Params;
 use Colada\Europeana\Model\Record\Object;
 use Colada\Europeana\Model\EDM\Aggregation;
 use Colada\Europeana\Model\EDM\Label;
 use Colada\Europeana\Model\EDM\LangMap;
 use Colada\Europeana\Model\EDM\WebResource;
+use Colada\Europeana\Model\Providers\Item as ProviderItem;
+use Colada\Europeana\Model\Suggestions\Item as SuggestionItem;
 
 abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
 {
@@ -509,5 +510,38 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
     protected function createSimilarItems()
     {
         return [];
+    }
+
+    protected function createProvidersItem()
+    {
+        return [
+            'identifier'    => 'foobar',
+            'country'       => 'country',
+            'name'          => 'name',
+            'acronym'       => 'acronym',
+            'altname'       => 'altname',
+            'scope'         => 'scope',
+            'domain'        => 'domain',
+            'geolevel'      => 'geolevel',
+            'role'          => 'role',
+            'website'       => 'website'
+        ];
+    }
+
+    protected function assertProvidersItem(array $expected, ProviderItem $actual)
+    {
+        $this->assertInstanceOf('Colada\Europeana\Model\Providers\Item', $actual);
+        $this->assertEquals($expected, [
+            'identifier'    => $actual->getIdentifier(),
+            'country'       => $actual->getCountry(),
+            'name'          => $actual->getName(),
+            'acronym'       => $actual->getAcronym(),
+            'altname'       => $actual->getAltname(),
+            'scope'         => $actual->getScope(),
+            'domain'        => $actual->getDomain(),
+            'geolevel'      => $actual->getGeolevel(),
+            'role'          => $actual->getRole(),
+            'website'       => $actual->getWebsite(),
+        ]);
     }
 }

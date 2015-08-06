@@ -16,73 +16,42 @@ namespace Colada\Europeana\Payload;
  */
 class ProvidersPayloadResponse extends AbstractPayloadResponse
 {
-    private $identifier;
+    /**
+     * @var integer
+     */
+    private $itemsCount;
 
-    private $country;
+    /**
+     * @var integer
+     */
+    private $totalResults;
 
-    private $name;
+    /**
+     * @var ArrayCollection<Europeana/Model/Providers/Item>
+     */
+    private $items;
 
-    private $acronym;
-
-    private $altname;
-
-    private $scope;
-
-    private $domain;
-
-    private $geolevel;
-
-    private $role;
-
-    private $website;
-
-    public function getIdentifier()
+    /**
+     * @return itemsCount
+     */
+    public function getItemsCount()
     {
-        return $this->identifier;
+        return $this->itemsCount;
     }
 
-    public function getCountry()
+    /**
+     * @return totalResults
+     */
+    public function getTotalResults()
     {
-        return $this->country;
+        return $this->totalResults;
     }
 
-    public function getName()
+    /**
+     * @return items
+     */
+    public function getItems()
     {
-        return $this->name;
-    }
-
-    public function getAcronym()
-    {
-        return $this->acronym;
-    }
-
-    public function getAltname()
-    {
-        return $this->altname;
-    }
-
-    public function getScope()
-    {
-        return $this->scope;
-    }
-
-    public function getDomain()
-    {
-        return $this->domain;
-    }
-
-    public function getGeolevel()
-    {
-        return $this->geolevel;
-    }
-
-    public function getRole()
-    {
-        return $this->role;
-    }
-
-    public function getWebsite()
-    {
-        return $this->website;
+        return $this->items;
     }
 }
