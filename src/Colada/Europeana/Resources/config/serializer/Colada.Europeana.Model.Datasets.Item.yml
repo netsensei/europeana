@@ -1,0 +1,18 @@
+Colada\Europeana\Model\Datasets\Item:
+    properties:
+      identifier:
+        type: string
+      provIdentifier:
+        type: string
+      providerName:
+        type: string
+      edmDatasetName:
+        type: string
+      status:
+        type: string
+      publishedRecords:
+        type: integer
+      deleteRecords:
+        type: integer
+      creationDate:
+        type: string

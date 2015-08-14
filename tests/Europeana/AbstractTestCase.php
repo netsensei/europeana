@@ -20,6 +20,7 @@ use Colada\Europeana\Model\EDM\Aggregation;
 use Colada\Europeana\Model\EDM\Label;
 use Colada\Europeana\Model\EDM\LangMap;
 use Colada\Europeana\Model\EDM\WebResource;
+use Colada\Europeana\Model\Datasets\Item as DatasetItem;
 use Colada\Europeana\Model\Providers\Item as ProviderItem;
 use Colada\Europeana\Model\Suggestions\Item as SuggestionItem;
 
@@ -542,6 +543,35 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
             'geolevel'      => $actual->getGeolevel(),
             'role'          => $actual->getRole(),
             'website'       => $actual->getWebsite(),
+        ]);
+    }
+
+    protected function createDatasetsItem()
+    {
+        return [
+            'identifier'        => 'id',
+            'provIdentifier'    => 'id',
+            'providerName'      => 'provider',
+            'edmDatasetName'    => 'edmDatasetName',
+            'status'            => 'status',
+            'publishedRecords'  => 10,
+            'deleteRecords'     => 10,
+            'creationDate'      => 'date'  // @todo Fix Date datetype?
+        ];
+    }
+
+    protected function assertDatasetsItem(array $expected, DatasetItem $actual)
+    {
+        $this->assertInstanceOf('Colada\Europeana\Model\Datasets\Item', $actual);
+        $this->assertEquals($expected, [
+            'identifier'           => $actual->getIdentifier(),
+            'provIdentifier'       => $actual->getProvIdentifier(),
+            'providerName'         => $actual->getProviderName(),
+            'edmDatasetName'       => $actual->getEdmDatasetName(),
+            'status'               => $actual->getStatus(),
+            'publishedRecords'     => $actual->getPublishedRecords(),
+            'deleteRecords'        => $actual->getDeleteRecords(),
+            'creationDate'         => $actual->getCreationDate()
         ]);
     }
 }
