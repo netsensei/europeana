@@ -35,6 +35,7 @@ You will need an API key before you can connect to the API endpoint. You can reg
 Perform a basic search query:
 
 ```
+$apiKey = "myRegisteredKey";
 $payload = new Colada\Europeana\Payload\SearchPayload();
 $payload->addQuery("Mona Lisa");
 
@@ -65,7 +66,19 @@ try
 
 ## Documentation
 
-TBD
+Currently these API calls are entirely of partially implemented:
+
+| Action | API call | Status |
+------------------------------
+| Search | search.json | Incomplete |
+| Record | record.json | Incomplete |
+| Dataset | dataset/[datasetId].json | Complete |
+| Provider | provider/[providerId].json | Complete | 
+| Suggestions | suggestions.json | Complete |
+| Dataset (by provider) | provider/[providerId]/datasets.json | Complete |
+
+If you have any particular questions regarding the operation of the API, please
+refer to the [Europeana API Google Group](https://groups.google.com/forum/#!forum/europeanaapi).
 
 ## Testing
 
