@@ -83,7 +83,8 @@ Colada\Europeana\Model\Search\Item:
         #
         # dctermsSpatial:
         #
-        # edmPlace:
+        edmPlace:
+            type: ArrayCollection<string>
         #
         # edmTimespan:
         #

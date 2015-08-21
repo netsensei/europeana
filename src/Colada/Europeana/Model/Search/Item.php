@@ -95,7 +95,7 @@ class Item extends AbstractModel
     // Portal Profile
     //private $dctermsSpatial;
 
-    //private $edmPlace;
+    private $edmPlace;
 
     //private $edmTimespan;
 
@@ -299,9 +299,9 @@ class Item extends AbstractModel
         return $this->dctermsSpatial;
     } */
 
-    /* function getEdmPlace() {
+    function getEdmPlace() {
         return $this->edmPlace;
-    } */
+    }
 
     /* function getEdmTimespan() {
         return $this->edmTimespan;

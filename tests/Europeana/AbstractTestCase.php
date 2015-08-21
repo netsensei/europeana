@@ -71,7 +71,7 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
 
             // Portal Profile
             //'dctermsSpatial'          => [''],
-            //'edmPlace'                => ['http://example.com/edmplace'],
+            'edmPlace'                => ['http://example.com/edmplace'],
             //'edmTimespan'             => ['http://example.com/edmTimespan'],
             'edmAgent'                => ['http://example.com/edmAgent'],
             'edmAgentLabel'           => [['def' => 'foto'], ['def' => 'photograph']],
@@ -147,7 +147,7 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
 
             // Portal Profile
             //'dctermsSpatial'           => $actual->getDctermsSpatial(),
-            //'edmPlace'                 => $actual->getEdmPlace(),
+            'edmPlace'                => $actual->getEdmPlace()->toArray(),
             //'edmTimespan'              => $actual->getEdmTimespan(),
             'edmAgent'                => $actual->getEdmAgent()->toArray(),
             'dcContributor'           => $actual->getDcContributor()->toArray(),
