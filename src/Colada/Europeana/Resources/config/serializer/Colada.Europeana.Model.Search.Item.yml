@@ -58,8 +58,8 @@ Colada\Europeana\Model\Search\Item:
         #
         # recordHashFirstSix:
         #
-        ugc:
-            type: ArrayCollection<boolean>
+        # ugc:
+        #    type: ArrayCollection<boolean>
         completeness:
             type: integer
         # country:

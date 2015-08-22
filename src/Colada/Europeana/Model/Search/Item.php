@@ -72,7 +72,7 @@ class Item extends AbstractModel
 
     //private $recordHashFirstSix;
 
-    private $ugc;
+    //private $ugc;
 
     private $completeness;
 
@@ -250,10 +250,10 @@ class Item extends AbstractModel
         return $this->recordHashFirstSix;
     } */
 
-    public function getUgc()
+    /* public function getUgc()
     {
         return $this->ugc;
-    }
+    } */
 
     public function getCompleteness()
     {
