@@ -21,6 +21,8 @@ class ProvidersPayloadHandler extends AbstractPayloadHandler
      */
     public function get()
     {
+    	  $arguments = array();
+
         $payload = $this->getPayload();
 
         if ($offset = $payload->getOffset()) {

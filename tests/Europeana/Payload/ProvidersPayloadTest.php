@@ -13,6 +13,7 @@ namespace Colada\Europeana\Tests\Payload;
 
 use Colada\Europeana\Payload\ProvidersPayload;
 use Colada\Europeana\Payload\PayloadInterface;
+use Colada\Europeana\Payload\PayloadHandlerFactory;
 use Colada\Europeana\Exception\EuropeanaException;
 
 class ProvidersPayloadTest extends AbstractPayloadTest
