@@ -3,3 +3,6 @@ composer.lock
 .DS_store
 build
 reports
+docs/_build
+docs/*.pyc
+.idea
