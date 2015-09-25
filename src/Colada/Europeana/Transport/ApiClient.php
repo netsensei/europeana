@@ -143,6 +143,7 @@ class ApiClient implements ApiClientInterface
         $request = $this->client->createRequest('GET', $url);
 
         $query = $request->getQuery();
+        $query->setEncodingType(false);
         foreach ($arguments as $arg) {
             list($key, $value) = $arg;
             $query->add($key, $value);

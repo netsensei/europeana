@@ -17,6 +17,7 @@ use Colada\Europeana\Tests\Test\Payload\MockPayload;
 use Colada\Europeana\Transport\ApiClient;
 use GuzzleHttp\Client;
 use GuzzleHttp\URL;
+use GuzzleHttp\Query;
 use GuzzleHttp\Subscriber\History;
 use GuzzleHttp\Subscriber\Mock;
 
@@ -38,15 +39,18 @@ class ApiClientTest extends AbstractTestCase
         ];
 
         $mockQueryData = [
-            'foo' => 'bar',
+            'foo' => 'who:(search+query+OR+other+search+query)',
             'wskey' => self::API_KEY,
         ];
 
         $mockPayload = new MockPayload();
-        $mockPayload->setFoo('bar');
+        $mockPayload->setFoo('who:(search+query+OR+other+search+query)');
 
         $expectedUrl = URL::fromString(ApiClient::API_BASE_URL.'/'.ApiClient::API_VERSION.'/mock.json');
-        $expectedUrl->setQuery($mockQueryData);
+        $query = new Query();
+        $query->merge($mockQueryData);
+        $query->setEncodingType(false);
+        $expectedUrl->setQuery($query);
 
         $mockResponseBody = json_encode($mockResponseData);
         $mock->addResponse(sprintf(
@@ -61,8 +65,6 @@ class ApiClientTest extends AbstractTestCase
 
         $apiClient = new ApiClient(self::API_KEY, $client);
         $apiClient->send($mockPayload);
-
-        $lastRequest = $history->getLastRequest();
 
         $lastResponseContent = json_decode($history->getLastResponse()->getBody(), true);
         $this->assertEquals($mockResponseData, $lastResponseContent);
