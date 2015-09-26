@@ -69,7 +69,7 @@ library. Refer to this projects' for a concrete implementation.
 Currently these API calls are entirely of partially implemented:
 
 | Action | API call | Status |
-------------------------------
+|--------|----------|--------|
 | Search | search.json | Incomplete |
 | Record | record.json | Incomplete |
 | Dataset | dataset/[datasetId].json | Complete |
