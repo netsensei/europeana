@@ -3,7 +3,7 @@
 [![Latest Version](https://img.shields.io/github/release/netsensei/europeana.svg?style=flat-square)](https://github.com/netsensei/europeana/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/netsensei/europeana/master.svg?style=flat-square)](https://travis-ci.org/netsensei/europeana)
-[![Total Downloads](https://img.shields.io/packagist/dt/netsensei/europeana.svg?style=flat-square)](https://packagist.org/packages/netsensei/europeana)
+[![Total Downloads](https://img.shields.io/packagist/dt/colada/europeana.svg?style=flat-square)](https://packagist.org/packages/colada/europeana)
 
 ## A PHP client library for the Europeana Portal
 
