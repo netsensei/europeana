@@ -18,7 +18,7 @@ Europeana is an internet portal that acts as an interface to books, paintings, f
 Via Composer
 
 ``` bash
-$ composer require netsensei/europeana
+$ composer require colada/europeana
 ```
 
 ## Usage
