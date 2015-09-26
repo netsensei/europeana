@@ -16,7 +16,7 @@ use Colada\Europeana\Tests\AbstractTestCase;
 use Colada\Europeana\Tests\Test\Payload\MockPayload;
 use Colada\Europeana\Transport\ApiClient;
 use GuzzleHttp\Client;
-use GuzzleHttp\URL;
+use GuzzleHttp\Url;
 use GuzzleHttp\Query;
 use GuzzleHttp\Subscriber\History;
 use GuzzleHttp\Subscriber\Mock;
@@ -46,11 +46,11 @@ class ApiClientTest extends AbstractTestCase
         $mockPayload = new MockPayload();
         $mockPayload->setFoo('who:(search+query+OR+other+search+query)');
 
-/*        $expectedUrl = URL::fromString(ApiClient::API_BASE_URL.'/'.ApiClient::API_VERSION.'/mock.json');
+        $expectedUrl = Url::fromString(ApiClient::API_BASE_URL.'/'.ApiClient::API_VERSION.'/mock.json');
         $query = new Query();
         $query->merge($mockQueryData);
         $query->setEncodingType(false);
-        $expectedUrl->setQuery($query); */
+        $expectedUrl->setQuery($query);
 
         $mockResponseBody = json_encode($mockResponseData);
         $mock->addResponse(sprintf(
@@ -68,7 +68,7 @@ class ApiClientTest extends AbstractTestCase
 
         $lastResponseContent = json_decode($history->getLastResponse()->getBody(), true);
         $this->assertEquals($mockResponseData, $lastResponseContent);
-        // $this->assertEquals((string) $expectedUrl, $history->getLastRequest()->getUrl());
+        $this->assertEquals((string) $expectedUrl, $history->getLastRequest()->getUrl());
     }
 
     public function testSendWithoutKey()
