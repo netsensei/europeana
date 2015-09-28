@@ -1,6 +1,6 @@
 {
   "name": "colada/europeana",
-  "description": "A client implementation of the Euroepana API",
+  "description": "A client implementation of the Europeana API",
   "homepage": "http://netsensei.github.io/europeana/",
   "license": "MIT",
   "keywords" : [
