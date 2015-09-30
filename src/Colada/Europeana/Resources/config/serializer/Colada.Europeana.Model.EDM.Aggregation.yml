@@ -18,9 +18,11 @@ Colada\Europeana\Model\EDM\Aggregation:
             type: string
         dcRights:
             type: Colada\Europeana\Model\EDM\LangMap
-        # hasView:
+        hasView:
+            type: ArrayCollection<string>
         aggregatedCHO:
             type: string
-        # aggregates:
+        aggregates:
+            type: ArrayCollection<string>
         webResources:
             type: ArrayCollection<Colada\Europeana\Model\EDM\WebResource>

@@ -346,16 +346,16 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
         return [
             'about'                     => '/europeana/id',
             'edmDataProvider'           => $this->createLangmap(),
-            'edmIsShownBy'              => 'test',
-            'edmIsShownAt'              => 'test',
-            'edmObject'                 => 'test',
+            'edmIsShownBy'              => 'http://example.com/isshownby',
+            'edmIsShownAt'              => 'http://example.com/isshownat',
+            'edmObject'                 => 'object',
             'edmProvider'               => $this->createLangmap(),
             'edmRights'                 => $this->createLangmap(),
             'edmUgc'                    => 'test',
             'dcRights'                  => $this->createLangmap(),
-             // 'hasView'                   =>
+            'hasView'                   => ['view'],
             'aggregatedCHO'             => 'test',
-            // 'aggregates'             =>
+            'aggregates'                => ['aggregates'],
             'webResources'              => [$this->createWebResource()]
         ];
     }
@@ -364,11 +364,11 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
     {
         $this->assertLangmap($expected['edmDataProvider'], $actual->getEdmDataProvider());
         unset($expected['edmDataProvider']);
-        $this->assertLangmap($expected['edmProvider'], $actual->getEdmDataProvider());
+        $this->assertLangmap($expected['edmProvider'], $actual->getEdmProvider());
         unset($expected['edmProvider']);
-        $this->assertLangmap($expected['edmRights'], $actual->getEdmDataProvider());
+        $this->assertLangmap($expected['edmRights'], $actual->getEdmRights());
         unset($expected['edmRights']);
-        $this->assertLangmap($expected['dcRights'], $actual->getEdmDataProvider());
+        $this->assertLangmap($expected['dcRights'], $actual->getDcRights());
         unset($expected['dcRights']);
         $this->assertWebResource($expected['webResources'][0], $actual->getWebResources()->first());
         unset($expected['webResources']);
@@ -379,9 +379,9 @@ abstract class AbstractTestCase extends \PHPUnit_Framework_TestCase
             'edmIsShownAt'              => $actual->getEdmIsShownAt(),
             'edmObject'                 => $actual->getEdmObject(),
             'edmUgc'                    => $actual->getEdmUgc(),
-            // 'hasView'                   =>
+            'hasView'                   => $actual->getHasView()->toArray(),
             'aggregatedCHO'             => $actual->getAggregatedCHO(),
-            // 'aggregates'                =>
+            'aggregates'                => $actual->getAggregates()->toArray(),
         ]);
     }
 
