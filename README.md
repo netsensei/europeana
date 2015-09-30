@@ -38,7 +38,6 @@ $payload->addQuery("Mona Lisa");
 
 try
 {
-    $apiKey = "YourApiKey";
     $client = new Guzzle\Client()
     $apiClient = new Colada\Europeana\Transport\ApiClient($apiKey, $client);
 
