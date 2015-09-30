@@ -70,7 +70,7 @@ Search                | search.json | Incomplete            |
 Record                | record.json | Incomplete            |
 Dataset               | dataset/[datasetId].json            | Complete
 Provider              | provider/[providerId].json          | Complete
-Suggestions           | suggestions.json | Complete         |
+Suggestions           | suggestions.json                    | Complete
 Dataset (by provider) | provider/[providerId]/datasets.json | Complete
 
 If you have any particular questions regarding the operation of the API, please
