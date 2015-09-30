@@ -54,9 +54,6 @@ try
 }
 ```
 
-The Europeana CLI project is a complete client application which leverages this
-library. Refer to this projects' for a concrete implementation.
-
 ## Features
 
 - API calls are modelled as a Payload -> Transport -> Response class representation.
