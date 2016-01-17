@@ -20,7 +20,7 @@
     }
   ],
   "require": {
-    "php": ">=5.4.0",
+    "php": ">=5.5.0",
     "jms/serializer": "0.16.*",
     "guzzlehttp/guzzle": "6.1.0",
     "commerceguys/enum": "1.0",
