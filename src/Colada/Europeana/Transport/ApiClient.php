@@ -18,8 +18,11 @@ use Colada\Europeana\Payload\PayloadHandlerFactory;
 use Colada\Europeana\Serializer\PayloadResponseSerializer;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Message\RequestInterface;
-use GuzzleHttp\Message\ResponseInterface;
+// use GuzzleHttp\Message\RequestInterface;
+//use GuzzleHttp\Message\ResponseInterface;
+use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Response;
+use GuzzleHttp\Psr7\Uri;
 
 /**
  * @author Matthias Vandermaesen <matthias@colada.be>
@@ -117,7 +120,9 @@ class ApiClient implements ApiClientInterface
         }
 
         try {
-            $responseData = $response->json();
+            $data = $response->getBody();
+            $responseData = json_decode($data, true, 512, JSON_BIGINT_AS_STRING);
+
             if (!is_array($responseData)) {
                 throw new \Exception(sprintf(
                     'Expected JSON-decoded response data to be of type "array", got "%s"',
@@ -139,16 +144,13 @@ class ApiClient implements ApiClientInterface
      */
     private function createRequest($method, array $arguments)
     {
-        $url = self::API_BASE_URL.'/'.self::API_VERSION.'/'.$method;
-        $request = $this->client->createRequest('GET', $url);
+        $uri = new Uri(self::API_BASE_URL.'/'.self::API_VERSION.'/'.$method);
 
-        $query = $request->getQuery();
-        $query->setEncodingType(false);
         foreach ($arguments as $arg) {
             list($key, $value) = $arg;
-            $query->add($key, $value);
+            $uri = $uri->withQueryValue($uri, $key, $value);
         }
 
-        return $request;
+        return new  Request('GET', $uri);
     }
 }

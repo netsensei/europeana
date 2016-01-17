@@ -16,10 +16,11 @@ use Colada\Europeana\Tests\AbstractTestCase;
 use Colada\Europeana\Tests\Test\Payload\MockPayload;
 use Colada\Europeana\Transport\ApiClient;
 use GuzzleHttp\Client;
-use GuzzleHttp\Url;
-use GuzzleHttp\Query;
-use GuzzleHttp\Subscriber\History;
-use GuzzleHttp\Subscriber\Mock;
+use GuzzleHttp\Handler\MockHandler;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Middleware;
+use GuzzleHttp\Psr7\Response;
+use GuzzleHttp\Psr7\Request;
 
 /**
  * @author Matthias Vandermaesen <matthias@colada.be>
@@ -30,45 +31,42 @@ class ApiClientTest extends AbstractTestCase
 
     public function testSend()
     {
-        $history          = new History();
-        $mock             = new Mock();
+        $container = [];
+        $history = Middleware::history($container);
 
-        $mockResponseData = [
+        $mockResponseData = json_encode([
             'ok'  => true,
             'foo' => 'bar',
-        ];
+        ]);
 
-        $mockQueryData = [
-            'foo' => 'who:(search+query+OR+other+search+query)',
-            'wskey' => self::API_KEY,
-        ];
+        $mock = new MockHandler([
+            new Response(200, [], $mockResponseData)
+        ]);
+
+        $stack = HandlerStack::create($mock);
+        $stack->push($history);
+        $client = new Client(['handler' => $stack]);
 
         $mockPayload = new MockPayload();
-        $mockPayload->setFoo('who:(search+query+OR+other+search+query)');
-
-        $expectedUrl = Url::fromString(ApiClient::API_BASE_URL.'/'.ApiClient::API_VERSION.'/mock.json');
-        $query = new Query();
-        $query->merge($mockQueryData);
-        $query->setEncodingType(false);
-        $expectedUrl->setQuery($query);
-
-        $mockResponseBody = json_encode($mockResponseData);
-        $mock->addResponse(sprintf(
-            "HTTP/1.1 200 OK\r\nContent-Length: %d\r\n\r\n%s",
-            strlen($mockResponseBody),
-            $mockResponseBody
-        ));
-
-        $client = new Client();
-        $client->getEmitter()->attach($history);
-        $client->getEmitter()->attach($mock);
+        $foo = 'who:(search+query+OR+other+search+query)';
+        $mockPayload->setFoo($foo);
 
         $apiClient = new ApiClient(self::API_KEY, $client);
-        $apiClient->send($mockPayload);
+        $payloadResponse = $apiClient->send($mockPayload);
 
-        $lastResponseContent = json_decode($history->getLastResponse()->getBody(), true);
-        $this->assertEquals($mockResponseData, $lastResponseContent);
-        $this->assertEquals((string) $expectedUrl, $history->getLastRequest()->getUrl());
+        $transaction = array_pop($container);
+
+        // Assert response is of type MockPayloadResponse
+        $this->assertInstanceOf('Colada\Europeana\Tests\Test\Payload\MockPayloadResponse', $payloadResponse);
+
+        // Assert if the responses match up.
+        $transaction['response']->getBody();
+        $this->assertEquals($mockResponseData, $transaction['response']->getBody());
+
+        // Assert if the URL is unfuddled.
+        $expectedRequestUri = sprintf('http://europeana.eu/api/v2/mock.json?foo=%s&wskey=%s', $foo, self::API_KEY);
+        $requestUri = $transaction['request']->getUri();
+        $this->assertEquals($expectedRequestUri, $requestUri);
     }
 
     public function testSendWithoutKey()
