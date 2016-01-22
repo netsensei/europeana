@@ -38,6 +38,10 @@ class SearchPayloadHandler extends AbstractPayloadHandler
             $arguments[] = array('reusability', $reusability);
         }
 
+        foreach ($payload->getColourPalette() as $colourPalette) {
+            $arguments[] = array('colourpalette', $colourPalette);
+        }
+
         if ($media = $payload->getMedia()) {
             $arguments[] = array('media', $media);
         }

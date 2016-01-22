@@ -11,6 +11,7 @@
 
 namespace Colada\Europeana\Payload;
 
+use Colada\Europeana\Enum\ColourPalette;
 use Colada\Europeana\Enum\Reusability;
 use Colada\Europeana\Enum\Profile;
 use Colada\Europeana\Exception\EuropeanaException;
@@ -51,6 +52,11 @@ class SearchPayload extends AbstractPayload
      * @var boolean
      */
     private $media;
+
+    /**
+     * @var string
+     */
+    private $colourPalette = [];
 
     /**
      * @var array
@@ -185,6 +191,31 @@ class SearchPayload extends AbstractPayload
     public function getReusability()
     {
         return $this->reusability;
+    }
+
+    /**
+     * Add a colour palette parameter
+     *
+     * @param string
+     */
+    public function addColourPalette($colourPalette)
+    {
+        try {
+            ColourPalette::assertExists($colourPalette);
+            $this->colourPalette[] = $colourPalette;
+        } catch (\Exception $e) {
+            throw new EuropeanaException('Failed to prepare payload', null, $e);
+        }
+    }
+
+    /**
+     * Returns all set colourPalette parameter values
+     *
+     * @param array
+     */
+    public function getColourPalette()
+    {
+        return $this->colourPalette;
     }
 
     /**
