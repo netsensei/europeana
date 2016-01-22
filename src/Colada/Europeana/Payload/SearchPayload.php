@@ -48,6 +48,11 @@ class SearchPayload extends AbstractPayload
     private $reusability;
 
     /**
+     * @var boolean
+     */
+    private $media;
+
+    /**
      * @var array
      */
     private $facets = [];
@@ -180,6 +185,26 @@ class SearchPayload extends AbstractPayload
     public function getReusability()
     {
         return $this->reusability;
+    }
+
+    /**
+     * Set the media flag
+     *
+     * @param int
+     */
+    public function setMedia($media)
+    {
+        $this->media = $media;
+    }
+
+    /**
+     * Returns the media parameter value
+     *
+     * @param int
+     */
+    public function getMedia()
+    {
+        return $this->media;
     }
 
     /**

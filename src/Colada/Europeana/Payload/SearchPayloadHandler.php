@@ -38,6 +38,10 @@ class SearchPayloadHandler extends AbstractPayloadHandler
             $arguments[] = array('reusability', $reusability);
         }
 
+        if ($media = $payload->getMedia()) {
+            $arguments[] = array('media', $media);
+        }
+
         if ($facets = $payload->getFacets()) {
             $facetNames = [];
             foreach ($payload->getFacets() as $facet) {

@@ -27,6 +27,7 @@ class SearchPayloadTest extends AbstractPayloadTest
         $payload->addProfile('breadcrumbs');
         $payload->addProfile('params');
         $payload->setReusability('open');
+        $payload->setMedia(1);
         $payload->setRows(10);
         $payload->setStart(1);
 
@@ -39,6 +40,7 @@ class SearchPayloadTest extends AbstractPayloadTest
             array('query', 'foo bar'),
             array('profile', 'rich facets breadcrumbs params'),
             array('reusability', 'open'),
+            array('media', 1),
             array('rows', 10),
             array('start', 1),
         );
